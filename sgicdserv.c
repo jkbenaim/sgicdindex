@@ -33,7 +33,7 @@ void _sa_free (struct _string_array *sa)
 	free(sa->strings);
 }
 
-bool _sa_add (struct _string_array *sa, char *s)
+bool _sa_add (struct _string_array *sa, const char *s)
 {
 	int rc;
 	size_t new_num_strings = sa->num_strings + 1;
