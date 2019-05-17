@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
 	int returnval = EXIT_FAILURE;
 	sqlite3 *db;
 
-	rc = sqlite3_open(DB_FILENAME, &db);
+	rc = sqlite3_open_v2(DB_FILENAME, &db, SQLITE_OPEN_READONLY, NULL);
 	if (rc != SQLITE_OK) {
 		fprintf(stderr, "Can't open database: %s\n",
 			sqlite3_errmsg(db));
