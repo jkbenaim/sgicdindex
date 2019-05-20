@@ -152,6 +152,7 @@ out_200:
 	response->status = 200;
 	response->binary_body = _sa_get(&sa);
 	response->binary_body_length = strlen(response->binary_body);
+	ulfius_add_header_to_response(response, "Content-Type", "application/xhtml+xml; charset=utf-8");
 	_sa_free(&sa);
 	goto out_finalize;
 out_500:
