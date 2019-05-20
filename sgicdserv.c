@@ -77,7 +77,7 @@ int callback_sgi_cds (
 	sqlite3_stmt *stmt_list_cds = NULL;
 	if (!stmt_list_cds) rc = sqlite3_prepare_v2(
 		db,
-		"SELECT cd_pn, strftime(\"%Y-%m\", date), title, note FROM discs order by title, date;",
+		"SELECT cd_pn, strftime(\"%Y-%m-%d\", date), title, note FROM discs order by title, date;",
 		-1,
 		&stmt_list_cds,
 		NULL
