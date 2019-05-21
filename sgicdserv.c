@@ -73,74 +73,100 @@ int callback_sgi_cds (
 ){
 	__label__ out_200, out_500, out_finalize, out_return;
 	int rc;
+	struct _string_array sa;
 
-	sqlite3_stmt *stmt_list_cds = NULL;
-	if (!stmt_list_cds) rc = sqlite3_prepare_v2(
+	_sa_init(&sa);
+	_sa_add(&sa,
+		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+		"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n"
+		"<head>\n"
+		"<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />\n"
+		"<title>jrra.zone: SGI/IRIX CDs</title>\n"
+		"<style type=\"text/css\">\n"
+		"body {font: 1.1em sans-serif;}\n"
+		"table {border: 1px solid #ddd; border-collapse: collapse;}\n"
+		"caption {background-color: grey; color: white;font: italic bold 1.5em sans-serif;padding:10px;}\n"
+		"td {border: 1px solid #ddd; font: 1em monospace;padding:20px;}\n"
+		"th {font: 1em monospace;}\n"
+		".note {font-weight: bold; color: red; text-decoration: underline;}\n"
+		"</style>\n"
+		"</head>\n"
+		"<body>\n"
+		"<h1>jrra.zone: SGI/IRIX CDs</h1><hr />\n"
+	);
+
+	sqlite3_stmt *stmt_product_groups = NULL;
+	rc = sqlite3_prepare_v2(
 		db,
-		"SELECT cd_pn, strftime(\"%Y-%m-%d\", date), name, note FROM discs order by name, date;",
+		"select product_group_id, name from product_groups order by ordinal, name;",
 		-1,
-		&stmt_list_cds,
+		&stmt_product_groups,
 		NULL
 	);
 	if (rc != SQLITE_OK) {
+		sqlite3_finalize(stmt_product_groups);
+		_sa_free(&sa);
 		fprintf(stderr, "couldn't prepare statement\n");
-		goto out_return;
+		goto out_500;
 	}
 
-	struct _string_array sa;
-	_sa_init(&sa);
+	void make_product(int product_group_id)
+	{
+		sqlite3_stmt *stmt_products;
+		rc = sqlite3_prepare_v2(
+			db,
+			"select count(*) from products where product_group_id==?;",
+			-1,
+			&stmt_products,
+			NULL
+		);
+		sqlite3_bind_int(stmt_products, 1, product_group_id);
+		sqlite3_step(stmt_products);
+		int num_cds = sqlite3_column_int(stmt_products, 0);
+		sqlite3_finalize(stmt_products);
 
-	_sa_add(&sa,
-	"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" "
-	"\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">"
-	"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" "
-	"xml:lang=\"en\"><head><meta http-equiv="
-	"\"content-type\" content="
-	"\"text/html;charset=utf-8\" /><title>listing</title>"
-	"<style type=\"text/css\">"
-	"body {font: 1.1em sans-serif;}"
-	"table, td {border: 1px solid #ddd;}"
-	"thead {background-color: #333; color: #fff; font-weight: bold;}"
-	".note {font-weight: bold; color: red; text-decoration: underline;}"
-	"</style>"
-	"</head><body>"
-	"<h1>SGI/IRIX CDs</h1><hr />\n"
-	"<table><thead><tr>"
-	"<th scope=\"col\">cd_pn</th>"
-	"<th scope=\"col\">date</th>"
-	"<th scope=\"col\">title</th>"
-	"</tr></thead>"
-	"<tbody>"
-	);
+		rc = sqlite3_prepare_v2(
+			db,
+			"select product_id, name from products where product_group_id==? order by ordinal, name;",
+			-1,
+			&stmt_products,
+			NULL
+		);
 
-	for(;;) switch (rc = sqlite3_step(stmt_list_cds)) {
+		sqlite3_bind_int(stmt_products, 1, product_group_id);
+		int rc;
+		while ((rc = sqlite3_step(stmt_products)) == SQLITE_ROW) {
+			int product_id = sqlite3_column_int(stmt_products, 0);
+			const char *name = sqlite3_column_text(stmt_products, 1);
+			_sa_add(&sa, "<tr>\n");
+			_sa_add(&sa, "</tr>\n");
+
+		}
+		sqlite3_finalize(stmt_products);
+	}
+
+
+	for(;;) switch (rc = sqlite3_step(stmt_product_groups)) {
 	case SQLITE_ROW:
 		{
-		const char *cd_pn = sqlite3_column_text(stmt_list_cds,0);
-		const char *date = sqlite3_column_text(stmt_list_cds,1);
-		const char *title = sqlite3_column_text(stmt_list_cds,2);
-		const char *note = sqlite3_column_text(stmt_list_cds,3);
+		int product_group_id = sqlite3_column_int(stmt_product_groups, 0);
+		const char *pg_name = sqlite3_column_text(stmt_product_groups, 1);
+		_sa_add(&sa, "<table>\n<caption>");
+		_sa_add(&sa, pg_name);
+		_sa_add(&sa, "</caption>\n<thead>\n<tr>\n");
+		_sa_add(&sa, "\t<th scope='col'>product</th>\n");
+		_sa_add(&sa, "\t<th scope='col'>disc pn</th>\n");
+		_sa_add(&sa, "\t<th scope='col'>disc title</th>\n");
+		_sa_add(&sa, "</tr>\n</thead>\n<tbody>\n");
+		make_product(product_group_id);
+		_sa_add(&sa, "</tbody></table>\n<br />\n");
 
-		_sa_add(&sa, "<tr><td><a href=\"/sgi/cds/");
-		_sa_add(&sa, cd_pn);
-		_sa_add(&sa, ".iso\">");
-		_sa_add(&sa, cd_pn);
-		_sa_add(&sa, "</a></td><td>");
-		_sa_add(&sa, date);
-		_sa_add(&sa, "</td><td>");
-		_sa_add(&sa, title);
-		if (strlen(note) > 0) {
-			_sa_add(&sa, "<span class='note' title=\"");
-			_sa_add(&sa, note);
-			_sa_add(&sa, "\">*</span>");
-		}
-		_sa_add(&sa, "</td></tr>");
-		_sa_add(&sa, "\n");
+
+
 		}
 		break;
 	case SQLITE_DONE:
-		printf("done\n");
-		_sa_add(&sa, "</tbody></table></body></html>");
+		_sa_add(&sa, "</body></html>");
 		goto out_200;
 		break;
 	default:
@@ -153,12 +179,12 @@ out_200:
 	response->binary_body = _sa_get(&sa);
 	response->binary_body_length = strlen(response->binary_body);
 	ulfius_add_header_to_response(response, "Content-Type", "application/xhtml+xml; charset=utf-8");
-	_sa_free(&sa);
 	goto out_finalize;
 out_500:
 	ulfius_set_string_body_response(response, 500, "woops");
 out_finalize:
-	sqlite3_finalize(stmt_list_cds);
+	_sa_free(&sa);
+	sqlite3_finalize(stmt_product_groups);
 out_return:
 	return U_CALLBACK_CONTINUE;
 }
