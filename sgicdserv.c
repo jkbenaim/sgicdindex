@@ -7,64 +7,44 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ulfius.h>
+#include "sa.h"
 
 #define PORT 8081
 #define DB_FILENAME "sgicds.db"
 
-struct _string_array {
-	size_t num_strings;
-	size_t total_len;
-	char **strings;
-};
+sqlite3 *db;
 
-bool _sa_init (struct _string_array *sa)
+int DB_GetNumProductsForGroup(int pg_id)
 {
-	sa->num_strings = 0;
-	sa->total_len = 0;
-	sa->strings = malloc(0);
-	return true;
-}
-
-void _sa_free (struct _string_array *sa)
-{
-	for (size_t i = 0; i < sa->num_strings; i++) {
-		free(sa->strings[i]);
-	}
-	free(sa->strings);
-}
-
-bool _sa_add (struct _string_array *sa, const char *s)
-{
+	__label__ out_err;
 	int rc;
-	size_t new_num_strings = sa->num_strings + 1;
+	sqlite3_stmt *stmt;
+	rc = sqlite3_prepare_v2(
+		db,
+		"select count(*) from products where product_group_id==?;",
+		-1,
+		&stmt,
+		NULL
+	);
+	if (rc != SQLITE_OK) goto out_err;
 
-	char **temp = reallocarray(sa->strings, new_num_strings,
-							sizeof(char *));
-	if (temp == NULL) return false;
+	rc = sqlite3_bind_int(stmt, 1, pg_id);
+	if (rc != SQLITE_OK) goto out_err;
 
-	sa->strings = temp;
+	rc = sqlite3_step(stmt);
+	if (rc != SQLITE_ROW) goto out_err;
 
-	char *newstring = strdup(s);
-	sa->strings[new_num_strings - 1] = newstring;
+	rc = sqlite3_column_int(stmt, 0);
+	goto out_ok;
 
-	size_t new_total_len = sa->total_len + strlen(newstring);
-	sa->num_strings = new_num_strings;
-	sa->total_len = new_total_len;
-	return true;
+out_ok:
+	sqlite3_finalize(stmt);
+	return rc;
+out_err:
+	sqlite3_finalize(stmt);
+	return -rc;
 }
 
-char *_sa_get (struct _string_array *sa)
-{
-	char *t = malloc(sa->total_len + 1);
-	char *p = t;
-	for (size_t i = 0; i < sa->num_strings; i++) {
-		size_t len = strlen(sa->strings[i]);
-		memcpy(p, sa->strings[i], len);
-		p += len;
-	}
-	p[0] = '\0';
-	return t;
-}
 
 int callback_sgi_cds (
 	const struct _u_request *request,
@@ -195,7 +175,6 @@ int main(int argc, char *argv[])
 	int rc;
 	char *err = NULL;
 	int returnval = EXIT_FAILURE;
-	sqlite3 *db;
 
 	rc = sqlite3_open_v2(DB_FILENAME, &db, SQLITE_OPEN_READONLY, NULL);
 	if (rc != SQLITE_OK) {
