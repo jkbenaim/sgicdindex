@@ -14,21 +14,21 @@
 
 sqlite3 *db;
 
-int DB_GetNumProductsForGroup(int pg_id)
+int DB_GetNumDiscsForProduct(int product_id)
 {
-	__label__ out_err;
+	__label__ out_ok, out_err;
 	int rc;
 	sqlite3_stmt *stmt;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select count(*) from products where product_group_id==?;",
+		"select count(*) from discs where product_id==?;",
 		-1,
 		&stmt,
 		NULL
 	);
 	if (rc != SQLITE_OK) goto out_err;
 
-	rc = sqlite3_bind_int(stmt, 1, pg_id);
+	rc = sqlite3_bind_int(stmt, 1, product_id);
 	if (rc != SQLITE_OK) goto out_err;
 
 	rc = sqlite3_step(stmt);
@@ -45,6 +45,110 @@ out_err:
 	return -rc;
 }
 
+char *DB_GetNameForProduct(int product_id)
+{
+	__label__ out_ok, out_err;
+	int rc;
+	sqlite3_stmt *stmt;
+	rc = sqlite3_prepare_v2(
+		db,
+		"select name from products where product_id==?;",
+		-1,
+		&stmt,
+		NULL
+	);
+	if (rc != SQLITE_OK) goto out_err;
+
+	rc = sqlite3_bind_int(stmt, 1, product_id);
+	if (rc != SQLITE_OK) goto out_err;
+
+	rc = sqlite3_step(stmt);
+	if (rc != SQLITE_ROW) goto out_err;
+
+	char *zOut = strdup(sqlite3_column_text(stmt, 0));
+	goto out_ok;
+
+out_ok:
+	sqlite3_finalize(stmt);
+	return zOut;
+out_err:
+	sqlite3_finalize(stmt);
+	return NULL;
+}
+
+void make_discs(struct _string_array *sa, int product_id)
+{
+	int rc;
+
+
+	sqlite3_stmt *stmt_discs;
+	rc = sqlite3_prepare_v2(
+		db,
+		"select name, cd_pn, note from discs where product_id==? order by ordinal, name;",
+		-1,
+		&stmt_discs,
+		NULL
+	);
+
+	sqlite3_bind_int(stmt_discs, 1, product_id);
+	int num_discs = DB_GetNumDiscsForProduct(product_id);
+	bool did_first_row = false;
+	while ((rc = sqlite3_step(stmt_discs)) == SQLITE_ROW) {
+		const char *name = sqlite3_column_text(stmt_discs, 0);
+		const char *cd_pn = sqlite3_column_text(stmt_discs, 1);
+		const char *note = sqlite3_column_text(stmt_discs, 2);
+		_sa_add(sa, "<tr>\n");
+		if (!did_first_row) {
+			did_first_row = true;
+
+			char *s;
+			asprintf(&s, "\t<td rowspan='%d'>", num_discs);
+			_sa_add(sa, s);
+			free(s);
+			s = DB_GetNameForProduct(product_id);
+			_sa_add(sa, s);
+			free(s);
+			_sa_add(sa, "</td>\n");
+		}
+		_sa_add(sa, "\t<td>");
+		_sa_add(sa, cd_pn);
+		_sa_add(sa, "</td>\n");
+		_sa_add(sa, "\t<td>");
+		_sa_add(sa, name);
+		if (strlen(note) > 0) {
+			_sa_add(sa, "<span class='note' title=\"");
+			_sa_add(sa, note);
+			_sa_add(sa, "\">*</span>");
+		}
+		_sa_add(sa, "</td>\n");
+		_sa_add(sa, "</tr>\n");
+	}
+	sqlite3_finalize(stmt_discs);
+}
+
+void make_products(struct _string_array *sa, int pg_id)
+{
+	int rc;
+
+
+	sqlite3_stmt *stmt_products;
+	rc = sqlite3_prepare_v2(
+		db,
+		"select product_id, name from products where product_group_id==? order by ordinal, name;",
+		-1,
+		&stmt_products,
+		NULL
+	);
+
+	sqlite3_bind_int(stmt_products, 1, pg_id);
+	while ((rc = sqlite3_step(stmt_products)) == SQLITE_ROW) {
+		int product_id = sqlite3_column_int(stmt_products, 0);
+		const char *name = sqlite3_column_text(stmt_products, 1);
+
+		make_discs(sa, product_id);
+	}
+	sqlite3_finalize(stmt_products);
+}
 
 int callback_sgi_cds (
 	const struct _u_request *request,
@@ -90,40 +194,6 @@ int callback_sgi_cds (
 		goto out_500;
 	}
 
-	void make_product(int product_group_id)
-	{
-		sqlite3_stmt *stmt_products;
-		rc = sqlite3_prepare_v2(
-			db,
-			"select count(*) from products where product_group_id==?;",
-			-1,
-			&stmt_products,
-			NULL
-		);
-		sqlite3_bind_int(stmt_products, 1, product_group_id);
-		sqlite3_step(stmt_products);
-		int num_cds = sqlite3_column_int(stmt_products, 0);
-		sqlite3_finalize(stmt_products);
-
-		rc = sqlite3_prepare_v2(
-			db,
-			"select product_id, name from products where product_group_id==? order by ordinal, name;",
-			-1,
-			&stmt_products,
-			NULL
-		);
-
-		sqlite3_bind_int(stmt_products, 1, product_group_id);
-		int rc;
-		while ((rc = sqlite3_step(stmt_products)) == SQLITE_ROW) {
-			int product_id = sqlite3_column_int(stmt_products, 0);
-			const char *name = sqlite3_column_text(stmt_products, 1);
-			_sa_add(&sa, "<tr>\n");
-			_sa_add(&sa, "</tr>\n");
-
-		}
-		sqlite3_finalize(stmt_products);
-	}
 
 
 	for(;;) switch (rc = sqlite3_step(stmt_product_groups)) {
@@ -135,10 +205,10 @@ int callback_sgi_cds (
 		_sa_add(&sa, pg_name);
 		_sa_add(&sa, "</caption>\n<thead>\n<tr>\n");
 		_sa_add(&sa, "\t<th scope='col'>product</th>\n");
-		_sa_add(&sa, "\t<th scope='col'>disc pn</th>\n");
-		_sa_add(&sa, "\t<th scope='col'>disc title</th>\n");
+		_sa_add(&sa, "\t<th scope='col'>cd pn</th>\n");
+		_sa_add(&sa, "\t<th scope='col'>title</th>\n");
 		_sa_add(&sa, "</tr>\n</thead>\n<tbody>\n");
-		make_product(product_group_id);
+		make_products(&sa, product_group_id);
 		_sa_add(&sa, "</tbody></table>\n<br />\n");
 
 
