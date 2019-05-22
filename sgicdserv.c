@@ -1,5 +1,4 @@
 #define _GNU_SOURCE
-#include <arpa/inet.h>
 #include <iso646.h>
 #include <sqlite3.h>
 #include <stdbool.h>
@@ -13,6 +12,41 @@
 #define DB_FILENAME "sgicds.db"
 
 sqlite3 *db;
+
+char *DB_GetFilenameForDisc(int disc_id)
+{
+	__label__ out_ok, out_err;
+	int rc;
+	sqlite3_stmt *stmt;
+	char *zOut = NULL;
+	rc = sqlite3_prepare_v2(
+		db,
+		"select name from discs where disc_id==?;",
+		-1,
+		&stmt,
+		NULL
+	);
+	if (rc != SQLITE_OK) goto out_err;
+
+	rc = sqlite3_bind_int(stmt, 1, disc_id);
+	if (rc != SQLITE_OK) goto out_err;
+
+	rc = sqlite3_step(stmt);
+	if (rc != SQLITE_ROW) goto out_err;
+
+	const char *temp;
+	temp = sqlite3_column_text(stmt, 0);
+	if (temp == NULL) goto out_err;
+	zOut = strdup(temp);
+	goto out_ok;
+	
+out_ok:
+	sqlite3_finalize(stmt);
+	return zOut;
+out_err:
+	sqlite3_finalize(stmt);
+	return NULL;
+}
 
 int DB_GetNumDiscsForProduct(int product_id)
 {
@@ -84,7 +118,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note from discs where product_id==? order by ordinal, name;",
+		"select name, cd_pn, note, fromjrra from discs where product_id==? order by ordinal, name;",
 		-1,
 		&stmt_discs,
 		NULL
@@ -97,6 +131,7 @@ void make_discs(struct _string_array *sa, int product_id)
 		const char *name = sqlite3_column_text(stmt_discs, 0);
 		const char *cd_pn = sqlite3_column_text(stmt_discs, 1);
 		const char *note = sqlite3_column_text(stmt_discs, 2);
+		int fromjrra = sqlite3_column_int(stmt_discs, 3);
 		_sa_add(sa, "<tr>\n");
 		if (!did_first_row) {
 			did_first_row = true;
@@ -115,10 +150,13 @@ void make_discs(struct _string_array *sa, int product_id)
 		_sa_add(sa, "</td>\n");
 		_sa_add(sa, "\t<td>");
 		_sa_add(sa, name);
-		if (strlen(note) > 0) {
-			_sa_add(sa, "<span class='note' title=\"");
+		if (note && strlen(note) > 0) {
+			_sa_add(sa, "<span class='note' title=\"note: ");
 			_sa_add(sa, note);
-			_sa_add(sa, "\">*</span>");
+			_sa_add(sa, "\">(n)</span>");
+		}
+		if (!fromjrra) {
+			_sa_add(sa, "<span class='contrib' title=\"contributed\">(c)</span>");
 		}
 		_sa_add(sa, "</td>\n");
 		_sa_add(sa, "</tr>\n");
@@ -173,6 +211,7 @@ int callback_sgi_cds (
 		"td {border: 1px solid #ddd; font: 1em monospace;padding:20px;}\n"
 		"th {font: 1em monospace;}\n"
 		".note {font-weight: bold; color: red; text-decoration: underline;}\n"
+		".contrib {font-weight: bold; color: green; text-decoration: underline;}\n"
 		"</style>\n"
 		"</head>\n"
 		"<body>\n"
@@ -210,9 +249,6 @@ int callback_sgi_cds (
 		_sa_add(&sa, "</tr>\n</thead>\n<tbody>\n");
 		make_products(&sa, product_group_id);
 		_sa_add(&sa, "</tbody></table>\n<br />\n");
-
-
-
 		}
 		break;
 	case SQLITE_DONE:
