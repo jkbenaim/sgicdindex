@@ -2,6 +2,10 @@
 #include <string.h>
 #include "sa.h"
 
+
+#include <stdio.h>
+
+
 bool _sa_init (struct _string_array *sa)
 {
 	sa->num_strings = 0;
@@ -42,6 +46,7 @@ char *_sa_get (struct _string_array *sa)
 {
 	char *t = malloc(sa->total_len + 1);
 	char *p = t;
+	printf("_sa_get: %d strings, %d bytes\n", sa->num_strings, sa->total_len+1);
 	for (size_t i = 0; i < sa->num_strings; i++) {
 		size_t len = strlen(sa->strings[i]);
 		memcpy(p, sa->strings[i], len);

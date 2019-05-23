@@ -118,7 +118,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, fromjrra from discs where product_id==? order by ordinal, name;",
+		"select name, cd_pn, note, fromjrra, date, filename, disc_id from discs where product_id==? order by ordinal, name, date;",
 		-1,
 		&stmt_discs,
 		NULL
@@ -132,6 +132,9 @@ void make_discs(struct _string_array *sa, int product_id)
 		const char *cd_pn = sqlite3_column_text(stmt_discs, 1);
 		const char *note = sqlite3_column_text(stmt_discs, 2);
 		int fromjrra = sqlite3_column_int(stmt_discs, 3);
+		const char *date = sqlite3_column_text(stmt_discs, 4);
+		const char *filename = sqlite3_column_text(stmt_discs, 5);
+		int disc_id = sqlite3_column_int(stmt_discs, 6);
 		_sa_add(sa, "<tr>\n");
 		if (!did_first_row) {
 			did_first_row = true;
@@ -147,9 +150,21 @@ void make_discs(struct _string_array *sa, int product_id)
 		}
 		_sa_add(sa, "\t<td>");
 		_sa_add(sa, cd_pn);
+		_sa_add(sa, "<br />");
+		_sa_add(sa, date);
 		_sa_add(sa, "</td>\n");
 		_sa_add(sa, "\t<td>");
+
+		char *s;
+		asprintf(&s, "%d ", disc_id);
+		_sa_add(sa, s);
+		free(s);
+
+		_sa_add(sa, "<a href=\"");
+		_sa_add(sa, filename);
+		_sa_add(sa, "\">");
 		_sa_add(sa, name);
+		_sa_add(sa, "</a>");
 		if (note && strlen(note) > 0) {
 			_sa_add(sa, "<span class='note' title=\"note: ");
 			_sa_add(sa, note);
@@ -212,10 +227,15 @@ int callback_sgi_cds (
 		"th {font: 1em monospace;}\n"
 		".note {font-weight: bold; color: red; text-decoration: underline;}\n"
 		".contrib {font-weight: bold; color: green; text-decoration: underline;}\n"
+		"@font-face {font-family: 'FatFrank Heavy';src: url('/FatFrank-Heavy.eot');src:	url('/FatFrank-Heavy.eot?#iefix') format('embedded-opentype'),url('/FatFrank-Heavy.woff') format('woff'),url('/FatFrank-Heavy.ttf') format('truetype');font-style: normal;font-weight: 400;}\n"
+		"body,h1,h2,h3 {font-family: Helvetica;}\n"
+		"header {border-bottom: 0.25em solid #ff4081;text-decoration:none;display:inline;}\n"
+		"header h1 {font-family: 'FatFrank Heavy';font-size: 43px;font-weight: normal;color:#3f51b5;display:inline;text-shadow: 2px 2px 0 white, -2px 2px 0 white;}\n"
 		"</style>\n"
 		"</head>\n"
 		"<body>\n"
-		"<h1>jrra.zone: SGI/IRIX CDs</h1><hr />\n"
+		"<header><h1>jrra.zone</h1></header><hr />\n"
+		"<h2>SGI/IRIX CDs</h2>\n"
 	);
 
 	sqlite3_stmt *stmt_product_groups = NULL;
@@ -299,7 +319,7 @@ int main(int argc, char *argv[])
 	ulfius_add_endpoint_by_val(
 		&ulfius,
 		"GET",
-		"/sgi/cds/",
+		"/",
 		NULL,
 		0,
 		&callback_sgi_cds,
