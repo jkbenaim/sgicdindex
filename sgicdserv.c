@@ -154,12 +154,12 @@ void make_discs(struct _string_array *sa, int product_id)
 		_sa_add(sa, date);
 		_sa_add(sa, "</td>\n");
 		_sa_add(sa, "\t<td>");
-
+/*
 		char *s;
 		asprintf(&s, "%d ", disc_id);
 		_sa_add(sa, s);
 		free(s);
-
+*/
 		_sa_add(sa, "<a href=\"");
 		_sa_add(sa, filename);
 		_sa_add(sa, "\">");
