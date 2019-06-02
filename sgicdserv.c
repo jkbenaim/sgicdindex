@@ -221,20 +221,21 @@ int callback_sgi_cds (
 		"<title>jrra.zone: SGI/IRIX CDs</title>\n"
 		"<style type=\"text/css\">\n"
 		"body {font: 1.1em sans-serif;}\n"
-		"table {border: 1px solid #ddd; border-collapse: collapse;}\n"
+		"table {border: 1px solid gray; border-collapse: collapse;table-layout:fixed;width:800px;margin-bottom:1em;}\n"
 		"caption {background-color: grey; color: white;font: italic bold 1.5em sans-serif;padding:10px;}\n"
-		"td {border: 1px solid #ddd; font: 1em monospace;padding:20px;}\n"
+		"td {border: 1px solid gray; font: 1em monospace;padding:10px;}\n"
 		"th {font: 1em monospace;}\n"
+		"th:nth-child(1),th:nth-child(2) {width:150px;}\n"
 		".note {font-weight: bold; color: red; text-decoration: underline;}\n"
 		".contrib {font-weight: bold; color: green; text-decoration: underline;}\n"
 		"@font-face {font-family: 'FatFrank Heavy';src: url('/FatFrank-Heavy.eot');src:	url('/FatFrank-Heavy.eot?#iefix') format('embedded-opentype'),url('/FatFrank-Heavy.woff') format('woff'),url('/FatFrank-Heavy.ttf') format('truetype');font-style: normal;font-weight: 400;}\n"
 		"body,h1,h2,h3 {font-family: Helvetica;}\n"
-		"header {border-bottom: 0.25em solid #ff4081;text-decoration:none;display:inline;}\n"
-		"header h1 {font-family: 'FatFrank Heavy';font-size: 43px;font-weight: normal;color:#3f51b5;display:inline;text-shadow: 2px 2px 0 white, -2px 2px 0 white;}\n"
+		".header {border-bottom: 0.25em solid #ff4081;text-decoration:none;display:inline;}\n"
+		".header h1 {font-family: 'FatFrank Heavy';font-size: 43px;font-weight: normal;color:#3f51b5;display:inline;text-shadow: 2px 2px 0 white, -2px 2px 0 white;}\n"
 		"</style>\n"
 		"</head>\n"
 		"<body>\n"
-		"<header><h1>jrra.zone</h1></header><hr />\n"
+		"<div class=\"header\"><h1>jrra.zone</h1></div><hr />\n"
 		"<h2>SGI/IRIX CDs</h2>\n"
 	);
 
@@ -268,7 +269,7 @@ int callback_sgi_cds (
 		_sa_add(&sa, "\t<th scope='col'>title</th>\n");
 		_sa_add(&sa, "</tr>\n</thead>\n<tbody>\n");
 		make_products(&sa, product_group_id);
-		_sa_add(&sa, "</tbody></table>\n<br />\n");
+		_sa_add(&sa, "</tbody></table>\n");
 		}
 		break;
 	case SQLITE_DONE:
