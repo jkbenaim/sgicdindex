@@ -165,13 +165,12 @@ void make_discs(struct _string_array *sa, int product_id)
 		_sa_add(sa, "\">");
 		_sa_add(sa, name);
 		_sa_add(sa, "</a>");
-		if (note && strlen(note) > 0) {
-			_sa_add(sa, "<span class='note' title=\"note: ");
-			_sa_add(sa, note);
-			_sa_add(sa, "\">(n)</span>");
-		}
 		if (!fromjrra) {
-			_sa_add(sa, "<span class='contrib' title=\"contributed\">(c)</span>");
+			_sa_add(sa, "<br /><span class='contrib'>contributed</span>");
+		}
+		if (note && strlen(note) > 0) {
+			_sa_add(sa, "<br /><span class='note'>note</span>: ");
+			_sa_add(sa, note);
 		}
 		_sa_add(sa, "</td>\n");
 		_sa_add(sa, "</tr>\n");
