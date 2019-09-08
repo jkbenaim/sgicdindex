@@ -118,7 +118,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, fromjrra, date, filename, disc_id from discs where product_id==? order by ordinal, name, date;",
+		"select name, cd_pn, note, fromjrra, date, filename, disc_id from discs where product_id==? order by ordinal, name collate nocase, date;",
 		-1,
 		&stmt_discs,
 		NULL
@@ -186,7 +186,7 @@ void make_products(struct _string_array *sa, int pg_id)
 	sqlite3_stmt *stmt_products;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select product_id, name from products where product_group_id==? order by ordinal, name;",
+		"select product_id, name from products where product_group_id==? order by ordinal, name collate nocase;",
 		-1,
 		&stmt_products,
 		NULL
@@ -241,7 +241,7 @@ int callback_sgi_cds (
 	sqlite3_stmt *stmt_product_groups = NULL;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select product_group_id, name from product_groups order by ordinal, name;",
+		"select product_group_id, name from product_groups order by ordinal, name collate nocase;",
 		-1,
 		&stmt_product_groups,
 		NULL
@@ -332,6 +332,7 @@ int main(int argc, char *argv[])
 		goto out_clean_ulfius;
 	}
 
+	printf("http://localhost:%d/\n", PORT);
 	printf("Press any key to quit.\n");
 	getchar();
 
