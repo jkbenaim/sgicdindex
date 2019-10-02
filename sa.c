@@ -24,6 +24,8 @@ void _sa_free (struct _string_array *sa)
 
 bool _sa_add (struct _string_array *sa, const char *s)
 {
+	if (!s)
+		return true;
 	int rc;
 	size_t new_num_strings = sa->num_strings + 1;
 
