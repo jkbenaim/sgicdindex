@@ -1,12 +1,17 @@
 target  ?= sgicdserv
 objects := $(patsubst %.c,%.o,$(wildcard *.c))
 
-libs := libulfius libyder sqlite3
+libs:= libulfius libyder sqlite3
 
-EXTRAS += -fsanitize=undefined -fsanitize=null -fcf-protection=full -fstack-protector-all -fstack-check
+EXTRAS += -fsanitize=undefined -fsanitize=null -fcf-protection=full -fstack-protector-all -fstack-check -Wimplicit-fallthrough
 
-LDFLAGS += $(shell pkg-config --libs ${libs}) ${EXTRAS}
-CFLAGS += $(shell pkg-config --cflags ${libs}) -Og -ggdb ${EXTRAS}
+ifdef libs
+LDLIBS  += $(shell pkg-config --libs   ${libs})
+CFLAGS  += $(shell pkg-config --cflags ${libs})
+endif
+
+LDFLAGS += ${EXTRAS}
+CFLAGS  += -std=gnu17 -Og -ggdb ${EXTRAS}
 
 .PHONY: all
 all:	$(target)
