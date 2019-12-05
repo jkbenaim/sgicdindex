@@ -118,7 +118,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, fromjrra, date, filename, disc_id from discs where product_id==? order by ordinal, name collate nocase, date;",
+		"select name, cd_pn, note, fromjrra, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id from discs where product_id==? order by ordinal, name collate nocase, date;",
 		-1,
 		&stmt_discs,
 		NULL
