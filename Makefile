@@ -20,9 +20,9 @@ all:	$(target)
 .PHONY: clean
 clean:
 	rm -f $(target) $(objects)
-	make -C orcania/src clean
-	make -C yder/src clean
-	make -C ulfius/src clean
+	$(MAKE) -C orcania/src clean
+	$(MAKE) -C yder/src clean
+	$(MAKE) -C ulfius/src clean
 
 $(target): orcania/src/liborcania.a yder/src/libyder.a ulfius/src/libulfius.a $(objects)
 
@@ -31,10 +31,10 @@ $(objects): orcania/src/liborcania.a yder/src/libyder.a ulfius/src/libulfius.a
 
 
 orcania/src/liborcania.a:
-	make -C orcania/src liborcania.a
+	$(MAKE) -C orcania/src liborcania.a
 
 yder/src/libyder.a: orcania/src/liborcania.a
-	CFLAGS=-I`pwd`/orcania/include make -C yder/src libyder.a
+	CFLAGS=-I`pwd`/orcania/include $(MAKE) -C yder/src libyder.a
 
 ulfius/src/libulfius.a: orcania/src/liborcania.a yder/src/libyder.a
-	CFLAGS="-I`pwd`/orcania/include -I`pwd`/yder/include" make -C ulfius/src libulfius.a
+	CFLAGS="-I`pwd`/orcania/include -I`pwd`/yder/include" $(MAKE) -C ulfius/src libulfius.a
