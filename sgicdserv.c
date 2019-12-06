@@ -135,51 +135,47 @@ void make_discs(struct _string_array *sa, int product_id)
 		const char *date = sqlite3_column_text(stmt_discs, 4);
 		const char *filename = sqlite3_column_text(stmt_discs, 5);
 		int disc_id = sqlite3_column_int(stmt_discs, 6);
-		_sa_add(sa, "<tr>\n");
+		_sa_add_literal(sa, "<tr>\n");
 		if (!did_first_row) {
 			did_first_row = true;
 
 			char *s;
 			asprintf(&s, "\t<td rowspan='%d'>", num_discs);
-			_sa_add(sa, s);
-			free(s);
+			_sa_add_ref(sa, s);
 			s = DB_GetNameForProduct(product_id);
 #ifdef SHOW_IDS
 			char *ss;
 			asprintf(&ss, "%d ", product_id);
-			_sa_add(sa, ss);
-			free(ss);
+			_sa_add_ref(sa, ss);
 #endif
-			_sa_add(sa, s);
-			free(s);
-			_sa_add(sa, "</td>\n");
+			_sa_add_ref(sa, s);
+			_sa_add_literal(sa, "</td>\n");
 		}
-		_sa_add(sa, "\t<td>");
-		_sa_add(sa, cd_pn);
-		_sa_add(sa, "<br />");
-		_sa_add(sa, date);
-		_sa_add(sa, "</td>\n");
-		_sa_add(sa, "\t<td>");
+		_sa_add_literal(sa, "\t<td>");
+		_sa_add_copy(sa, cd_pn);
+		_sa_add_literal(sa, "<br />");
+		_sa_add_copy(sa, date);
+		_sa_add_literal(sa, "</td>\n");
+		_sa_add_literal(sa, "\t<td>");
 #ifdef SHOW_IDS
 		char *s;
 		asprintf(&s, "%d ", disc_id);
-		_sa_add(sa, s);
-		free(s);
+		_sa_add_ref(sa, s);
 #endif
-		_sa_add(sa, "<a href=\"");
-		_sa_add(sa, filename);
-		_sa_add(sa, "\">");
-		_sa_add(sa, name);
-		_sa_add(sa, "</a>");
+		_sa_add_literal(sa, "<a href=\"");
+		_sa_add_copy(sa, filename);
+		_sa_add_literal(sa, "\">");
+		_sa_add_copy(sa, name);
+		_sa_add_literal(sa, "</a>");
 		if (!fromjrra) {
-			_sa_add(sa, "<br /><span class='contrib'>contributed</span>");
+			_sa_add_literal(sa, "<br /><span class='contrib'>contributed</span>");
 		}
 		if (note && strlen(note) > 0) {
-			_sa_add(sa, "<br /><span class='note'>note</span>: ");
-			_sa_add(sa, note);
+			_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
+			_sa_add_copy(sa, note);
 		}
-		_sa_add(sa, "</td>\n");
-		_sa_add(sa, "</tr>\n");
+		_sa_add_literal(sa, "</td>\n");
+		_sa_add_literal(sa, "</tr>\n");
 	}
 	sqlite3_finalize(stmt_discs);
 }
@@ -218,7 +214,7 @@ int callback_sgi_cds (
 	struct _string_array sa;
 
 	_sa_init(&sa);
-	_sa_add(&sa,
+	_sa_add_literal(&sa,
 		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 		"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n"
 		"<head>\n"
@@ -266,19 +262,19 @@ int callback_sgi_cds (
 		{
 		int product_group_id = sqlite3_column_int(stmt_product_groups, 0);
 		const char *pg_name = sqlite3_column_text(stmt_product_groups, 1);
-		_sa_add(&sa, "<table>\n<caption>");
-		_sa_add(&sa, pg_name);
-		_sa_add(&sa, "</caption>\n<thead>\n<tr>\n");
-		_sa_add(&sa, "\t<th scope='col'>product</th>\n");
-		_sa_add(&sa, "\t<th scope='col'>cd pn</th>\n");
-		_sa_add(&sa, "\t<th scope='col'>title</th>\n");
-		_sa_add(&sa, "</tr>\n</thead>\n<tbody>\n");
+		_sa_add_literal(&sa, "<table>\n<caption>");
+		_sa_add_copy(&sa, pg_name);
+		_sa_add_literal(&sa, "</caption>\n<thead>\n<tr>\n");
+		_sa_add_literal(&sa, "\t<th scope='col'>product</th>\n");
+		_sa_add_literal(&sa, "\t<th scope='col'>cd pn</th>\n");
+		_sa_add_literal(&sa, "\t<th scope='col'>title</th>\n");
+		_sa_add_literal(&sa, "</tr>\n</thead>\n<tbody>\n");
 		make_products(&sa, product_group_id);
-		_sa_add(&sa, "</tbody></table>\n");
+		_sa_add_literal(&sa, "</tbody></table>\n");
 		}
 		break;
 	case SQLITE_DONE:
-		_sa_add(&sa, "</body></html>");
+		_sa_add_literal(&sa, "</body></html>");
 		goto out_200;
 		break;
 	default:
