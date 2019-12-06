@@ -12,7 +12,7 @@ endif
 
 LDFLAGS += -lm -pthread ${EXTRAS}
 LDLIBS  += ulfius/src/libulfius.a yder/src/libyder.a orcania/src/liborcania.a
-CFLAGS  += -std=gnu17 -Og -ggdb -Iulfius/include -Iorcania/include -Iyder/include ${EXTRAS}
+CFLAGS  += -std=gnu11 -Og -ggdb -Iulfius/include -Iorcania/include -Iyder/include ${EXTRAS}
 
 .PHONY: all
 all:	$(target)
