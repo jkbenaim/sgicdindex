@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ulfius.h>
+#include "escape.h"
 #include "sa.h"
 
 #define PORT 8081
@@ -13,6 +14,8 @@
 
 sqlite3 *db;
 
+// this function is not used (???)
+#if 0
 char *DB_GetFilenameForDisc(int disc_id)
 {
 	__label__ out_ok, out_err;
@@ -47,6 +50,7 @@ out_err:
 	sqlite3_finalize(stmt);
 	return NULL;
 }
+#endif
 
 int DB_GetNumDiscsForProduct(int product_id)
 {
@@ -128,12 +132,14 @@ void make_discs(struct _string_array *sa, int product_id)
 	int num_discs = DB_GetNumDiscsForProduct(product_id);
 	bool did_first_row = false;
 	while ((rc = sqlite3_step(stmt_discs)) == SQLITE_ROW) {
-		const char *name = sqlite3_column_text(stmt_discs, 0);
+		const char *nameUnescaped = sqlite3_column_text(stmt_discs, 0);
+		char *name = xml_escape(nameUnescaped);
 		const char *cd_pn = sqlite3_column_text(stmt_discs, 1);
 		const char *note = sqlite3_column_text(stmt_discs, 2);
 		int fromjrra = sqlite3_column_int(stmt_discs, 3);
 		const char *date = sqlite3_column_text(stmt_discs, 4);
-		const char *filename = sqlite3_column_text(stmt_discs, 5);
+		const char *filenameUnescaped = sqlite3_column_text(stmt_discs, 5);
+		char *filename = percent_encode(filenameUnescaped);
 		int disc_id = sqlite3_column_int(stmt_discs, 6);
 		_sa_add_literal(sa, "<tr>\n");
 		if (!did_first_row) {
@@ -162,11 +168,11 @@ void make_discs(struct _string_array *sa, int product_id)
 		asprintf(&s, "%d ", disc_id);
 		_sa_add_ref(sa, s);
 #endif
-		_sa_add_literal(sa, "<a href=\"");
-		_sa_add_copy(sa, filename);
-		_sa_add_literal(sa, "\">");
-		_sa_add_copy(sa, name);
-		_sa_add_literal(sa, "</a>");
+		_sa_add(sa, "<a href=\"//cdn.jrra.zone/sgi/");
+		_sa_add(sa, filename);
+		_sa_add(sa, "\">");
+		_sa_add(sa, name);
+		_sa_add(sa, "</a>");
 		if (!fromjrra) {
 			_sa_add_literal(sa, "<br /><span class='contrib'>contributed</span>");
 		}
@@ -174,8 +180,10 @@ void make_discs(struct _string_array *sa, int product_id)
 			_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
 			_sa_add_copy(sa, note);
 		}
-		_sa_add_literal(sa, "</td>\n");
-		_sa_add_literal(sa, "</tr>\n");
+		_sa_add(sa, "</td>\n");
+		_sa_add(sa, "</tr>\n");
+		free(filename);
+		free(name);
 	}
 	sqlite3_finalize(stmt_discs);
 }
