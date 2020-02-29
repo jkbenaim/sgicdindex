@@ -72,6 +72,11 @@ bool _sa_add_copy (struct _string_array *sa, const char *s)
 	return _sa_add_aux(sa, newstring, free);
 }
 
+bool __attribute__((deprecated)) _sa_add (struct _string_array *sa, const char *s)
+{
+	return _sa_add_copy(sa, s);
+}
+
 char *_sa_get (struct _string_array *sa)
 {
 	char *t = malloc(sa->total_len + 1);
