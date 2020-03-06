@@ -10,7 +10,7 @@
 #include "sa.h"
 
 #define PORT 8081
-#define DB_FILENAME "sgicds.db"
+#define DB_FILENAME "../sgicds.db"
 
 sqlite3 *db;
 

@@ -1,3 +1,5 @@
 sgicdserv
 *.o
 *.swp
+.idea
+cmake-build-debug
