@@ -135,7 +135,10 @@ void make_discs(struct _string_array *sa, int product_id)
 		const char *nameUnescaped = sqlite3_column_text(stmt_discs, 0);
 		char *name = xml_escape(nameUnescaped);
 		const char *cd_pn = sqlite3_column_text(stmt_discs, 1);
-		const char *note = sqlite3_column_text(stmt_discs, 2);
+		const char *noteUnescaped = sqlite3_column_text(stmt_discs, 2);
+		char *note = NULL;
+		if (noteUnescaped)
+			note = xml_escape(noteUnescaped);
 		int fromjrra = sqlite3_column_int(stmt_discs, 3);
 		const char *date = sqlite3_column_text(stmt_discs, 4);
 		const char *filenameUnescaped = sqlite3_column_text(stmt_discs, 5);
@@ -178,7 +181,7 @@ void make_discs(struct _string_array *sa, int product_id)
 		}
 		if (note && strlen(note) > 0) {
 			_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
-			_sa_add_copy(sa, note);
+			_sa_add_ref(sa, note);
 		}
 		_sa_add(sa, "</td>\n");
 		_sa_add(sa, "</tr>\n");
