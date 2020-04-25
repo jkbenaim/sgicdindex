@@ -179,11 +179,11 @@ void make_discs(struct _string_array *sa, int product_id)
 		asprintf(&s, "%d ", disc_id);
 		_sa_add_ref(sa, s);
 #endif
-		_sa_add(sa, "<a href=\"//cdn.jrra.zone/sgi/");
-		_sa_add(sa, filename);
-		_sa_add(sa, "\">");
-		_sa_add(sa, name);
-		_sa_add(sa, "</a>");
+		_sa_add_literal(sa, "<a href=\"//cdn.jrra.zone/sgi/");
+		_sa_add_copy(sa, filename);
+		_sa_add_literal(sa, "\">");
+		_sa_add_copy(sa, name);
+		_sa_add_literal(sa, "</a>");
 		if (contributor) {
 			_sa_add_literal(sa, "<br /><span class='contrib'>contributed by ");
 			_sa_add_copy(sa, contributor);
@@ -201,8 +201,8 @@ void make_discs(struct _string_array *sa, int product_id)
 			_sa_add_ref(sa, attachmentXML);
 			_sa_add_literal(sa, "</a></span>");
 		}
-		_sa_add(sa, "</td>\n");
-		_sa_add(sa, "</tr>\n");
+		_sa_add_literal(sa, "</td>\n");
+		_sa_add_literal(sa, "</tr>\n");
 		free(filename);
 		free(name);
 	}
