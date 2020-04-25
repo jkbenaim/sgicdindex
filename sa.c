@@ -80,6 +80,8 @@ bool __attribute__((deprecated)) _sa_add (struct _string_array *sa, const char *
 char *_sa_get (struct _string_array *sa)
 {
 	char *t = malloc(sa->total_len + 1);
+	if (!t)
+		return NULL;
 	char *p = t;
 	for (size_t i = 0; i < sa->slots_used; i++) {
 		size_t len = strlen(sa->strings[i].s);
