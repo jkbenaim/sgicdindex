@@ -122,7 +122,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, fromjrra, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id from discs where product_id==? order by ordinal, name collate nocase, date;",
+		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment from discs where product_id==? order by ordinal, name collate nocase, date;",
 		-1,
 		&stmt_discs,
 		NULL
@@ -139,11 +139,19 @@ void make_discs(struct _string_array *sa, int product_id)
 		char *note = NULL;
 		if (noteUnescaped)
 			note = xml_escape(noteUnescaped);
-		int fromjrra = sqlite3_column_int(stmt_discs, 3);
+		const char *contributor = sqlite3_column_text(stmt_discs, 3);
 		const char *date = sqlite3_column_text(stmt_discs, 4);
 		const char *filenameUnescaped = sqlite3_column_text(stmt_discs, 5);
 		char *filename = percent_encode(filenameUnescaped);
 		int disc_id = sqlite3_column_int(stmt_discs, 6);
+		const char *attachmentUnescaped = sqlite3_column_text(stmt_discs, 7);
+		char *attachmentURL = NULL;
+		char *attachmentXML = NULL;
+		if (attachmentUnescaped) {
+			attachmentURL = percent_encode(attachmentUnescaped);
+			attachmentXML = xml_escape(attachmentUnescaped);
+		}
+
 		_sa_add_literal(sa, "<tr>\n");
 		if (!did_first_row) {
 			did_first_row = true;
@@ -176,12 +184,22 @@ void make_discs(struct _string_array *sa, int product_id)
 		_sa_add(sa, "\">");
 		_sa_add(sa, name);
 		_sa_add(sa, "</a>");
-		if (!fromjrra) {
-			_sa_add_literal(sa, "<br /><span class='contrib'>contributed</span>");
+		if (contributor) {
+			_sa_add_literal(sa, "<br /><span class='contrib'>contributed by ");
+			_sa_add_copy(sa, contributor);
+			_sa_add_literal(sa, "</span>");
 		}
 		if (note && strlen(note) > 0) {
 			_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
 			_sa_add_ref(sa, note);
+		}
+		if (attachmentURL && attachmentXML) {
+			_sa_add_literal(sa, "<br /><span class='attachment'>attachment: ");
+			_sa_add_literal(sa, "<a href=\"//cdn.jrra.zone/sgi/");
+			_sa_add_ref(sa, attachmentURL);
+			_sa_add_literal(sa, "\">");
+			_sa_add_ref(sa, attachmentXML);
+			_sa_add_literal(sa, "</a></span>");
 		}
 		_sa_add(sa, "</td>\n");
 		_sa_add(sa, "</tr>\n");
