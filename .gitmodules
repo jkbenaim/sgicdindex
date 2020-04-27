@@ -1,9 +1,0 @@
-[submodule "yder"]
-	path = yder
-	url = https://github.com/babelouest/yder
-[submodule "orcania"]
-	path = orcania
-	url = https://github.com/babelouest/orcania
-[submodule "ulfius"]
-	path = ulfius
-	url = https://github.com/babelouest/ulfius
