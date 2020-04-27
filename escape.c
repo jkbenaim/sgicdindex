@@ -27,7 +27,7 @@ bool isXmlReservedChar(char suspect)
 	return false;
 }
 
-char *percent_encode(const char *orig, bool(*func)(char suspect))
+char *escape_url(const char *orig)
 {
 	char *out = NULL;
 	size_t outLength = 0;
@@ -66,7 +66,7 @@ char *percent_encode(const char *orig, bool(*func)(char suspect))
 	return out;
 }
 
-char *xml_escape(const char *orig, bool(*func)(char suspect))
+char *escape_xml(const char *orig)
 {
 	char *out = NULL;
 	size_t outLength = 0;

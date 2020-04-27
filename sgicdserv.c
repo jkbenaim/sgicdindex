@@ -5,52 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ulfius.h>
 #include "escape.h"
 #include "sa.h"
 
-#define PORT 8081
-#define DB_FILENAME "../sgicds.db"
-
 sqlite3 *db;
-
-// this function is not used (???)
-#if 0
-char *DB_GetFilenameForDisc(int disc_id)
-{
-	__label__ out_ok, out_err;
-	int rc;
-	sqlite3_stmt *stmt;
-	char *zOut = NULL;
-	rc = sqlite3_prepare_v2(
-		db,
-		"select name from discs where disc_id==?;",
-		-1,
-		&stmt,
-		NULL
-	);
-	if (rc != SQLITE_OK) goto out_err;
-
-	rc = sqlite3_bind_int(stmt, 1, disc_id);
-	if (rc != SQLITE_OK) goto out_err;
-
-	rc = sqlite3_step(stmt);
-	if (rc != SQLITE_ROW) goto out_err;
-
-	const char *temp;
-	temp = sqlite3_column_text(stmt, 0);
-	if (temp == NULL) goto out_err;
-	zOut = strdup(temp);
-	goto out_ok;
-	
-out_ok:
-	sqlite3_finalize(stmt);
-	return zOut;
-out_err:
-	sqlite3_finalize(stmt);
-	return NULL;
-}
-#endif
 
 int DB_GetNumDiscsForProduct(int product_id)
 {
@@ -133,23 +91,23 @@ void make_discs(struct _string_array *sa, int product_id)
 	bool did_first_row = false;
 	while ((rc = sqlite3_step(stmt_discs)) == SQLITE_ROW) {
 		const char *nameUnescaped = sqlite3_column_text(stmt_discs, 0);
-		char *name = xml_escape(nameUnescaped);
+		char *name = escape_xml(nameUnescaped);
 		const char *cd_pn = sqlite3_column_text(stmt_discs, 1);
 		const char *noteUnescaped = sqlite3_column_text(stmt_discs, 2);
 		char *note = NULL;
 		if (noteUnescaped)
-			note = xml_escape(noteUnescaped);
+			note = escape_xml(noteUnescaped);
 		const char *contributor = sqlite3_column_text(stmt_discs, 3);
 		const char *date = sqlite3_column_text(stmt_discs, 4);
 		const char *filenameUnescaped = sqlite3_column_text(stmt_discs, 5);
-		char *filename = percent_encode(filenameUnescaped);
+		char *filename = escape_url(filenameUnescaped);
 		int disc_id = sqlite3_column_int(stmt_discs, 6);
 		const char *attachmentUnescaped = sqlite3_column_text(stmt_discs, 7);
 		char *attachmentURL = NULL;
 		char *attachmentXML = NULL;
 		if (attachmentUnescaped) {
-			attachmentURL = percent_encode(attachmentUnescaped);
-			attachmentXML = xml_escape(attachmentUnescaped);
+			attachmentURL = escape_url(attachmentUnescaped);
+			attachmentXML = escape_xml(attachmentUnescaped);
 		}
 
 		_sa_add_literal(sa, "<tr>\n");
@@ -233,17 +191,15 @@ void make_products(struct _string_array *sa, int pg_id)
 	sqlite3_finalize(stmt_products);
 }
 
-int callback_sgi_cds (
-	const struct _u_request *request,
-	struct _u_response *response,
-	void *db
-){
-	__label__ out_200, out_500, out_finalize, out_return;
+int callback_sgi_cds()
+{
+	__label__ out_finalize, out_return;
 	int rc;
 	struct _string_array sa;
 
 	_sa_init(&sa);
 	_sa_add_literal(&sa,
+		"<?xml version=\"1.0\"?>\n"
 		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 		"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n"
 		"<head>\n"
@@ -281,14 +237,12 @@ int callback_sgi_cds (
 		sqlite3_finalize(stmt_product_groups);
 		_sa_free(&sa);
 		fprintf(stderr, "couldn't prepare statement\n");
-		goto out_500;
+		goto out_return;
 	}
 
 
 
-	for(;;) switch (rc = sqlite3_step(stmt_product_groups)) {
-	case SQLITE_ROW:
-		{
+	while (SQLITE_ROW == (rc = sqlite3_step(stmt_product_groups))) {
 		int product_group_id = sqlite3_column_int(stmt_product_groups, 0);
 		const char *pg_name = sqlite3_column_text(stmt_product_groups, 1);
 		_sa_add_literal(&sa, "<table>\n<caption>");
@@ -300,81 +254,53 @@ int callback_sgi_cds (
 		_sa_add_literal(&sa, "</tr>\n</thead>\n<tbody>\n");
 		make_products(&sa, product_group_id);
 		_sa_add_literal(&sa, "</tbody></table>\n");
-		}
-		break;
-	case SQLITE_DONE:
-		_sa_add_literal(&sa, "</body></html>");
-		goto out_200;
-		break;
-	default:
-		goto out_500;
-		break;
 	}
 
-out_200:
-	response->status = 200;
-	response->binary_body = _sa_get(&sa);
-	response->binary_body_length = strlen(response->binary_body);
-	ulfius_add_header_to_response(response, "Content-Type", "application/xhtml+xml; charset=utf-8");
-	goto out_finalize;
-out_500:
-	ulfius_set_string_body_response(response, 500, "woops");
+	if (rc != SQLITE_DONE) {
+		// ruh roh
+		return -1;
+	}
+
+	_sa_add_literal(&sa, "</body></html>");
+
+	char *wholepage = _sa_get(&sa);
+	printf("%s\n", wholepage);
+	free(wholepage);
 out_finalize:
 	_sa_free(&sa);
 	sqlite3_finalize(stmt_product_groups);
 out_return:
-	return U_CALLBACK_CONTINUE;
+	return 0;
 }
 
 int main(int argc, char *argv[])
 {
-	__label__ out_close_db, out_clean_ulfius, out_stop_framework;
+	__label__ out_return;
 	int rc;
-	char *err = NULL;
-	int returnval = EXIT_FAILURE;
+	char *zErr = NULL;
 
-	rc = sqlite3_open_v2(DB_FILENAME, &db, SQLITE_OPEN_READONLY, NULL);
+	if (argc < 2) {
+		zErr = "need an argument";
+		goto out_return;
+	}
+
+	rc = sqlite3_open_v2(argv[1], &db, SQLITE_OPEN_READONLY, NULL);
 	if (rc != SQLITE_OK) {
-		fprintf(stderr, "Can't open database: %s\n",
+		fprintf(stderr, "%s\n",
 			sqlite3_errmsg(db));
-		goto out_close_db;
+		zErr = "couldn't open DB";
+		goto out_return;
 	}
 
-	struct _u_instance ulfius;
-	rc = ulfius_init_instance(&ulfius, PORT, NULL, NULL);
-	if (rc != U_OK) {
-		fprintf(stderr, "ulfius_init_instance failed\n");
-		goto out_clean_ulfius;
-	}
+	callback_sgi_cds();
 
-	ulfius_add_endpoint_by_val(
-		&ulfius,
-		"GET",
-		"/",
-		NULL,
-		0,
-		&callback_sgi_cds,
-		db
-	);
-
-	rc = ulfius_start_framework(&ulfius);
-	if (rc != U_OK) {
-		fprintf(stderr, "ulfius_start_framework failed\n");
-		goto out_clean_ulfius;
-	}
-
-	printf("http://localhost:%d/\n", PORT);
-	printf("Press any key to quit.\n");
-	getchar();
-
-	returnval = EXIT_SUCCESS;
-
-out_stop_framework:
-	ulfius_stop_framework(&ulfius);
-out_clean_ulfius:
-	ulfius_clean_instance(&ulfius);
-out_close_db:
 	sqlite3_close(db);
-	return returnval;
+out_return:
+	if (zErr) {
+		fprintf(stderr, "%s: error: %s\n", argv[0], zErr);
+		return EXIT_FAILURE;
+	} else {
+		return EXIT_SUCCESS;
+	}
 }
 

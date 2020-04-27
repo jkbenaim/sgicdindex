@@ -1,6 +1,6 @@
 #ifndef _ESCAPE_H_
 #define _ESCAPE_H_
-char *percent_encode(const char *orig);
-char *xml_escape(const char *orig);
+char *escape_url(const char *orig);
+char *escape_xml(const char *orig);
 #endif
 
