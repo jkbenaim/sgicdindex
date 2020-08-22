@@ -17,7 +17,7 @@ int DB_GetNumDiscsForProduct(int product_id)
 	sqlite3_stmt *stmt;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select count(*) from discs where product_id==?;",
+		"select count(*) from discs where cast(product_id as int)==?;",
 		-1,
 		&stmt,
 		NULL
@@ -48,7 +48,7 @@ char *DB_GetNameForProduct(int product_id)
 	sqlite3_stmt *stmt;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name from products where product_id==?;",
+		"select name from products where cast(product_id as int)==?;",
 		-1,
 		&stmt,
 		NULL
@@ -80,7 +80,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment from discs where product_id==? order by ordinal, name collate nocase, date;",
+		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date;",
 		-1,
 		&stmt_discs,
 		NULL
@@ -175,7 +175,7 @@ void make_products(struct _string_array *sa, int pg_id)
 	sqlite3_stmt *stmt_products;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select product_id, name from products where product_group_id==? order by ordinal, name collate nocase;",
+		"select product_id, name from products where cast(product_group_id as int)==? order by ordinal, name collate nocase;",
 		-1,
 		&stmt_products,
 		NULL
