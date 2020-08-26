@@ -1,4 +1,4 @@
-target  ?= sgicdserv
+target  ?= sgicdindex
 objects := $(patsubst %.c,%.o,$(wildcard *.c))
 
 libs:= sqlite3
