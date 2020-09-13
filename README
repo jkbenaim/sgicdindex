@@ -1,0 +1,14 @@
+# sgicdindex
+
+This is a simple program to build the index page at [https://jrra.zone/sgi].
+It takes data from the SQLite database sgicds.db and generates index.html.
+
+The most interesting thing about this project for you, dear reader, is
+probably the data stored within the database, and not the code to generate the
+index page.
+
+## Building
+
+You will need a C compiler and the SQLite3 library. Optionally, install
+xmllint to verify XML correctness. Then, run `make`. The index page will be
+written to index.html.
