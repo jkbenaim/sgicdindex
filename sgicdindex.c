@@ -264,7 +264,8 @@ int callback_sgi_cds()
 	_sa_add_literal(&sa, "</body></html>");
 
 	char *wholepage = _sa_get(&sa);
-	printf("%s\n", wholepage);
+	if (wholepage)
+		printf("%s\n", wholepage);
 	free(wholepage);
 out_finalize:
 	_sa_free(&sa);
