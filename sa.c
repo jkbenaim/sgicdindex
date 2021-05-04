@@ -69,7 +69,9 @@ bool _sa_add_copy (struct _string_array *sa, const char *s)
 {
 	if (!s) return false;
 	char *newstring = strdup(s);
-	return _sa_add_aux(sa, newstring, free);
+	bool bRc = _sa_add_aux(sa, newstring, free);
+	if (bRc == false) free(newstring);
+	return bRc;
 }
 
 bool __attribute__((deprecated)) _sa_add (struct _string_array *sa, const char *s)
