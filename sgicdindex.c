@@ -176,7 +176,7 @@ void make_discs(struct _string_array *sa, int product_id)
 			_sa_add_copy(sa, contributor);
 			_sa_add_literal(sa, "</span>");
 		}
-		if (note && strlen(note) > 0) {
+		if (note) {
 			//_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
 			_sa_add_literal(sa, "<br />");
 			_sa_add_ref(sa, note);
