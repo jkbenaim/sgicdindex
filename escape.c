@@ -46,7 +46,7 @@ char *escape_url(const char *orig)
 	outp = out;
 
 	for (i = 0; i < origLength; i++) {
-		char suspect = *inp++;
+		unsigned char suspect = *inp++;
 		if (isNotUnreservedChar(suspect)) {
 			*outp++ = '%';
 			*outp++ = "0123456789abcdef"[(suspect/16)%16];
