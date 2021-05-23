@@ -80,7 +80,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date;",
+		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment, havefile from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date;",
 		-1,
 		&stmt_discs,
 		NULL
@@ -100,7 +100,6 @@ void make_discs(struct _string_array *sa, int product_id)
 		const char *contributor = sqlite3_column_text(stmt_discs, 3);
 		const char *date = sqlite3_column_text(stmt_discs, 4);
 		const char *filenameUnescaped = sqlite3_column_text(stmt_discs, 5);
-		char *filename = escape_url(filenameUnescaped);
 		int disc_id = sqlite3_column_int(stmt_discs, 6);
 		const char *attachmentUnescaped = sqlite3_column_text(stmt_discs, 7);
 		char *attachmentURL = NULL;
@@ -108,6 +107,20 @@ void make_discs(struct _string_array *sa, int product_id)
 		if (attachmentUnescaped) {
 			attachmentURL = escape_url(attachmentUnescaped);
 			attachmentXML = escape_xml(attachmentUnescaped);
+		}
+		bool havefile = sqlite3_column_int(stmt_discs, 8) ? true : false;
+		char *filename;
+		if (filenameUnescaped) {
+			filename = escape_url(filenameUnescaped);
+		} else if (havefile) {
+			filename = escape_url(nameUnescaped);
+			char *nf = malloc(strlen(filename) + strlen(".iso") + 1);
+			strcpy(nf, filename);
+			strcat(nf, ".iso");
+			free(filename);
+			filename = nf;
+		} else {
+			filename = strdup("");
 		}
 
 		_sa_add_literal(sa, "<tr>\n");
@@ -127,9 +140,17 @@ void make_discs(struct _string_array *sa, int product_id)
 			_sa_add_literal(sa, "</td>\n");
 		}
 		_sa_add_literal(sa, "\t<td>");
-		_sa_add_copy(sa, cd_pn);
+		if (cd_pn) {
+			_sa_add_copy(sa, cd_pn);
+		} else {
+			_sa_add_literal(sa, "&nbsp;");
+		}
 		_sa_add_literal(sa, "<br />");
-		_sa_add_copy(sa, date);
+		if (date) {
+			_sa_add_copy(sa, date);
+		} else {
+			_sa_add_literal(sa, "&nbsp;");
+		}
 		_sa_add_literal(sa, "</td>\n");
 		_sa_add_literal(sa, "\t<td>");
 #ifdef SHOW_IDS
@@ -137,18 +158,23 @@ void make_discs(struct _string_array *sa, int product_id)
 		asprintf(&s, "%d ", disc_id);
 		_sa_add_ref(sa, s);
 #endif
-		_sa_add_literal(sa, "<a href=\"cds/");
-		_sa_add_copy(sa, filename);
-		_sa_add_literal(sa, "\">");
-		_sa_add_copy(sa, name);
-		_sa_add_literal(sa, "</a>");
-		if (contributor) {
+		if (havefile and filename) {
+			_sa_add_literal(sa, "<a href=\"cds/");
+			_sa_add_copy(sa, filename);
+			_sa_add_literal(sa, "\">");
+			_sa_add_copy(sa, name);
+			_sa_add_literal(sa, "</a>");
+		} else {
+			_sa_add_copy(sa, name);
+		}
+		if (contributor and strcmp(contributor,"jrra")) {
 			_sa_add_literal(sa, "<br /><span class='contrib'>contributed by ");
 			_sa_add_copy(sa, contributor);
 			_sa_add_literal(sa, "</span>");
 		}
 		if (note && strlen(note) > 0) {
-			_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
+			//_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
+			_sa_add_literal(sa, "<br />");
 			_sa_add_ref(sa, note);
 		}
 		if (attachmentURL && attachmentXML) {
@@ -249,7 +275,7 @@ int callback_sgi_cds()
 		_sa_add_copy(&sa, pg_name);
 		_sa_add_literal(&sa, "</caption>\n<thead>\n<tr>\n");
 		_sa_add_literal(&sa, "\t<th scope='col'>product</th>\n");
-		_sa_add_literal(&sa, "\t<th scope='col'>cd pn</th>\n");
+		_sa_add_literal(&sa, "\t<th scope='col'>cd pn<br />date</th>\n");
 		_sa_add_literal(&sa, "\t<th scope='col'>title</th>\n");
 		_sa_add_literal(&sa, "</tr>\n</thead>\n<tbody>\n");
 		make_products(&sa, product_group_id);
