@@ -80,7 +80,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment, havefile from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date;",
+		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment, havefile from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date, cd_pn;",
 		-1,
 		&stmt_discs,
 		NULL
