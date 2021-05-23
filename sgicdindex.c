@@ -80,7 +80,7 @@ void make_discs(struct _string_array *sa, int product_id)
 	sqlite3_stmt *stmt_discs;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment, havefile from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date, cd_pn;",
+		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment, havefile, date_added=(select max(date_added) from discs) from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date, cd_pn;",
 		-1,
 		&stmt_discs,
 		NULL
@@ -122,6 +122,7 @@ void make_discs(struct _string_array *sa, int product_id)
 		} else {
 			filename = strdup("");
 		}
+		bool is_newest = sqlite3_column_int(stmt_discs, 9) ? true : false;
 
 		_sa_add_literal(sa, "<tr>\n");
 		if (!did_first_row) {
@@ -166,6 +167,9 @@ void make_discs(struct _string_array *sa, int product_id)
 			_sa_add_literal(sa, "</a>");
 		} else {
 			_sa_add_copy(sa, name);
+		}
+		if (is_newest) {
+			_sa_add_literal(sa, " <span class=\"newest\">new</span>");
 		}
 		if (contributor and strcmp(contributor,"jrra")) {
 			_sa_add_literal(sa, "<br /><span class='contrib'>contributed by ");
@@ -238,7 +242,7 @@ int callback_sgi_cds()
 		"td {border: 1px solid gray; font: 1em monospace;padding:10px;}\n"
 		"th {font: 1em monospace;}\n"
 		"th:nth-child(1),th:nth-child(2) {width:150px;}\n"
-		".note {font-weight: bold; color: red; text-decoration: underline;}\n"
+		".newest {font-weight: bold; color: red; text-decoration: underline;}\n"
 		".contrib {font-weight: bold; color: green; text-decoration: underline;}\n"
 		"@font-face {font-family: 'FatFrank Heavy';src: url('/FatFrank-Heavy.eot');src:	url('/FatFrank-Heavy.eot?#iefix') format('embedded-opentype'),url('/FatFrank-Heavy.woff') format('woff'),url('/FatFrank-Heavy.ttf') format('truetype');font-style: normal;font-weight: 400;}\n"
 		"body,h1,h2,h3 {font-family: Helvetica;}\n"
