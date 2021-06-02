@@ -244,14 +244,11 @@ int callback_sgi_cds()
 		"th:nth-child(1),th:nth-child(2) {width:150px;}\n"
 		".newest {font-weight: bold; color: red; text-decoration: underline;}\n"
 		".contrib {font-weight: bold; color: green; text-decoration: underline;}\n"
-		"@font-face {font-family: 'FatFrank Heavy';src: url('/FatFrank-Heavy.eot');src:	url('/FatFrank-Heavy.eot?#iefix') format('embedded-opentype'),url('/FatFrank-Heavy.woff') format('woff'),url('/FatFrank-Heavy.ttf') format('truetype');font-style: normal;font-weight: 400;}\n"
 		"body,h1,h2,h3 {font-family: Helvetica;}\n"
-		".header {border-bottom: 0.25em solid #ff4081;text-decoration:none;display:inline;}\n"
-		".header h1 {font-family: 'FatFrank Heavy';font-size: 43px;font-weight: normal;color:#3f51b5;display:inline;text-shadow: 2px 2px 0 white, -2px 2px 0 white;}\n"
 		"</style>\n"
 		"</head>\n"
 		"<body>\n"
-		"<div class=\"header\"><h1>jrra.zone</h1></div><hr />\n"
+		"<h1><a href=\"/\"><img src=\"../jrrazone.svg\" alt=\"jrra.zone\"/></a></h1>\n"
 		"<h2>SGI/IRIX CDs</h2>\n"
 	);
 
