@@ -41,7 +41,7 @@ void make_discs(struct product_s product)
 			filename = strdup("");
 		}
 
-		printf("<tr>\n");
+		printf("<tr id=\"disc-%d\">\n", disc.id);
 		if (!did_first_row) {
 			did_first_row = true;
 
@@ -146,8 +146,25 @@ int callback_sgi_cds()
 	);
 
 	struct pg_s pg;
+	struct product_s product;
+	struct disc_s disc;
+
+	printf("<hr/>\n");
+	printf("<h3>Index</h3>\n");
+	printf("<ul>\n");
 	foreachpg(pg) {
-		printf("<table>\n<caption>");
+		printf("\t<li><a href=\"#pg-%d\">%s</a>\n", pg.id, pg.name);
+		printf("\t<ul>\n");
+		foreachproduct(product,pg.id) {
+			printf("\t\t<li>%s</li>\n", product.name);
+		}
+		printf("\t</ul></li>\n");
+	}
+	printf("</ul>\n");
+	printf("<hr/>\n");
+
+	foreachpg(pg) {
+		printf("<table id=\"pg-%d\">\n<caption>", pg.id);
 		printf("%s", pg.name);
 		printf("</caption>\n<thead>\n<tr>\n");
 		printf("\t<th scope='col'>product</th>\n");
