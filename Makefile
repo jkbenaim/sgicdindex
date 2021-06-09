@@ -11,7 +11,7 @@ CFLAGS  += $(shell pkg-config --cflags ${libs})
 endif
 
 LDFLAGS += ${EXTRAS}
-CFLAGS  += -std=gnu99 ${EXTRAS}
+CFLAGS  += -std=c99 ${EXTRAS}
 
 .PHONY: all
 all:	index.html

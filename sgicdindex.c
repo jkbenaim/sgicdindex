@@ -4,116 +4,34 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdnoreturn.h>
 #include <string.h>
+#include "db.h"
 #include "escape.h"
-#include "sa.h"
 
-sqlite3 *db;
+extern char *__progname;
+static void noreturn usage(void);
 
-int DB_GetNumDiscsForProduct(int product_id)
+void make_discs(struct product_s product)
 {
-	__label__ out_ok, out_err;
-	int rc;
-	sqlite3_stmt *stmt;
-	rc = sqlite3_prepare_v2(
-		db,
-		"select count(*) from discs where cast(product_id as int)==?;",
-		-1,
-		&stmt,
-		NULL
-	);
-	if (rc != SQLITE_OK) goto out_err;
-
-	rc = sqlite3_bind_int(stmt, 1, product_id);
-	if (rc != SQLITE_OK) goto out_err;
-
-	rc = sqlite3_step(stmt);
-	if (rc != SQLITE_ROW) goto out_err;
-
-	rc = sqlite3_column_int(stmt, 0);
-	goto out_ok;
-
-out_ok:
-	sqlite3_finalize(stmt);
-	return rc;
-out_err:
-	sqlite3_finalize(stmt);
-	return -rc;
-}
-
-char *DB_GetNameForProduct(int product_id)
-{
-	__label__ out_ok, out_err;
-	int rc;
-	sqlite3_stmt *stmt;
-	rc = sqlite3_prepare_v2(
-		db,
-		"select name from products where cast(product_id as int)==?;",
-		-1,
-		&stmt,
-		NULL
-	);
-	if (rc != SQLITE_OK) goto out_err;
-
-	rc = sqlite3_bind_int(stmt, 1, product_id);
-	if (rc != SQLITE_OK) goto out_err;
-
-	rc = sqlite3_step(stmt);
-	if (rc != SQLITE_ROW) goto out_err;
-
-	char *zOut = strdup(sqlite3_column_text(stmt, 0));
-	goto out_ok;
-
-out_ok:
-	sqlite3_finalize(stmt);
-	return zOut;
-out_err:
-	sqlite3_finalize(stmt);
-	return NULL;
-}
-
-void make_discs(struct _string_array *sa, int product_id)
-{
-	int rc;
-
-
-	sqlite3_stmt *stmt_discs;
-	rc = sqlite3_prepare_v2(
-		db,
-		"select name, cd_pn, note, contributor, substr(date,6,2)||'/'||substr(date,1,4), filename, disc_id, attachment, havefile, date_added=(select max(date_added) from discs) from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date, cd_pn;",
-		-1,
-		&stmt_discs,
-		NULL
-	);
-
-	sqlite3_bind_int(stmt_discs, 1, product_id);
-	int num_discs = DB_GetNumDiscsForProduct(product_id);
+	struct disc_s disc;
 	bool did_first_row = false;
-	while ((rc = sqlite3_step(stmt_discs)) == SQLITE_ROW) {
-		const char *nameUnescaped = sqlite3_column_text(stmt_discs, 0);
-		char *name = escape_xml(nameUnescaped);
-		const char *cd_pn = sqlite3_column_text(stmt_discs, 1);
-		const char *noteUnescaped = sqlite3_column_text(stmt_discs, 2);
+	foreachdisc(disc, product.id) {
+		char *name = escape_xml(disc.name);
 		char *note = NULL;
-		if (noteUnescaped)
-			note = escape_xml(noteUnescaped);
-		const char *contributor = sqlite3_column_text(stmt_discs, 3);
-		const char *date = sqlite3_column_text(stmt_discs, 4);
-		const char *filenameUnescaped = sqlite3_column_text(stmt_discs, 5);
-		int disc_id = sqlite3_column_int(stmt_discs, 6);
-		const char *attachmentUnescaped = sqlite3_column_text(stmt_discs, 7);
+		if (disc.note)
+			note = escape_xml(disc.note);
 		char *attachmentURL = NULL;
 		char *attachmentXML = NULL;
-		if (attachmentUnescaped) {
-			attachmentURL = escape_url(attachmentUnescaped);
-			attachmentXML = escape_xml(attachmentUnescaped);
+		if (disc.attachment) {
+			attachmentURL = escape_url(disc.attachment);
+			attachmentXML = escape_xml(disc.attachment);
 		}
-		bool havefile = sqlite3_column_int(stmt_discs, 8) ? true : false;
 		char *filename;
-		if (filenameUnescaped) {
-			filename = escape_url(filenameUnescaped);
-		} else if (havefile) {
-			filename = escape_url(nameUnescaped);
+		if (disc.filename and disc.havefile) {
+			filename = escape_url(disc.filename);
+		} else if (disc.havefile) {
+			filename = escape_url(disc.name);
 			char *nf = malloc(strlen(filename) + strlen(".iso") + 1);
 			strcpy(nf, filename);
 			strcat(nf, ".iso");
@@ -122,113 +40,88 @@ void make_discs(struct _string_array *sa, int product_id)
 		} else {
 			filename = strdup("");
 		}
-		bool is_newest = sqlite3_column_int(stmt_discs, 9) ? true : false;
 
-		_sa_add_literal(sa, "<tr>\n");
+		printf("<tr>\n");
 		if (!did_first_row) {
 			did_first_row = true;
 
-			char *s;
-			asprintf(&s, "\t<td rowspan='%d'>", num_discs);
-			_sa_add_ref(sa, s);
-			s = DB_GetNameForProduct(product_id);
+			printf( "\t<td rowspan='%d'>", product.num_discs);
 #ifdef SHOW_IDS
-			char *ss;
-			asprintf(&ss, "%d ", product_id);
-			_sa_add_ref(sa, ss);
+			printf("%d ", disc.product_id);
 #endif
-			_sa_add_ref(sa, s);
-			_sa_add_literal(sa, "</td>\n");
+			printf("%s", product.name);
+			printf("</td>\n");
 		}
-		_sa_add_literal(sa, "\t<td>");
-		if (cd_pn) {
-			_sa_add_copy(sa, cd_pn);
+		printf("\t<td>");
+		if (disc.cd_pn) {
+			printf("%s", disc.cd_pn);
 		} else {
-			_sa_add_literal(sa, "&nbsp;");
+			printf("&nbsp;");
 		}
-		_sa_add_literal(sa, "<br />");
-		if (date) {
-			_sa_add_copy(sa, date);
+		printf("<br />");
+		if (disc.date) {
+			printf("%s", disc.date);
 		} else {
-			_sa_add_literal(sa, "&nbsp;");
+			printf("&nbsp;");
 		}
-		_sa_add_literal(sa, "</td>\n");
-		_sa_add_literal(sa, "\t<td>");
+		printf("</td>\n");
+		printf("\t<td>");
 #ifdef SHOW_IDS
-		char *s;
-		asprintf(&s, "%d ", disc_id);
-		_sa_add_ref(sa, s);
+		printf("%d ", disc.disc_id);
 #endif
-		if (havefile and filename) {
-			_sa_add_literal(sa, "<a href=\"cds/");
-			_sa_add_copy(sa, filename);
-			_sa_add_literal(sa, "\">");
-			_sa_add_copy(sa, name);
-			_sa_add_literal(sa, "</a>");
+		if (disc.havefile) {
+			printf("<a href=\"cds/");
+			printf("%s", filename);
+			printf("\">");
+			printf("%s", name);
+			printf("</a>");
 		} else {
-			_sa_add_copy(sa, name);
+			printf(disc.name);
 		}
-		if (is_newest) {
-			_sa_add_literal(sa, " <span class=\"newest\">new</span>");
+		if (disc.is_newest) {
+			printf(" <span class=\"newest\">new</span>");
 		}
-		if (contributor and strcmp(contributor,"jrra")) {
-			_sa_add_literal(sa, "<br /><span class='contrib'>contributed by ");
-			_sa_add_copy(sa, contributor);
-			_sa_add_literal(sa, "</span>");
+		if (disc.contributor and strcmp(disc.contributor,"jrra")) {
+			printf("<br /><span class='contrib'>contributed by ");
+			printf("%s", disc.contributor);
+			printf("</span>");
 		}
 		if (note) {
-			//_sa_add_literal(sa, "<br /><span class='note'>note</span>: ");
-			_sa_add_literal(sa, "<br />");
-			_sa_add_ref(sa, note);
+			printf("<br />");
+			printf(note);
 		}
 		if (attachmentURL && attachmentXML) {
-			_sa_add_literal(sa, "<br /><span class='attachment'>attachment: ");
-			_sa_add_literal(sa, "<a href=\"cds/");
-			_sa_add_ref(sa, attachmentURL);
-			_sa_add_literal(sa, "\">");
-			_sa_add_ref(sa, attachmentXML);
-			_sa_add_literal(sa, "</a></span>");
+			printf("<br /><span class='attachment'>attachment: ");
+			printf("<a href=\"cds/");
+			printf(attachmentURL);
+			printf("\">");
+			printf(attachmentXML);
+			printf("</a></span>");
 		}
-		_sa_add_literal(sa, "</td>\n");
-		_sa_add_literal(sa, "</tr>\n");
+		printf("</td>\n");
+		printf("</tr>\n");
 		free(filename);
 		free(name);
+		free(note);
+		free(attachmentURL);
+		free(attachmentXML);
 	}
-	sqlite3_finalize(stmt_discs);
 }
 
-void make_products(struct _string_array *sa, int pg_id)
+void make_products(int pg_id)
 {
-	int rc;
-
-
-	sqlite3_stmt *stmt_products;
-	rc = sqlite3_prepare_v2(
-		db,
-		"select product_id, name from products where cast(product_group_id as int)==? order by ordinal, name collate nocase;",
-		-1,
-		&stmt_products,
-		NULL
-	);
-
-	sqlite3_bind_int(stmt_products, 1, pg_id);
-	while ((rc = sqlite3_step(stmt_products)) == SQLITE_ROW) {
-		int product_id = sqlite3_column_int(stmt_products, 0);
-		const char *name = sqlite3_column_text(stmt_products, 1);
-
-		make_discs(sa, product_id);
+	struct product_s product;
+	foreachproduct(product, pg_id) {
+		make_discs(product);
 	}
-	sqlite3_finalize(stmt_products);
 }
 
 int callback_sgi_cds()
 {
 	__label__ out_finalize, out_return;
 	int rc;
-	struct _string_array sa;
 
-	_sa_init(&sa);
-	_sa_add_literal(&sa,
+	printf("%s",
 		"<?xml version=\"1.0\"?>\n"
 		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 		"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n"
@@ -252,83 +145,38 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 	);
 
-	sqlite3_stmt *stmt_product_groups = NULL;
-	rc = sqlite3_prepare_v2(
-		db,
-		"select product_group_id, name from product_groups order by ordinal, name collate nocase;",
-		-1,
-		&stmt_product_groups,
-		NULL
-	);
-	if (rc != SQLITE_OK) {
-		sqlite3_finalize(stmt_product_groups);
-		_sa_free(&sa);
-		fprintf(stderr, "couldn't prepare statement\n");
-		goto out_return;
+	struct pg_s pg;
+	foreachpg(pg) {
+		printf("<table>\n<caption>");
+		printf("%s", pg.name);
+		printf("</caption>\n<thead>\n<tr>\n");
+		printf("\t<th scope='col'>product</th>\n");
+		printf("\t<th scope='col'>cd pn<br />date</th>\n");
+		printf("\t<th scope='col'>title</th>\n");
+		printf("</tr>\n</thead>\n<tbody>\n");
+		make_products(pg.id);
+		printf("</tbody></table>\n");
 	}
+	printf("</body></html>");
 
-
-
-	while (SQLITE_ROW == (rc = sqlite3_step(stmt_product_groups))) {
-		int product_group_id = sqlite3_column_int(stmt_product_groups, 0);
-		const char *pg_name = sqlite3_column_text(stmt_product_groups, 1);
-		_sa_add_literal(&sa, "<table>\n<caption>");
-		_sa_add_copy(&sa, pg_name);
-		_sa_add_literal(&sa, "</caption>\n<thead>\n<tr>\n");
-		_sa_add_literal(&sa, "\t<th scope='col'>product</th>\n");
-		_sa_add_literal(&sa, "\t<th scope='col'>cd pn<br />date</th>\n");
-		_sa_add_literal(&sa, "\t<th scope='col'>title</th>\n");
-		_sa_add_literal(&sa, "</tr>\n</thead>\n<tbody>\n");
-		make_products(&sa, product_group_id);
-		_sa_add_literal(&sa, "</tbody></table>\n");
-	}
-
-	if (rc != SQLITE_DONE) {
-		// ruh roh
-		return -1;
-	}
-
-	_sa_add_literal(&sa, "</body></html>");
-
-	char *wholepage = _sa_get(&sa);
-	if (wholepage)
-		printf("%s\n", wholepage);
-	free(wholepage);
 out_finalize:
-	_sa_free(&sa);
-	sqlite3_finalize(stmt_product_groups);
 out_return:
 	return 0;
 }
 
 int main(int argc, char *argv[])
 {
-	__label__ out_return;
-	int rc;
-	char *zErr = NULL;
+	if (argc < 2)
+		usage();
 
-	if (argc < 2) {
-		zErr = "need an argument";
-		goto out_return;
-	}
-
-	rc = sqlite3_open_v2(argv[1], &db, SQLITE_OPEN_READONLY, NULL);
-	if (rc != SQLITE_OK) {
-		fprintf(stderr, "%s\n",
-			sqlite3_errmsg(db));
-		zErr = "couldn't open DB";
-		goto out_return;
-	}
-
+	DB_Init(argv[1]);
 	callback_sgi_cds();
-
-	sqlite3_close(db);
-out_return:
-	if (zErr) {
-		fprintf(stderr, "%s: error: %s\n", argv[0], zErr);
-		return EXIT_FAILURE;
-	} else {
-		return EXIT_SUCCESS;
-	}
+	DB_Close();
+	return 0;
 }
 
+static void noreturn usage()
+{
+	fprintf(stderr, "usage: %s dbfile\n", __progname);
+	exit(1);
+}
