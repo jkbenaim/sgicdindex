@@ -67,7 +67,7 @@ void make_discs(struct product_s product)
 		printf("</td>\n");
 		printf("\t<td>");
 #ifdef SHOW_IDS
-		printf("%d ", disc.disc_id);
+		printf("%d ", disc.id);
 #endif
 		if (disc.havefile) {
 			printf("<a href=\"cds/");
