@@ -41,6 +41,14 @@ void make_discs(struct product_s product)
 			filename = strdup("");
 		}
 
+		char *tarname = NULL;
+		if (disc.havetar) {
+			tarname = strdup(filename);
+			char *dot = rindex(tarname, '.');
+			if (dot and (strlen(dot) >= strlen(".tar")))
+				strcpy(dot, ".tar");
+		}
+
 		printf("<tr id=\"disc-%d\">\n", disc.id);
 		if (!did_first_row) {
 			did_first_row = true;
@@ -75,6 +83,9 @@ void make_discs(struct product_s product)
 			printf("\">");
 			printf("%s", name);
 			printf("</a>");
+			if (disc.havetar) {
+				printf(" (<a href=\"tar/%s\">tar</a>)", tarname);
+			}
 		} else {
 			printf(disc.name);
 		}
@@ -101,6 +112,7 @@ void make_discs(struct product_s product)
 		printf("</td>\n");
 		printf("</tr>\n");
 		free(filename);
+		free(tarname);
 		free(name);
 		free(note);
 		free(attachmentURL);

@@ -34,6 +34,7 @@ struct disc_s {
 	const char *attachment;
 	bool is_newest;
 	bool havefile;
+	bool havetar;
 	sqlite3_stmt *_stmt;
 	int _rc;
 };

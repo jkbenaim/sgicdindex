@@ -103,7 +103,7 @@ void discinit(struct disc_s *disc, int product_id)
 	disc->product_id = product_id;
 	rc = sqlite3_prepare_v2(
 		db,
-		"select disc_id, name, cd_pn, case_pn, substr(date,6,2)||'/'||substr(date,1,4), note, filename, contributor, attachment, date_added=(select max(Date_added) from discs), havefile from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date, cd_pn;",
+		"select disc_id, name, cd_pn, case_pn, substr(date,6,2)||'/'||substr(date,1,4), note, filename, contributor, attachment, date_added=(select max(Date_added) from discs), havefile, havetar from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date, cd_pn;",
 		-1,
 		&(disc->_stmt),
 		NULL
@@ -128,6 +128,7 @@ int discstep(struct disc_s *disc)
 		disc->attachment= sqlite3_column_text(disc->_stmt, 8);
 		disc->is_newest	= sqlite3_column_int(disc->_stmt, 9);
 		disc->havefile	= sqlite3_column_int(disc->_stmt, 10);
+		disc->havetar   = sqlite3_column_int(disc->_stmt, 11);
 	}
 	return rc;
 }
