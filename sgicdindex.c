@@ -168,11 +168,14 @@ int callback_sgi_cds()
 	printf("<ul>\n");
 	foreachpg(pg) {
 		printf("\t<li><a href=\"#pg-%d\">%s</a>\n", pg.id, pg.name);
+		/*
 		printf("\t<ul>\n");
 		foreachproduct(product,pg.id) {
 			printf("\t\t<li>%s</li>\n", product.name);
 		}
 		printf("\t</ul></li>\n");
+		*/
+		printf("</li>\n");
 	}
 	printf("</ul>\n");
 	printf("<hr/>\n");
