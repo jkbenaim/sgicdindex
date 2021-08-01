@@ -155,13 +155,15 @@ int callback_sgi_cds()
 		"<body>\n"
 		"<h1><a href=\"/\"><img src=\"../jrrazone.svg\" alt=\"jrra.zone\"/></a></h1>\n"
 		"<h2>SGI/IRIX CDs</h2>\n"
+		"<hr/>\n"
+		"<h3>News</h3>\n"
+		"<p>2021-07-31: Added tarball downloads via Sophie Haskins' <a href=\"https://github.com/sophaskins/efs2tar\">efs2tar</a>. Thanks!</p>\n"
 	);
 
 	struct pg_s pg;
 	struct product_s product;
 	struct disc_s disc;
 
-	printf("<hr/>\n");
 	printf("<h3>Index</h3>\n");
 	printf("<ul>\n");
 	foreachpg(pg) {
