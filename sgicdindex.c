@@ -157,6 +157,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2021-08-26: Added MIPSpro 7.4 compilers for C, C++, and Fortran 77, along with Compiler Execution Environment 7.4, ProDev WorkShop 2.9.2, IRIX Development Foundation 1.3, and ProPack 6 SP3, all from chulofiasco via the library of Zerolapse. Thank you!</p>\n"
 		"<p>2021-07-31: Added tarball downloads via Sophie Haskins' <a href=\"https://github.com/sophaskins/efs2tar\">efs2tar</a>. Thanks!</p>\n"
 	);
 
