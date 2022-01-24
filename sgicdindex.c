@@ -159,6 +159,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2022-01-23: Added IRIX 6.5.29 courtest of chulofiasco. Thank you! Also added some missing discs from the 6.5.27 set.</p>\n"
 		"<p>2021-09-15: Added tons of Itanium Linux discs courtesy of Titox. Thank you! Also added Pasal Compiler versions 1.3.1, 1.4.3, and 1.4.4.</p>\n"
 		"<p>2021-08-26: Added MIPSpro 7.4 compilers for C, C++, and Fortran 77, along with Compiler Execution Environment 7.4, ProDev WorkShop 2.9.2, IRIX Development Foundation 1.3, and ProPack 6 SP3, all from chulofiasco via the library of Zerolapse. Thank you!</p>\n"
 		"<p>2021-07-31: Added tarball downloads via Sophie Haskins' <a href=\"https://github.com/sophaskins/efs2tar\">efs2tar</a>. Thanks!</p>\n"
