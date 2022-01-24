@@ -9,6 +9,8 @@
 #include "db.h"
 #include "escape.h"
 
+// #define SHOW_IDS 1
+
 extern char *__progname;
 static void noreturn usage(void);
 
