@@ -1,0 +1,404 @@
+disc_id,name,cd_pn,case_pn,date,name,note,contributor,date_added
+167,"Compilers, C and C++",812-0001-003,,1991-11-01,"C++ Translator 2.1.1",,jrra,
+2,"Compilers, C and C++",812-0001-005,812-0001-005,1993-05-01,"C++ Translator 3.0.1",,jrra,
+166,"Compilers, C and C++",812-0130-001,,1993-03-01,"C++ Translator 3.1",,jrra,
+169,"Compilers, C and C++",812-0130-003,,1993-08-01,"C++ Translator 3.2",,jrra,
+3,"Compilers, C and C++",812-0130-005,,1994-11-01,"C++ Translator 4.0",,jrra,
+254,"Compilers, C and C++",812-0135-004,812-0135-004,1994-03-01,"IRIS Power C 2.4.1",,jrra,2021-05-23
+320,"Compilers, C and C++",812-0400-001,813-0400-001,1995-07-01,"MIPSPro C++ 6.1",,jrra,2021-05-23
+60,"Compilers, C and C++",812-0707-001,814-0707-001,1997-09-01,"MIPSpro C Compiler 7.2","for IRIX 6.2, 6.3 and 6.4",jrra,
+210,"Compilers, C and C++",812-0707-003,,1999-05-01,"MIPSpro C Compiler 7.3","for IRIX 6.2, 6.3, 6.4 and 6.5",jrra,2020-07-14
+359,"Compilers, C and C++",812-0707-010,,2002-11-01,"MIPSpro C Compiler 7.4","requires IRIX 6.5 or later","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+61,"Compilers, C and C++",812-0400-002,814-0400-002,1996-03-01,"MIPSpro C++ 6.2",,jrra,
+62,"Compilers, C and C++",812-0400-007,814-0400-007,1997-09-01,"MIPSpro C++ 7.2","for IRIX 6.2, 6.3 and 6.4",jrra,
+357,"Compilers, C and C++",812-0400-010,,2002-11-01,"MIPSpro C++ Compiler 7.4","requires IRIX 6.5 or later","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+256,"Compilers, C and C++",812-0043-002,812-0043-002,1992-03-01,"Power C 2.0",,jrra,2021-05-23
+253,"Compilers, C and C++",812-0043-004,812-0043-004,1993-05-01,"Power C 2.1.1",,jrra,2021-05-23
+307,"Compilers, other",812-0373-002,813-0373-002,1995-08-01,"Ada95 Compiler 1.1",,jrra,2021-05-23
+252,"Compilers, other",812-0014-001,812-0014-001,1991-09-01,"Fortran 77 Compiler 3.4",,jrra,2021-05-23
+251,"Compilers, other",812-0014-005,812-0014-005,1993-05-01,"Fortran 77 Compiler 3.5.1",,jrra,2021-05-23
+250,"Compilers, other",812-0132-002,812-0132-002,1993-06-01,"Fortran 77 Compiler 3.6.1",,jrra,2021-05-23
+150,"Compilers, other",812-0132-004,,1993-09-01,"Fortran 77 Compiler 4.0+",,jrra,
+316,"Compilers, other",812-0132-007,813-0132-007,1994-11-01,"Fortran 77 Compiler 4.0.2",,jrra,2021-05-23
+321,"Compilers, other",812-0403-001,813-0403-001,1995-07-01,"Fortran 77 Compiler 6.1",,jrra,2021-05-23
+308,"Compilers, other",812-0402-001,813-0402-001,1995-07-01,"Fortran90 Compiler 6.1",,jrra,2021-05-23
+323,"Compilers, other",812-0402-002,813-0402-002,1995-08-01,"Fortran90 Compiler 6.1",,jrra,2021-05-23
+358,"Compilers, other",812-0403-010,,2002-11-01,"MIPSpro Fortran 77 Compiler 7.4","requires IRIX 6.5 or later","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+248,"Compilers, other",812-0294-001,812-0294-001,1994-08-01,"MIPSpro Power Fortran 77 6.0",,jrra,2021-05-23
+306,"Compilers, other",812-0395-001,813-0395-001,1995-07-01,"MIPSpro Power Fortran 77 6.1",,jrra,2021-05-23
+246,"Compilers, other",812-0003-004,812-0003-004,1993-05-01,"Pascal Compiler 1.3.1",,jrra,2021-09-15
+247,"Compilers, other",812-0131-004,812-0131-004,1994-03-01,"Pascal Compiler 1.4.3",,jrra,2021-09-15
+315,"Compilers, other",812-0131-005,813-0131-005,1994-11-01,"Pascal Compiler 1.4.4",,jrra,2021-09-15
+249,"Compilers, other",812-0134-005,812-0134-005,1994-04-01,"Power Fortran Accelerator 4.0.1",,jrra,2021-05-23
+255,"Compilers, other",812-0134-004,812-0134-004,1994-03-01,"Power Fortran Accelerator 4.0.1 (early)",,jrra,2021-05-23
+190,Demos,009-0783-006,814-0544-006,1997-01-01,"Hot Mix 17",,jrra,
+13,Demos,009-0783-008,814-0544-008,1998-06-01,"Hot Mix 19",,jrra,
+305,Demos,812-0544-001,814-0544-001,1996-04-01,"HotMix 13",,jrra,2021-05-23
+281,Demos,812-8101-007,"",1994,"HotMix 7",,jrra,2021-05-23
+148,Demos,812-0527-001,,1996-03-01,"Impact Demos CD 6.2",,Ciao!,
+340,Demos,812-8102-002,812-8102-002,,"IndiZone 1","for IRIX 5.2",Sue,2021-05-31
+341,Demos,812-8111-002,812-8111-002,,"IndiZone 2","This is one with Doom on it",Sue,2021-05-31
+342,Demos,812-8111-003,814-8111-003,,"IndiZone 3",,Sue,2021-05-31
+118,Demos,812-0646-001,,1997-01-01,"O2 Demos 1.0","for IRIX 6.3 including R10000",jrra,
+115,Demos,812-0646-003,,1997-07-01,"O2 Demos 1.1.1","for IRIX 6.3 including R10000",jrra,
+64,Demos,812-0780-002,,1999-01-01,"O2 Demos 1.3","for IRIX 6.5 and later",jrra,
+65,Demos,812-0782-003,,2000-02-01,"O2 Out of Box Experience 2.4","for IRIX 6.5 and later",jrra,
+66,Demos,812-0781-002,,1999-01-01,"OCTANE Demos 1.3","for IRIX 6.5 and later",jrra,
+270,Demos,,"",,"Silicon ArtFX",,jrra,2021-05-23
+70,Demos,812-1066-002,,2001-05-01,"Silicon Graphics General and Platform Demos 6.5.12 (1 of 2)",,jrra,
+71,Demos,812-1086-002,,2001-05-01,"Silicon Graphics General and Platform Demos 6.5.12 (2 of 2)",,jrra,
+165,"IRIX 4",812-0017-002,,1991-09-01,"IRIS Development Option 4.0",,jrra,
+265,"IRIX 4",812-0017-001,812-0017-001,1991-09-01,"IRIS Development Option 4.0",,jrra,2021-05-23
+82,"IRIX 4",812-0017-003,,1991-11-01,"IRIS Development Option 4.0.1",,jrra,
+15,"IRIX 4",812-0017-006,812-0017-006,1993-05-01,"IRIS Development Option 4.1.1",,jrra,
+81,"IRIX 4.0.1",812-0064-001,,1991-11-01,"IRIX Execution plus Maintenance 4.0.1",,jrra,
+94,"IRIX 4.0.1",812-0033-002,,1991-11-01,"IRIX W4D Update 4.0.1",,jrra,
+95,"IRIX 4.0.1",812-0007-003,,1991-11-01,"Network File System 4.0.1","aka NFS for IRIX 4.0.1",jrra,
+170,"IRIX 4.0.2",812-0064-004,,1992-03-01,"IRIX 4.0.2",,jrra,
+258,"IRIX 4.0.2",812-0064-002,812-0064-002,1992-02-01,"IRIX 4.0.2",,jrra,2021-05-23
+172,"IRIX 4.0.4",812-0078-004,,1992-03-01,"IRIX Maintenance 4.0.4",,jrra,
+168,"IRIX 4.0.4",812-0033-007,,1992-03-01,"IRIX Update 4.0.4",,jrra,
+266,"IRIX 4.0.5",812-0045-010,812-0045-010,1993-10-01,"Diagnostic 4.0.5J",,jrra,2021-05-23
+259,"IRIX 4.0.5",812-0064-012,812-0064-012,1992-09-01,"IRIX 4.0.5 F","INDIGO/REALITY ENGINE ONLY",jrra,2021-05-23
+18,"IRIX 4.0.5",812-0064-018,812-0064-018,1993-04-01,"IRIX 4.0.5H","Indigo2, Reality Engine with MCO, Crimson Extreme and Challenge M Only",jrra,
+19,"IRIX 4.0.5",812-0250-002,812-0250-002,1993-12-01,"IRIX 4.0.5H and 4.0.5IOP R4400 Patch",,jrra,
+173,"IRIX 4.0.5",812-0078-006,,1992-07-01,"IRIX Maintenance 4.0.5",,jrra,
+257,"IRIX 4.0.5",812-0078-010,812-0078-010,1992-09-01,"IRIX Maintenance 4.0.5 F",,jrra,2021-05-23
+59,"IRIX 4.0.5",812-0078-015,812-0078-015,1993-03-01,"IRIX Maintenance 4.0.5 H","Indigo2, Reality Engine, Crimson Extreme and Challenge M Only",jrra,
+164,"IRIX 5.0",812-0129-001,,1993-03-01,"IRIS Development Option 5.0",,jrra,
+178,"IRIX 5.0",812-0119-001,,1993-02-01,"IRIX 5.0","Onyx workstations & Challenge servers only",jrra,
+159,"IRIX 5.0",812-0128-001,,1993-03-01,"Network File System 5.0","aka NFS for IRIX 5.0",jrra,
+158,"IRIX 5.0",812-0128-002,,1993-06-01,"Network File System 5.0.1","aka NFS for IRIX 5.0.1",jrra,
+185,"IRIX 5.1",812-0129-003,812-0129-003,1993-08-01,"IRIS Development Option 5.1","came with errata sheet",jrra,
+125,"IRIX 5.1",812-0128-003,,1993-08-01,"Network File System 5.1","aka NFS for IRIX 5.1",jrra,
+20,"IRIX 5.1.1",812-0119-004,,1993-09-01,"IRIX 5.1.1","Indigo2 XL, Indigo2 with Galileo Video, Indigo with Galileo Video, Challenge and Onyx Only",jrra,
+199,"IRIX 5.1.1",812-0238-003,,1993-12-01,"IRIX 5.1.1 Patch #3",,jrra,
+179,"IRIX 5.1.1",812-0238-001,,1993-09-01,"IRIX Patch 5.1.1.1",,jrra,
+180,"IRIX 5.1.1",812-0238-002,,1993-11-01,"IRIX Patch 5.1.1.2",,jrra,
+120,"IRIX 5.1.1",812-0232-002,,1993-09-01,"Indy IRIX 5.1.1",,jrra,
+21,"IRIX 5.2",812-0119-005,812-0119-005,1994-03-01,"IRIX 5.2",,jrra,
+181,"IRIX 5.2",812-5.2beta-002,,1994-02-01,"IRIX 5.2 Beta II","Final Qualification",jrra,
+110,"IRIX 5.2",812-0290-002,,1999-01-01,"IRIX 5.2 Patches #2",,jrra,
+121,"IRIX 5.2",812-0279-003,,1994-08-01,"IRIX 5.2 for Indy R4600SC/XZ & Presenter",,jrra,
+126,"IRIX 5.2",812-0128-004,,1994-03-01,"Network File System 5.2","aka NFS for IRIX 5.2",jrra,
+184,"IRIX 5.3",812-0451-001,813-0451-001,1995-12-01,"5.3 Patches for Indigo2 250Mhz R4400 EX/XZ/XL",,jrra,
+16,"IRIX 5.3",812-0129-005,,1994-11-01,"IRIS Development Option 5.3",,jrra,
+194,"IRIX 5.3",812-0553-001,814-0553-001,1996-05-01,"IRIX 5.2, 5.3, and 5.3XFS IP19 Required Patch Set 5/96",,jrra,
+22,"IRIX 5.3",812-0119-006,813-0119-006,1994-11-01,"IRIX 5.3",,jrra,
+182,"IRIX 5.3",812-0119-010,,1995-12-01,"IRIX 5.3 All Indigo2 IMPACT",,jrra,
+295,"IRIX 5.3",812-0324-001,813-0324-001,1994-12-01,"IRIX 5.3 Onyx RE/REII Patch","IRIX 5.3 Onyx RE and REII Patch",jrra,2021-05-23
+262,"IRIX 5.3",812-0119-009,812-0119-009,1995-09-01,"IRIX 5.3 for Indigo2 Impact",,jrra,2021-05-23
+23,"IRIX 5.3",812-0336-002,813-0336-002,1995-08-01,"IRIX 5.3 for Indy","R4000, R4400, R4600 (100-200 MHz)",jrra,
+139,"IRIX 5.3",812-0336-004,,1996-02-01,"IRIX 5.3 for Indy including R5000",,jrra,
+235,"IRIX 5.3",812-0119-008,813-0119-008,1995-08-01,"IRIX 5.3 with 175Mhz and 2MB cache support",,jrra,2020-10-15
+285,"IRIX 5.3",812-0361-001,813-0361-001,1995-06-01,"IRIX 5.3 with XFS Patch CD",,jrra,2021-05-23
+63,"IRIX 5.3",812-0128-005,813-0128-005,1994-11-01,"Network File System 5.3","aka NFS for IRIX 5.3",jrra,
+291,"IRIX 6.0",812-0303-001,812-0303-001,1994-08-01,"Diagnostics 6.0",,jrra,2021-05-23
+290,"IRIX 6.0",812-0303-002,813-0303-002,1995-02-01,"Diagnostics 6.0.1",,jrra,2021-05-23
+287,"IRIX 6.0",812-0297-001,812-0297-001,1994-08-01,"IRIS Development Option 6.0",,jrra,2021-05-23
+286,"IRIX 6.0",812-0302-001,812-0302-001,1994-08-01,"IRIX 6.0",,jrra,2021-05-23
+289,"IRIX 6.0",812-0305-001,812-0305-001,1994-08-01,"Network File System 6.0",,jrra,2021-05-23
+276,"IRIX 6.0",812-0315-001,812-0315-001,1994-09-01,"Sirius Video 6.0",,jrra,2021-05-23
+303,"IRIX 6.1",812-0383-001,813-0383-001,1995-07-01,"IRIS Development Option 6.1",,jrra,2021-05-23
+322,"IRIX 6.1",812-0382-001,813-0382-001,1995-07-01,"IRIX 6.1",,jrra,2021-05-23
+319,"IRIX 6.1",812-0305-003,813-0305-003,1995-07-01,"Network File System 6.1",,jrra,2021-05-23
+193,"IRIX 6.2",812-0652-001,814-0652-001,1997-02-01,"IP19/IP21/IP25 Patchsets 2/97 for IRIX 6.2",,jrra,
+17,"IRIX 6.2",812-0478-001,814-0478-001,1996-03-01,"IRIS Development Option 6.2",,jrra,
+24,"IRIX 6.2",812-0469-001,814-0469-001,1996-03-01,"IRIX 6.2 (Part 1 of 2)","Supported Systems: Indy, Indy R5K, Indigo2, Indigo2 R4K, Indigo2 Impact, Crimson (except GTX), Onyx, Onyx InfiniteReality, Onyx InfiniteReality 10000, Power Onyx, Challenge, Power Challenge, Power Challenge 10000",jrra,
+25,"IRIX 6.2",812-0470-001,814-0469-001,1996-03-01,"IRIX 6.2 (Part 2 of 2)","Supported Systems: Indy, Indy R5K, Indigo2, Indigo2 R4K, Indigo2 Impact, Crimson (except GTX), Onyx, Onyx InfiniteReality, Onyx InfiniteReality 10000, Power Onyx, Challenge, Power Challenge, Power Challenge 10000",jrra,
+26,"IRIX 6.2",812-0542-001,814-0542-001,1996-05-01,"IRIX 6.2 Applications May 1996",,jrra,
+149,"IRIX 6.2",812-0542-003,814-0542-003,1997-08-01,"IRIX 6.2 Auxiliary Applications",,Ciao!,
+27,"IRIX 6.2",812-0695-001,814-0695-001,1997-09-01,"IRIX 6.2 Development Foundation",,jrra,
+132,"IRIX 6.2",812-0695-003,,1999-05-01,"IRIX 6.2 Development Foundation 1.2",,jrra,
+28,"IRIX 6.2",812-0698-001,814-0698-001,1997-09-01,"IRIX 6.2 Development Libraries",,jrra,
+200,"IRIX 6.2",812-0687-016,,1998-07-01,"IRIX 6.2 Fix on Fail Patches (1 of 2)",,jrra,
+201,"IRIX 6.2",812-0720-016,,1998-07-01,"IRIX 6.2 Fix on Fail Patches (2 of 2)",,jrra,
+146,"IRIX 6.2",812-0469-002,813-0469-002,1996-06-01,"IRIX 6.2 with Indigo2 IMPACT 10000 (Part 1 of 2)","Supported Systems: Indigo2, R4K Indigo, Power Indigo2, Indigo2 IMPACT, Indigo2 IMPACT 10000",Ciao!,
+147,"IRIX 6.2",812-0470-002,,1996-06-01,"IRIX 6.2 with Indigo2 IMPACT 10000 (Part 2 of 2)","Supported Systems: Indigo2, R4K Indigo, Power Indigo2, Indigo2 IMPACT, Indigo2 IMPACT 10000",Ciao!,
+187,"IRIX 6.2",813-0305-006,812-0305-006,1996-08-01,"NFS/ONC3 for IRIX 6.2 Version 1.2",,jrra,
+29,"IRIX 6.3",812-0696-001,814-0696-001,1997-09-01,"IRIX 6.3 Development Foundation",,jrra,
+130,"IRIX 6.3",812-0696-003,,1999-05-01,"IRIX 6.3 Development Foundation 1.2",,jrra,
+30,"IRIX 6.3",812-0699-001,814-0699-001,1997-09-01,"IRIX 6.3 Development Libraries",,jrra,
+354,"IRIX 6.4",812-0622-001,,1997-05-01,"Digital Media 3.0",,jrra,2021-06-18
+351,"IRIX 6.4",812-0688-007,,1997-10-01,"IRIX 6.3 and 6.4 Recommended/Required Patches October 1997",,jrra,2021-06-18
+138,"IRIX 6.4",812-0616-002,813-0616-002,1997-02-01,"IRIX 6.4","for Origin, Onyx2, and OCTANE",jrra,
+192,"IRIX 6.4",812-0617-003,813-0617-003,1997-08-01,"IRIX 6.4 Applications",,jrra,
+352,"IRIX 6.4",812-0617-002,,1997-02-01,"IRIX 6.4 Applications",,jrra,2021-06-18
+31,"IRIX 6.4",812-0697-001,814-0697-001,1997-09-01,"IRIX 6.4 Development Foundation",,jrra,
+131,"IRIX 6.4",812-0697-003,,1999-05-01,"IRIX 6.4 Development Foundation 1.2",,jrra,
+32,"IRIX 6.4",812-0700-001,814-0700-001,1997-09-01,"IRIX 6.4 Development Libraries",,jrra,
+355,"IRIX 6.4",812-0778-001,,1998-06-01,"IRIX 6.4 Gigabit Ethernet",,jrra,2021-06-18
+213,"IRIX 6.4",812-0722-030,026-1326-030,1999-09-01,"IRIX 6.4 Recommended Required Patches 1 of 2",,jrra,2020-08-21
+214,"IRIX 6.4",812-0919-030,026-1326-030,1999-09-01,"IRIX 6.4 Recommended Required Patches 2 of 2",,jrra,2020-08-21
+353,"IRIX 6.4",812-0672-003,,1997-08-01,"OCTANE I/O Patches August 1997",,jrra,2021-06-18
+267,Inventor,812-0136-002,812-0136-002,1993-06-01,"IRIS Inventor 1.1.1",,jrra,2021-05-23
+273,Inventor,812-0136-004,812-0136-004,1994-03-01,"Open Inventor 2.0",,jrra,2021-05-23
+261,Inventor,812-0136-007,812-0136-007,1995-10-01,"Open Inventor 2.1",,jrra,2021-05-23
+317,Inventor,812-0136-008,813-0136-008,1995-11-01,"Open Inventor 2.1.1",,jrra,2021-05-23
+309,Inventor,,"",,"Open Inventor Games CD",,jrra,2021-05-23
+302,Libraries,812-0206-005,813-0206-005,1995-07-01,"ImageVision Library 2.5",,jrra,2021-05-23
+314,Libraries,812-0260-001,812-0260-001,1994-03-01,"Impressario 1.2 Developer’s Kit",,jrra,2021-05-23
+68,Libraries,812-0653-002,,1999-07-01,"SCSL Scientific Library 1.2","for IRIX 6.4 and 6.5",jrra,
+69,Libraries,812-0653-003,,2000-07-01,"SCSL Scientific Library 1.3","for IRIX 6.4 and 6.5",jrra,
+328,Linux,,"",1999-04-30,"SGI Linux .6 Test Copy",,jrra,2021-05-23
+333,Linux,,"",1999-06-10,"SGI Linux 6",,jrra,2021-05-23
+338,Linux,812-0934-003,"",1999-11-01,"SGI Linux Environment 1.1 Installation CD",,jrra,2021-05-23
+335,Linux,812-0934-001,"",1999-06-01,"SGI Linux Environment Installation CD","BETA 1.0",jrra,2021-05-23
+334,Linux,812-0933-001,"",1999-06-01,"SGI Linux Environment Source CD","BETA 1.0",jrra,2021-05-23
+337,Linux,812-0934-002,"",1999-06-01,"SGI Linux Environment v1.0 Installation CD",,jrra,2021-05-23
+325,Linux,812-0933-002,"",1999-06-01,"SGI Linux Environment v1.0 Source CD",,jrra,2021-05-23
+326,Linux,,"",1999-09-24,"SGI Linux Environment v1.1 Installation CD Campus Alpha",,jrra,2021-05-23
+339,Linux,812-1001-001,"",2000-02-01,"SGI ProPack 1.2 for Linux",,jrra,2021-05-23
+331,Linux,,"",2000-03-31,"SGI ProPack 1.2 for Linux - 230 Edition BETA 1",,jrra,2021-05-23
+330,Linux,,"",2000-02-09,"SGI ProPack 1.2 for Linux Feb08","SGI Confidential / for use with Linux 6.1 / workaround required to work with SuSE 6.3",jrra,2021-05-23
+332,Linux,812-1035-001,"",,"SGI ProPack 1.3 for Linux - Visual Workstation Edition",,jrra,2021-05-23
+329,Linux,,"",2000-05-09,"SGI ProPack 1.3 for Linux Engineering Alpha",,jrra,2021-05-23
+327,Linux,,"",2000-09-29,"SGI ProPack 1.4 Sep 28a",,jrra,2021-05-23
+363,Linux,812-1268-004,,2009-04-01,"SGI ProPack 6 for Linux Service Pack 3 for ia64 architecture","For Use with SUSE Linux Enterprise Server 10 SP2","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+364,Linux,812-1269-004,,2009-04-01,"SGI ProPack 6 for Linux Service Pack 3 for x86_64 architecture","For Use with SUSE Linux Enterprise Server 10 SP2","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+157,Misc,812-0101-001,,1992-08-01,"3.10 Compilers Maintenance Update",,jrra,
+137,Misc,812-0924-001,,1999-05-01,"Compiler Execution Environment 7.3","for IRIX 6.5 through 6.5.4",jrra,
+362,Misc,812-0924-002,,2002-11-01,"Compiler Execution Environment 7.4","requires IRIX 6.5 or later","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+279,Misc,812-8101-012,"",1995,"Developer Magic","Booklet calls this ""HotMix 12""",jrra,2021-05-23
+313,Misc,812-0127-004,813-0127-004,1994-11-01,"Documenter’s Workbench 4.1.3",,jrra,2021-05-23
+197,Misc,812-0099-003,,1993-05-01,"Impressario 1.1 Developer's Kit",,jrra,
+348,Misc,812-0772-001,,1998-06-01,"MIPSpro 7.2.1 Compiler Patches June 1998","for IRIX 6.2, 6.3, 6.4 and 6.5",jrra,2021-06-11
+299,Misc,812-0288-003,813-0288-003,1995-03-01,"MegaDev 3.0",,jrra,2021-05-23
+136,Misc,812-0768-003,,1999-05-01,"ProDev Developers Suite",,jrra,
+318,Misc,812-0298-004,813-0298-004,1995-08-01,"ProDev WorkShop 2.5.1",,jrra,2021-05-23
+208,Misc,812-0768-005,,2001-12-01,"ProDev WorkShop 2.9.1","for IRIX 6.2 and later",jrra,2020-07-14
+361,Misc,812-0768-006,,2002-11-01,"ProDev WorkShop 2.9.2","requires IRIX 6.5 or later","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+104,Misc,812-0398-001,,1995-08-01,"RapidApp 1.1",,jrra,
+324,Misc,812-0379-002,813-0379-002,1995-08-01,"WorkShop Ada Extensions 1.1",,jrra,2021-05-23
+288,Misc,812-0376-001,813-0376-001,1995-08-01,"WorkShop Pro MPF 2.5",,jrra,2021-05-23
+283,"Misc patches",812-0412-001,813-0412-001,1995-08-01,"8505XL Patch CD",,jrra,2021-05-23
+1,"Misc patches",812-1197-001,,2004-05-01,"Artifex Technology Patch","for IRIX 6.5.15 through 6.5.23",jrra,
+177,"Misc patches",812-0251-002,,1993-12-01,"Indigo2 XL & Memory Parity Patch",,jrra,
+171,"Misc patches",812-0245-001,,1993,"Memory Parity Patch for 4.0.5 IRIX",,jrra,
+205,"Misc patches",812-0788-001,,1998-06-01,"Origin200 GIGAchannel System Disk Patch Supplement",,jrra,
+183,"Misc patches",812-0355-001,813-0355-001,1995-04-01,"Patch SG0000466",,jrra,
+174,"Misc patches",812-0505-001,,1996-02-01,"Patches for IRIX 5.3 for All Indigo2 IMPACT",,jrra,
+304,"Misc patches",812-0589-002,813-0589-002,1996-09-01,"SCSI Patches 2.0",,jrra,2021-05-23
+371,"SGI ProPack 3",812-1163-007,,2004-05-01,"SGI Advanced Linux Environment 3 Installation CD 1 of 4",,Titox,2021-09-15
+372,"SGI ProPack 3",812-1164-007,,2004-05-01,"SGI Advanced Linux Environment 3 Installation CD 2 of 4",,Titox,2021-09-15
+373,"SGI ProPack 3",812-1192-007,,2004-05-01,"SGI Advanced Linux Environment 3 Installation CD 3 of 4",,Titox,2021-09-15
+374,"SGI ProPack 3",812-1193-007,,2004-05-01,"SGI Advanced Linux Environment 3 Installation CD 4 of 4",,Titox,2021-09-15
+375,"SGI ProPack 3",812-1165-004,,2004-05-01,"SGI Advanced Linux Environment 3 Source Code CD 1 of 3",,Titox,2021-09-15
+376,"SGI ProPack 3",812-1166-004,,2004-05-01,"SGI Advanced Linux Environment 3 Source Code CD 2 of 3",,Titox,2021-09-15
+377,"SGI ProPack 3",812-1194-004,,2004-05-01,"SGI Advanced Linux Environment 3 Source Code CD 3 of 3",,Titox,2021-09-15
+365,"SGI ProPack 3",812-1146-001,,2003-02-01,"SGI Linux Environment 7.2 Installation CD 1 of 2",,Titox,2021-09-15
+366,"SGI ProPack 3",812-1147-001,,2003-02-01,"SGI Linux Environment 7.2 Installation CD 2 of 2",,Titox,2021-09-15
+368,"SGI ProPack 3",812-1149-001,,2003-02-01,"SGI Linux Environment 7.2 Source Code CD 1 of 3",,Titox,2021-09-15
+369,"SGI ProPack 3",812-1150-001,,2003-02-01,"SGI Linux Environment 7.2 Source Code CD 2 of 3",,Titox,2021-09-15
+370,"SGI ProPack 3",812-1151-001,,2003-02-01,"SGI Linux Environment 7.2 Source Code CD 3 of 3",,Titox,2021-09-15
+367,"SGI ProPack 3",812-1148-001,,2003-02-01,"SGI Linux Environment 7.2 Updates",,Titox,2021-09-15
+381,"SGI ProPack 3",812-1155-009,,2004-05-01,"SGI ProPack 3 for Linux Documentation CD",,Titox,2021-09-15
+380,"SGI ProPack 3",812-1191-010,,2004-05-01,"SGI ProPack 3 for Linux Open/Free Source Code CD",,Titox,2021-09-15
+378,"SGI ProPack 3",812-1153-010,,2004-05-01,"SGI ProPack 3 for Linux Open/Free Source Software",,Titox,2021-09-15
+379,"SGI ProPack 3",812-1154-010,,2004-05-01,"SGI ProPack 3 for Linux Proprietary Software",,Titox,2021-09-15
+389,"SGI ProPack 3 Service Pack 6",812-1200-002,,2005-07-01,"QuickTransit 1.1","for Silicon Graphics Prism and SGI Altix Systems",Titox,2021-09-15
+382,"SGI ProPack 3 Service Pack 6",812-1163-011,,2005-08-01,"SGI Advanced Linux Environment 3 with Altix 330 Support Installation CD 1 of 4",,Titox,2021-09-15
+383,"SGI ProPack 3 Service Pack 6",812-1164-008,,2004-11-01,"SGI Advanced Linux Environment 3 with Altix 330 Support Installation CD 2 of 4",,Titox,2021-09-15
+384,"SGI ProPack 3 Service Pack 6",812-1192-007,,2004-05-01,"SGI Advanced Linux Environment 3 with Altix 330 Support Installation CD 3 of 4",,Titox,2021-09-15
+385,"SGI ProPack 3 Service Pack 6",812-1193-008,,2004-11-01,"SGI Advanced Linux Environment 3 with Altix 330 Support Installation CD 4 of 4",,Titox,2021-09-15
+386,"SGI ProPack 3 Service Pack 6",812-1165-004,,2004-05-01,"SGI Advanced Linux Environment 3 with Altix 330 Support Source Code CD 1 of 3",,Titox,2021-09-15
+387,"SGI ProPack 3 Service Pack 6",812-1166-005,,2004-11-01,"SGI Advanced Linux Environment 3 with Altix 330 Support Source Code CD 2 of 3",,Titox,2021-09-15
+388,"SGI ProPack 3 Service Pack 6",812-1194-005,,2004-11-01,"SGI Advanced Linux Environment 3 with Altix 330 Support Source Code CD 3 of 3",,Titox,2021-09-15
+397,"SGI ProPack 3 Service Pack 6",812-1185-002,,2004-11-01,"SGI Altix Showcase CD November 2004",,Titox,2021-09-15
+396,"SGI ProPack 3 Service Pack 6",812-1155-015,,2005-07-01,"SGI ProPack 3 for Linux Service Pack 6 Documentation CD",,Titox,2021-09-15
+394,"SGI ProPack 3 Service Pack 6",812-1191-017,,2005-08-01,"SGI ProPack 3 for Linux Service Pack 6 Open/Free Source Code CD 1 of 2",,Titox,2021-09-15
+395,"SGI ProPack 3 Service Pack 6",812-1206-017,,2005-08-01,"SGI ProPack 3 for Linux Service Pack 6 Open/Free Source Code CD 2 of 2",,Titox,2021-09-15
+390,"SGI ProPack 3 Service Pack 6",812-1153-017,,2005-08-01,"SGI ProPack 3 for Linux Service Pack 6 Open/Free Source Software CD 1 of 3",,Titox,2021-09-15
+391,"SGI ProPack 3 Service Pack 6",812-1198-017,,2005-08-01,"SGI ProPack 3 for Linux Service Pack 6 Open/Free Source Software CD 2 of 3",,Titox,2021-09-15
+392,"SGI ProPack 3 Service Pack 6",812-1211-017,,2005-08-01,"SGI ProPack 3 for Linux Service Pack 6 Open/Free Source Software CD 3 of 3",,Titox,2021-09-15
+393,"SGI ProPack 3 Service Pack 6",812-1154-017,,2005-08-01,"SGI ProPack 3 for Linux Service Pack 6 Proprietary Software CD",,Titox,2021-09-15
+310,Supportfolio,812-0290-003,"",1995-03-01,"Support Advantage 3/95 – IRIX Patches",,jrra,2021-05-23
+311,Supportfolio,812-4024-003,"",1995-03-01,"Support Advantage 3/95 – Support Libraries",,jrra,2021-05-23
+73,Supportfolio,812-0516-003,814-0516-003,1997-02-01,"Supportfolio 1.3 Electronic Services",,jrra,
+74,Supportfolio,812-0508-004,814-0508-004,1997-02-01,"Supportfolio 1.3 Information Resources",,jrra,
+75,Supportfolio,812-0638-001,,1997-02-01,"Supportfolio IRIX 5.3, 6.3, 6.4 Patches",,jrra,
+76,Supportfolio,812-0638-002,,1997-04-01,"Supportfolio IRIX 5.3, 6.3, 6.4 Patches",,jrra,
+77,Supportfolio,812-0603-002,,1997-02-01,"Supportfolio IRIX 6.2 Patches",,jrra,
+78,Supportfolio,812-0603-003,,1997-04-01,"Supportfolio IRIX 6.2 Patches",,jrra,
+284,"Trusted IRIX 4",812-0069-004,813-0069-004,1995-02-01,"Trusted IRIS Development Option 4.0.5EPL",,jrra,2021-05-23
+297,"Trusted IRIX 4",812-0068-004,813-0068-004,1995-02-01,"Trusted IRIX/B 4.0.5EPL",,jrra,2021-05-23
+260,WebFORCE,812-0421-001,812-0421-001,1995-09-01,"Gauntlet 3.0",,jrra,2021-05-23
+269,WebFORCE,812-0331-001,812-0331-001,1995-02-01,"WebFORCE Author 1.0",,jrra,2021-05-23
+268,WebFORCE,812-0331-002,812-0331-002,1995-05-01,"WebFORCE Author 1.0.1",,jrra,2021-05-23
+140,WebFORCE,812-0633-001,813-0633-001,1996-12-01,"WebFORCE Auxiliary December 1996","for IRIX 5.3, 6.2, 6.3, and 6.4",jrra,
+189,WebFORCE,812-0633-002,813-0633-002,1997-08-01,"WebFORCE Auxiliary August 1997","for IRIX 6.2, 6.3 and 6.4",jrra,
+144,"IRIX 6.5 Beta",812-0747-001,814-0747-001,1998-03-01,"IRIX 6.5 Beta Applications",,jrra,
+237,"IRIX 6.5 Beta",812-0751-001,814-0751-001,1998-03-01,"IRIX 6.5 Beta Base Documentation",,jrra,2021-02-06
+145,"IRIX 6.5 Beta",812-0749-001,814-0749-001,1998-03-01,"IRIX 6.5 Beta Compiler Foundation",,jrra,
+142,"IRIX 6.5 Beta",812-0748-001,814-0748-001,1998-03-01,"IRIX 6.5 Beta Development",,jrra,
+102,"IRIX 6.5 Beta",812-0745-001,814-0745-001,1998-03-01,"IRIX 6.5 Beta Foundation (1 of 2)",,jrra,
+103,"IRIX 6.5 Beta",812-0746-001,814-0746-001,1998-03-01,"IRIX 6.5 Beta Foundation (2 of 2)",,jrra,
+141,"IRIX 6.5 Beta",812-0744-001,814-0744-001,1998-03-01,"IRIX 6.5 Beta Installation",,jrra,
+117,"IRIX 6.5 Beta",812-0753-001,814-0753-001,1998-03-01,"IRIX 6.5 Beta O2 Demos",,jrra,
+143,"IRIX 6.5 Beta",812-0752-001,814-0752-001,1998-03-01,"IRIX 6.5 Beta OCTANE Demos",,jrra,
+243,"IRIX 6.5",812-0761-002,,1998-06-01,"IRIX 6.5 Applications June 1998",,jrra,2021-03-18
+123,"IRIX 6.5",812-0779-001,,1998-06-01,"IRIX 6.5 Base Documentation",,jrra,
+36,"IRIX 6.5",812-0757-002,,1998-06-01,"IRIX 6.5 Development Foundation",,jrra,
+209,"IRIX 6.5",812-0757-003,,1999-05-01,"IRIX 6.5 Development Foundation 1.2",,jrra,2020-07-14
+37,"IRIX 6.5",812-0766-002,,1998-06-01,"IRIX 6.5 Development Libraries",,jrra,
+38,"IRIX 6.5",812-0766-003,,2002-02-01,"IRIX 6.5 Development Libraries",,jrra,
+39,"IRIX 6.5",812-0759-002,,1998-06-01,"IRIX 6.5 Foundation 1",,jrra,
+40,"IRIX 6.5",812-0760-002,,1998-06-01,"IRIX 6.5 Foundation 2",,jrra,
+242,"IRIX 6.5",812-0758-002,,1998-06-01,"IRIX 6.5 Installation Tools",,jrra,2021-03-18
+360,"IRIX 6.5",812-0757-004,,2002-11-01,"IRIX Development Foundation 1.3","requires IRIX 6.5 or later","chulofiasco, courtesy the library of Zerolapse",2021-08-26
+350,"IRIX 6.5.1",812-0819-001,,1998-08-01,"IRIX 6.5.1 2 of 2 Overlays August 1998",,jrra,2021-06-11
+349,"IRIX 6.5.1",812-0825-001,,1998-08-01,"Varsity Update 1 of 1 August 1998","for IRIX 6.2, 6.3, 6.4 and 6.5",jrra,2021-06-11
+124,"IRIX 6.5.2",812-0779-002,,1998-11-01,"IRIX 6.5.2 Base Documentation",,jrra,
+100,"IRIX 6.5.2",812-0818-002,,1998-11-01,"IRIX 6.5.2 Installation Tools and Overlays (1 of 2)",,jrra,
+101,"IRIX 6.5.2",812-0819-002,,1998-11-01,"IRIX 6.5.2 Overlays (2 of 2)",,jrra,
+196,"IRIX 6.5.3",812-0779-003,,1999-02-01,"IRIX 6.5.3 Base Documentation",,jrra,
+107,"IRIX 6.5.3",812-0818-003,,1999-02-01,"IRIX 6.5.3 Installation Tools and Overlays (1 of 2)",,jrra,
+106,"IRIX 6.5.3",812-0819-003,,1999-02-01,"IRIX 6.5.3 Overlays (2 of 2)",,jrra,
+215,"IRIX 6.5.4",812-0877-003,,1999-05-01,"IRIX 6.5 Applications May 1999",,jrra,2020-08-21
+108,"IRIX 6.5.4",812-0818-004,,1999-05-01,"IRIX 6.5.4 Installation Tools and Overlays (1 of 2)",,jrra,
+109,"IRIX 6.5.4",812-0819-004,,1999-05-01,"IRIX 6.5.4 Overlays (2 of 2)",,jrra,
+216,"IRIX 6.5.4",812-0790-003,,1999-05-01,"WorldView Japanese 6.5.4",,jrra,2020-08-21
+129,"IRIX 6.5.5",812-0779-005,,1999-08-01,"IRIX 6.5.5 Base Documentation",,jrra,
+98,"IRIX 6.5.5",812-0818-005,,1999-08-01,"IRIX 6.5.5 Installation Tools and Overlays (1 of 2)",,jrra,
+99,"IRIX 6.5.5",812-0819-005,,1999-08-01,"IRIX 6.5.5 Overlays (2 of 2)",,jrra,
+153,"IRIX 6.5.6",812-0877-005,,1999-11-01,"IRIX 6.5 Applications November 1999",,jrra,
+154,"IRIX 6.5.6",812-0779-006,,1999-11-01,"IRIX 6.5.6 Base Documentation",,jrra,
+151,"IRIX 6.5.6",812-0818-006,,1999-11-01,"IRIX 6.5.6 Installation Tools and Overlays (1 of 2)",,jrra,
+152,"IRIX 6.5.6",812-0819-006,,1999-11-01,"IRIX 6.5.6 Overlays (2 of 2)",,jrra,
+33,"IRIX 6.5.7",812-0877-006,,2000-02-01,"IRIX 6.5 Applications February 2000",,jrra,
+52,"IRIX 6.5.7",812-0779-007,,2000-02-01,"IRIX 6.5.7 Base Documentation",,jrra,
+53,"IRIX 6.5.7",812-0818-007,,2000-02-01,"IRIX 6.5.7 Installation Tools and Overlays (1 of 2)",,jrra,
+54,"IRIX 6.5.7",812-0819-007,,2000-02-01,"IRIX 6.5.7 Overlays (2 of 2)",,jrra,
+86,"IRIX 6.5.8",812-0877-007,,2000-05-01,"IRIX 6.5 Applications May 2000",,,
+83,"IRIX 6.5.8",812-0818-008,,2000-05-01,"IRIX 6.5.8 Installation Tools and Overlays (1 of 3)",,,
+84,"IRIX 6.5.8",812-0819-008,,2000-05-01,"IRIX 6.5.8 Overlays (2 of 3)",,,
+85,"IRIX 6.5.8",812-0817-008,,2000-05-01,"IRIX 6.5.8 Overlays (3 of 3)",,,
+212,"IRIX 6.5.8",812-0790-005,"013-2776-004 REV A",2000-05-01,"WorldView Japanese 6.5.8",,jrra,2020-08-21
+35,"IRIX 6.5.9",812-0877-008,,2000-08-01,"IRIX 6.5 Applications August 2000",,jrra,
+55,"IRIX 6.5.9",812-0779-009,,2000-08-01,"IRIX 6.5.9 Base Documentation",,jrra,
+56,"IRIX 6.5.9",812-0818-009,,2000-08-01,"IRIX 6.5.9 Installation Tools and Overlays (1 of 3)",,jrra,
+57,"IRIX 6.5.9",812-0819-009,,2000-08-01,"IRIX 6.5.9 Overlays (2 of 3)",,jrra,
+58,"IRIX 6.5.9",812-0817-009,,2000-08-01,"IRIX 6.5.9 Overlays (3 of 3)",,jrra,
+221,"IRIX 6.5.10",812-0877-009,"013-2776-006 REV A",2000-11-01,"IRIX 6.5 Applications November 2000",,jrra,2020-08-21
+219,"IRIX 6.5.10",812-0818-010,"013-2776-006 REV A",2000-11-01,"IRIX 6.5.10 Installation Tools and Overlays (1 of 3)",,jrra,2020-08-21
+220,"IRIX 6.5.10",812-0819-010,"013-2776-006 REV A",2000-11-01,"IRIX 6.5.10 Overlays (2 of 3)",,jrra,2020-08-21
+218,"IRIX 6.5.10",812-0817-010,"013-2776-006 REV A",2000-11-01,"IRIX 6.5.10 Overlays (3 of 3)",,jrra,2020-08-21
+217,"IRIX 6.5.10",812-0790-006,"013-2776-006 REV A",2000-11-01,"WorldView Japanese 6.5.10",,jrra,2020-08-21
+230,"IRIX 6.5.11",812-0877-010,"013-2478-011 REV A",2001-02-01,"IRIX 6.5 Applications February 2001",,jrra,2020-08-21
+228,"IRIX 6.5.11",812-0818-011,"013-2478-011 REV A",2001-02-01,"IRIX 6.5.11 Installation Tools and Overlays (1 of 3)",,jrra,2020-08-21
+229,"IRIX 6.5.11",812-0819-011,"013-2478-011 REV A",2001-02-01,"IRIX 6.5.11 Overlays (2 of 3)",,jrra,2020-08-21
+227,"IRIX 6.5.11",812-0817-011,"013-2478-011 REV A",2001-02-01,"IRIX 6.5.11 Overlays (3 of 3)",,jrra,2020-08-21
+226,"IRIX 6.5.12",812-0877-011,"013-2776-007 REV A",2001-05-01,"IRIX 6.5 Applications May 2001",,jrra,2020-08-21
+224,"IRIX 6.5.12",812-0818-012,"013-2776-007 REV A",2001-05-01,"IRIX 6.5.12 Installation Tools and Overlays (1 of 3)",,jrra,2020-08-21
+225,"IRIX 6.5.12",812-0819-012,"013-2776-007 REV A",2001-05-01,"IRIX 6.5.12 Overlays (2 of 3)",,jrra,2020-08-21
+223,"IRIX 6.5.12",812-0817-012,"013-2776-007 REV A",2001-05-01,"IRIX 6.5.12 Overlays (3 of 3)",,jrra,2020-08-21
+222,"IRIX 6.5.12",812-0790-007,"013-2776-007 REV A",2001-05-01,"WorldView Japanese 6.5.12",,jrra,2020-08-21
+234,"IRIX 6.5.13",812-0877-012,"013-2478-013 REV A",2001-08-01,"IRIX 6.5 Applications August 2001",,jrra,2020-08-21
+232,"IRIX 6.5.13",812-0818-013,"013-2478-013 REV A",2001-08-01,"IRIX 6.5.13 Installation Tools and Overlays (1 of 3)",,jrra,2020-08-21
+233,"IRIX 6.5.13",812-0819-013,"013-2478-013 REV A",2001-08-01,"IRIX 6.5.13 Overlays (2 of 3)",,jrra,2020-08-21
+231,"IRIX 6.5.13",812-0817-013,"013-2478-013 REV A",2001-08-01,"IRIX 6.5.13 Overlays (3 of 3)",,jrra,2020-08-21
+195,"IRIX 6.5.14",812-0779-014,,2001-11-01,"IRIX 6.5.14 Base Documentation",,jrra,
+128,"IRIX 6.5.15",812-0779-015,,2002-02-01,"IRIX 6.5.15 Base Documentation",,jrra,
+89,"IRIX 6.5.16",812-0877-016,,2002-05-01,"IRIX 6.5 Applications May 2002",,jrra,
+90,"IRIX 6.5.16",812-0818-016,,2002-05-01,"IRIX 6.5.16 Installation Tools and Overlays (1 of 4)",,jrra,
+91,"IRIX 6.5.16",812-0819-016,,2002-05-01,"IRIX 6.5.16 Overlays (2 of 4)",,jrra,
+92,"IRIX 6.5.16",812-0817-016,,2002-05-01,"IRIX 6.5.16 Overlays (3 of 4)",,jrra,
+93,"IRIX 6.5.16",812-1123-016,,2002-05-01,"IRIX 6.5.16 Overlays (4 of 4)",,jrra,
+34,"IRIX 6.5.19",812-0877-019,,2003-02-01,"IRIX 6.5 Applications February 2003",,jrra,
+41,"IRIX 6.5.19",812-0779-019,,2003-02-01,"IRIX 6.5.19 Base Documentation",,jrra,
+42,"IRIX 6.5.19",812-0818-019,,2003-02-01,"IRIX 6.5.19 Installation Tools and Overlays (1 of 4)",,jrra,
+43,"IRIX 6.5.19",812-0819-019,,2003-02-01,"IRIX 6.5.19 Overlays (2 of 4)",,jrra,
+44,"IRIX 6.5.19",812-0817-019,,2003-02-01,"IRIX 6.5.19 Overlays (3 of 4)",,jrra,
+45,"IRIX 6.5.19",812-1123-019,,2003-02-01,"IRIX 6.5.19 Overlays (4 of 4)",,jrra,
+238,"IRIX 6.5.20",812-0818-020,,2003-05-01,"IRIX 6.5.20 Installation Tools and Overlays (1 of 4)",,jrra,2021-03-18
+239,"IRIX 6.5.20",812-0819-020,,2003-05-01,"IRIX 6.5.20 Overlays (2 of 4)",,jrra,2021-03-18
+240,"IRIX 6.5.20",812-0817-020,,2003-05-01,"IRIX 6.5.20 Overlays (3 of 4)",,jrra,2021-03-18
+241,"IRIX 6.5.20",812-1123-020,,2003-05-01,"IRIX 6.5.20 Overlays (4 of 4)",,jrra,2021-03-18
+399,"IRIX 6.5.27",812-0877-027,,2005-02-01,"IRIX 6.5 Applications February 2005",,jrra,2022-01-23
+400,"IRIX 6.5.27",812-1180-027,,2005-02-01,"IRIX 6.5 Complementary Applications February 2005",,jrra,2022-01-23
+398,"IRIX 6.5.27",812-0779-027,,2005-02-01,"IRIX 6.5.27 Base Documentation",,jrra,2022-01-23
+46,"IRIX 6.5.27",812-0818-027,,2005-02-01,"IRIX 6.5.27 Installation Tools and Overlays (1 of 3)",,jrra,
+47,"IRIX 6.5.27",812-0819-027,,2005-02-01,"IRIX 6.5.27 Overlays (2 of 3)",,jrra,
+48,"IRIX 6.5.27",812-0817-027,,2005-02-01,"IRIX 6.5.27 Overlays (3 of 3)",,jrra,
+344,"IRIX 6.5.28",812-0877-028,,2005-08-01,"IRIX 6.5 Applications August 2005",,jrra,2021-06-04
+345,"IRIX 6.5.28",812-1180-028,,2005-08-01,"IRIX 6.5 Complementary Applications August 2005",,jrra,2021-06-04
+343,"IRIX 6.5.28",812-0779-028,,2005-08-01,"IRIX 6.5.28 Base Documentation",,jrra,2021-06-04
+49,"IRIX 6.5.28",812-0818-028,,2005-08-01,"IRIX 6.5.28 Installation Tools and Overlays (1 of 3)",,jrra,
+50,"IRIX 6.5.28",812-0819-028,,2005-08-01,"IRIX 6.5.28 Overlays (2 of 3)",,jrra,
+51,"IRIX 6.5.28",812-0817-028,,2005-08-01,"IRIX 6.5.28 Overlays (3 of 3)",,jrra,
+405,"IRIX 6.5.29",812-0877-029,,2006-02-01,"IRIX 6.5 Applications February 2006",,chulofiasco,2022-01-23
+406,"IRIX 6.5.29",812-1180-029,,2006-02-01,"IRIX 6.5 Complementary Applications February 2006",,chulofiasco,2022-01-23
+401,"IRIX 6.5.29",812-0779-029,,2006-02-01,"IRIX 6.5.29 Base Documentation",,chulofiasco,2022-01-23
+402,"IRIX 6.5.29",812-0818-029,,2006-02-01,"IRIX 6.5.29 Installation Tools and Overlays (1 of 3)",,chulofiasco,2022-01-23
+403,"IRIX 6.5.29",812-0819-029,,2006-02-01,"IRIX 6.5.29 Overlays (2 of 3)",,chulofiasco,2022-01-23
+404,"IRIX 6.5.29",812-0817-029,,2006-02-01,"IRIX 6.5.29 Overlays (3 of 3)",,chulofiasco,2022-01-23
+293,Uncategorized,812-0268-002,813-0268-002,1995-06-01,"AXM5 6.2.3",,jrra,2021-05-23
+280,Uncategorized,,"",1997,"Adobe Premier 4.2","for O2 with IRIX 6.3 or later",jrra,2021-05-23
+275,Uncategorized,812-0346-002,812-0346-002,1995-09-01,"Audio Serial Option 1.1",,jrra,2021-05-23
+161,Uncategorized,,,1992-04-01,"CASEVision WorkShop 1.1 Demonstration Disc","possibly a beta release",jrra,
+162,Uncategorized,812-0228-003,,1994-03-01,"CASEVision WorkShop 2.2",,jrra,
+296,Uncategorized,812-0285-001,812-0285-001,1994-09-01,"Cosmo Compress 1.0 for Indy",,jrra,2021-05-23
+202,Uncategorized,812-0776-001,,1998-07-01,"Database Accelerator 3.0","for IRIX 6.5",jrra,
+111,Uncategorized,812-0410-001,,1995-08-01,"Desktop Special Edition 1.0",,jrra,
+112,Uncategorized,812-0441-001,,1995-09-01,"Desktop Special Edition 1.0 for Support Customers",,jrra,
+96,Uncategorized,812-0410-002,,1995-11-01,"Desktop Special Edition 1.1",,jrra,
+114,Uncategorized,812-0980-002,,2000-11-01,"Developer Tools Maintenance Release 7.3.1.2m",,jrra,
+211,Uncategorized,812-0980-003,,2001-12-01,"Developer Tools Maintenance Release 7.3.1.3m",,jrra,2020-07-14
+206,Uncategorized,812-0739-003,,1998-07-01,"EnlightenDSM 1.1","for UNIX and NT",jrra,
+4,Uncategorized,812-0739-004,,1999-05-01,"EnlightenDSM 3.1 for UNIX and NT",,jrra,
+336,Uncategorized,812-0855-001,"",1998-08-01,"Enterprise and Host Resources MIB for SNMP Managers 1.0","for IRIX 6.2, 6.3, 6.4, and 6.5",jrra,2021-05-23
+175,Uncategorized,812-0028-004,,1992-11-01,"FDDIXPress 3.0.1",,jrra,
+236,Uncategorized,812-0249-001,812-0249-001,1993-11-01,"FDDIXPress 3.0.4",,jrra,2020-10-15
+292,Uncategorized,812-0576-001,813-0576-001,1996-06-01,"GIO Fast Ethernet 1.0 for IRIX 5.3 and 2.0 for IRIX 6.2",,jrra,2021-05-23
+272,Uncategorized,812-0396-001,812-0396-001,1995-08-01,"Galileo 5.2 through 6.1",,jrra,2021-05-23
+80,Uncategorized,812-0071-001,,1991-12-01,"IRIS Explorer 1.0",,jrra,
+298,Uncategorized,812-0306-003,813-0306-003,1995-07-01,"IRIS HIPPI 2.1",,jrra,2021-05-23
+264,Uncategorized,812-0114-001,812-0114-001,1992-10-01,"IRIS InSight 1.0 Viewer & Doc Library",,jrra,2021-05-23
+135,Uncategorized,,,,"IRIS InSight Preview","Also including IRIS Explorer 2.0, IRIS Showcase 3.0, IRIS Inventor EOE 1.0.1, IRIS InSight 2.0",jrra,
+163,Uncategorized,812-0096-001,,1992-06-01,"IRIS Media Mosaic 1.0","Install only on Indigo, 4D/30 and 4D/35",jrra,
+300,Uncategorized,812-0333-002,813-0333-002,1995-04-01,"IRIXpro System Admin. 1.0",,jrra,2021-05-23
+186,Uncategorized,812-0526-002,813-0526-002,1996-06-01,"Impact Digital Media 2.1",,jrra,
+14,Uncategorized,812-0098-003,812-0098-003,1993-05-01,"Impressario 1.1 Server",,jrra,
+134,Uncategorized,812-0246-001,,1994-03-01,"InPerson 1.0 (March 1994)",,jrra,
+97,Uncategorized,812-0286-001,,1994-05-01,"InPerson 1.0 (May 1994)",,jrra,
+133,Uncategorized,812-0246-002,,1994-11-01,"InPerson 1.1",,jrra,
+277,Uncategorized,,"",1993,"Indigo Live","for IRIX 4.0.1 or later with Showcase 2.1.1 or later on an Indigo workstation",jrra,2021-05-23
+282,Uncategorized,812-0226-003,"",1994-03-01,"Japanese Language Module 3.2",,jrra,2021-05-23
+263,Uncategorized,812-0115-001,812-0115-001,1993-03-01,"MPXM 6.2",,jrra,2021-05-23
+294,Uncategorized,812-0269-002,813-0269-002,1995-06-01,"MPXM5 6.2.3",,jrra,2021-05-23
+312,Uncategorized,812-0811-001,"",2000-05-01,"MultiLink Adapter Documentation",,jrra,2021-05-23
+188,Uncategorized,812-0220-001,812-0220-001,1994-05-01,"NetVisualyzer Data Station 2.1",,jrra,
+204,Uncategorized,812-0713-002,,1998-03-01,"NetWorker 4.2.5","for IRIX 5.3, 6.2, 6.3, 6.4",jrra,
+203,Uncategorized,812-0404-001,,1997-11-01,"O2 CPU Upgrade Video 1.0","Playable on IRIX 6.2 and 6.3",jrra,
+347,Uncategorized,812-0781-001,,1998-06-01,"OCTANE Demos 1.2","for IRIX 6.5",jrra,2021-06-11
+207,Uncategorized,812-0705-001,813-0705-001,1997-11-01,"OCTANE Personal Video 1.0","for IRIX 6.4",jrra,2020-07-14
+122,Uncategorized,812-0305-009,,1997-02-01,"ONC3/NFS Version 2","for IRIX 6.2, 6.3 and 6.4",jrra,
+67,Uncategorized,812-0774-002,,1999-05-01,"ONC3/NFS Version 3","for IRIX 6.2, 6.3, 6.4 and 6.5",jrra,
+244,Uncategorized,812-0774-001,,1998-06-01,"ONC3/NFS Version 3","for IRIX 6.2, 6.3, 6.4, and 6.5",jrra,2021-03-18
+271,Uncategorized,812-0386-001,812-0386-001,1995-06-01,"Oracle Parallel Server Bundle 1.0",,jrra,2021-05-23
+105,Uncategorized,812-0642-001,,1997-04-01,"PCP for Monitoring Origin Systems 1.1","for IRIX 5.3, 6.2, 6.3, 6.4",jrra,
+198,Uncategorized,812-0642-002,,1997-04-01,"PCP for Monitoring Origin Systems 1.1","for IRIX 5.3, 6.2, 6.3, 6.4",jrra,
+119,Uncategorized,812-0345-005,,1998-03-01,"Performance Co-Pilot 2.0","for IRIX 5.3, 6.2, 6.3, 6.4 and 6.5",jrra,
+301,Uncategorized,812-0405-001,813-0405-001,1995-07-01,"REACT 2.0",,jrra,2021-05-23
+245,Uncategorized,812-0783-001,,1998-06-01,"SNMP Access to HP-UX MIB 1.1.2","for IRIX 6.2, 6.3, 6.4, and 6.5",jrra,2021-03-18
+72,Uncategorized,812-0783-002,,1999-12-01,"SNMP Access to HP-UX MIB 1.1.3","for IRIX 6.5 and later",jrra,
+356,Uncategorized,812-0690-001,,1997-08-01,"SoftWindows 95 4.0","for IRIX 6.3 and 6.4",jrra,2021-06-18
+346,Uncategorized,812-0690-002,,1998-06-01,"SoftWindows 95 5.0","for IRIX 6.5",jrra,2021-06-11
+79,Uncategorized,812-0881-001,,1998-11-01,"Teleffect 1.0","for IRIX 6.2, 6.3, 6.4, 6.5 and Microsoft NT 4.0",jrra,
+160,Uncategorized,,,1995,"TriTeal Enterprise Desktop","Silicon Graphics IRIX 5.3",jrra,
+278,Uncategorized,,"",1992,VisualMagic,,jrra,2021-05-23
+274,Uncategorized,812-0277-001,812-0277-001,1994-03-01,"Vseries 1.0 for IRIX 5.2",,jrra,2021-05-23
+191,"Apr. 1996",812-0543-001,813-0543-001,1996-04-01,"Freeware 2.0","Unsupported software compatible with IRIX 6.2 and later",jrra,
+155,"Nov. 1999",812-0773-006,,1999-11-01,"Freeware (part 1 of 2)",,jrra,
+156,"Nov. 1999",812-0964-006,,1999-11-01,"Freeware (part 2 of 2)",,jrra,
+5,"Feb. 2000",812-0773-007,,2000-02-01,"Freeware (part 1 of 2)",,jrra,
+8,"Feb. 2000",812-0964-007,,2000-02-01,"Freeware (part 2 of 2)",,jrra,
+87,"May 2000",812-0773-008,,2000-05-01,"Freeware (part 1 of 2)",,,
+88,"May 2000",812-0964-008,,2000-05-01,"Freeware (part 2 of 2)",,,
+6,"Aug. 2000",812-0773-009,,2000-08-01,"Freeware (part 1 of 2)",,jrra,
+9,"Aug. 2000",812-0964-009,,2000-08-01,"Freeware (part 2 of 2)",,jrra,
+127,"May 2002",812-1085-016,,2002-05-01,"Freeware (part 3 of 3)",,jrra,
+7,"Feb. 2003",812-0773-019,,2003-02-01,"Freeware (part 1 of 4)",,jrra,
+10,"Feb. 2003",812-0964-019,,2003-02-01,"Freeware (part 2 of 4)",,jrra,
+11,"Feb. 2003",812-1085-019,,2003-02-01,"Freeware (part 3 of 4)",,jrra,
+12,"Feb. 2003",812-1137-019,,2003-02-01,"Freeware (part 4 of 4)",,jrra,
