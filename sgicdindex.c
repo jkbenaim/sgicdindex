@@ -159,6 +159,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2022-02-21: Added the Windows section, along with VW320 / VW540 system software from TAL. Thanks!</p>\n"
 		"<p>2022-01-26: Added IRIX 6.5.14 and 6.5.15, plus 6.5.4 base documentation and Open Inventor 2.1.5, all courtesy of chulofiasco. Thank you!</p>\n"
 		"<p>2022-01-23: Added IRIX 6.5.29 courtesy of chulofiasco. Thank you! Also added some missing discs from the 6.5.27 set.</p>\n"
 		"<p>2021-09-15: Added tons of Itanium Linux discs courtesy of Titox. Thank you! Also added Pasal Compiler versions 1.3.1, 1.4.3, and 1.4.4.</p>\n"
