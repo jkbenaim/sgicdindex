@@ -159,6 +159,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2022-02-08: Added WorldView Japanese 6.2A.</p>\n"
 		"<p>2022-02-27: Added IRIX 6.5.26 courtesy of Jenna16bit. Thank you!</p>\n"
 		"<p>2022-02-21: Added the Windows section, along with VW320 / VW540 system software from TAL. Thanks!</p>\n"
 		"<p>2022-01-26: Added IRIX 6.5.14 and 6.5.15, plus 6.5.4 base documentation and Open Inventor 2.1.5, all courtesy of chulofiasco. Thank you!</p>\n"
