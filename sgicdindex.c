@@ -89,7 +89,7 @@ void make_discs(struct product_s product)
 				printf(" (<a href=\"tar/%s\">tar</a>)", tarname);
 			}
 		} else {
-			printf(disc.name);
+			printf(name);
 		}
 		if (disc.is_newest) {
 			printf(" <span class=\"newest\">new</span>");
