@@ -159,7 +159,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
-		"<p>2022-04-02: Added NetVisualyzer Data and Display Station 2.2, courtest of Ciao! Also added IRIX 6.5.23 and WebFORCE August 1996.</p>\n"
+		"<p>2022-04-02: Added NetVisualyzer Data and Display Station 2.2, courtesy of Ciao! Also added IRIX 6.5.30 plus some IRIX 5.3 patch discs courtesy of plamen. Also added IRIX 6.5.23 and WebFORCE August 1996.</p>\n"
 		"<p>2022-02-08: Added WorldView Japanese 6.2A.</p>\n"
 		"<p>2022-02-27: Added IRIX 6.5.26 courtesy of Jenna16bit. Thank you!</p>\n"
 		"<p>2022-02-21: Added the Windows section, along with VW320 / VW540 system software from TAL. Thanks!</p>\n"
