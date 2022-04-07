@@ -159,6 +159,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2022-04-07: Added IRIX 6.3 with Applications, courtest of plamen. Thanks!</p>\n"
 		"<p>2022-04-04: Added European Language Module 1.2.</p>\n"
 		"<p>2022-04-02: Added NetVisualyzer Data and Display Station 2.2, courtesy of Ciao! Also added IRIX 6.5.30 plus some IRIX 5.3 patch discs courtesy of plamen. Also added IRIX 6.5.23 and WebFORCE August 1996.</p>\n"
 		"<p>2022-02-08: Added WorldView Japanese 6.2A.</p>\n"
