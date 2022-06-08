@@ -14,14 +14,17 @@ LDFLAGS += ${EXTRAS}
 CFLAGS  += -std=c99 ${EXTRAS}
 
 .PHONY: all
-all:	index.html
+all:	index.html index-with-ids.html
 
 .PHONY: clean
 clean:
-	rm -f $(target) $(objects) index.html
+	rm -f $(target) $(objects) index.html index-with-ids.html
 
 $(target): $(objects)
 
 index.html: $(target) sgicds.db
-	./$(target) sgicds.db | xmllint --valid --output index.html -
+	./$(target) -f sgicds.db | xmllint --valid --output $@ -
+
+index-with-ids.html: $(target) sgicds.db
+	./$(target) -f sgicds.db -i | xmllint --valid --output $@ -
 

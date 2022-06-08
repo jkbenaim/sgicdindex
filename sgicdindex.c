@@ -6,13 +6,14 @@
 #include <stdlib.h>
 #include <stdnoreturn.h>
 #include <string.h>
+#include <unistd.h>
 #include "db.h"
 #include "escape.h"
 
-// #define SHOW_IDS 1
-
 extern char *__progname;
 static void noreturn usage(void);
+
+static bool show_ids = false;
 
 void make_discs(struct product_s product)
 {
@@ -56,9 +57,9 @@ void make_discs(struct product_s product)
 			did_first_row = true;
 
 			printf( "\t<td rowspan='%d'>", product.num_discs);
-#ifdef SHOW_IDS
-			printf("%d ", disc.product_id);
-#endif
+			if (show_ids) {
+				printf("%d ", disc.product_id);
+			}
 			printf("%s", product.name);
 			printf("</td>\n");
 		}
@@ -76,9 +77,9 @@ void make_discs(struct product_s product)
 		}
 		printf("</td>\n");
 		printf("\t<td>");
-#ifdef SHOW_IDS
-		printf("%d ", disc.id);
-#endif
+		if (show_ids) {
+			printf("%d ", disc.id);
+		}
 		if (disc.havefile) {
 			printf("<a href=\"cds/");
 			printf("%s", filename);
@@ -213,10 +214,32 @@ out_return:
 
 int main(int argc, char *argv[])
 {
-	if (argc < 2)
+	char *dbfilename = NULL;
+	int rc;
+
+	while ((rc = getopt(argc, argv, "f:i")) != -1)
+		switch (rc) {
+		case 'f':
+			if (dbfilename)
+				usage();
+			dbfilename = optarg;
+			break;
+		case 'i':
+			if (show_ids)
+				usage();
+			show_ids = true;
+			break;
+		default:
+			usage();
+		}
+	argc -= optind;
+	argv += optind;
+	if (*argv != NULL)
+		usage();
+	if (not dbfilename)
 		usage();
 
-	DB_Init(argv[1]);
+	DB_Init(dbfilename);
 	callback_sgi_cds();
 	DB_Close();
 	return 0;
@@ -224,6 +247,6 @@ int main(int argc, char *argv[])
 
 static void noreturn usage()
 {
-	fprintf(stderr, "usage: %s dbfile\n", __progname);
+	fprintf(stderr, "usage: %s -f dbfile [-i]\n", __progname);
 	exit(1);
 }
