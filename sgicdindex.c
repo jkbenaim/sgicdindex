@@ -160,6 +160,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2022-06-27: Added IRIX 6.2/6.3/6.4 Development Foundation 1.1, and MIPSpro C Compiler 7.2.1, both courtesy of culofiasco. Thanks!</p>\n"
 		"<p>2022-06-08: Added a number of IRIX 6.3 discs. Thanks gijoe77!</p>\n"
 		"<p>2022-06-07: Added IRIX 6.3 Recommended/Required Patches July 1998, and SoftWindows 95 4.0.1, both courtesy of chulofiasco. Thanks!</p>\n"
 		"<p>2022-04-07: Added IRIX 6.3 with Applications, courtest of plamen. Thanks!</p>\n"
