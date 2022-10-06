@@ -160,6 +160,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2022-10-05: Added 21 new discs from Docter60. Thank you!</p>\n"
 		"<p>2022-07-10: Added WorldView Europe 6.2.</p>\n"
 		"<p>2022-06-27: Added IRIX 6.2/6.3/6.4 Development Foundation 1.1, and MIPSpro C Compiler 7.2.1, both courtesy of chulofiasco. Thanks!</p>\n"
 		"<p>2022-06-08: Added a number of IRIX 6.3 discs. Thanks gijoe77!</p>\n"
