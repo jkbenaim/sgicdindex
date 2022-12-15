@@ -160,6 +160,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2022-12-14: Added a number of discs from chulofiasco, just in time for Christmas. Thank you!</p>\n"
 		"<p>2022-11-25: Added two discs from Titox: 1600SW Flat Panel Patches for O2 on IRIX 6.3, and Fuel customer diagnostics. Thanks!</p>\n"
 		"<p>2022-10-05: Added 21 new discs from Docter60. Thank you!</p>\n"
 		"<p>2022-07-10: Added WorldView Europe 6.2.</p>\n"
