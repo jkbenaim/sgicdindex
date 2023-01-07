@@ -1,0 +1,217 @@
+# from http://www.sgistuff.net/collection/software/index.html
+
+Tape and Tape Sets
+==================
+
+Partnumber     Date   Qty    Description
+
+801-0002-013A  1989   1      NFS, 3.3
+801-0002-014A  1991   1      NFS, 3.3.2
+801-0002-016A         2      NFS, 4.0.1
+801-0003-011A  1989   1      Fortran, 3.3
+ -    -   -           1      Fortran 77 Compiler 3.4.1
+ -    -   -           1      Fortran 77 Compiler 3.5.1
+801-0023-001C  1989   1      4D1-3.1 Execution Only Tape 1
+801-0023-004A  1990   2      4D1-3.2 Execution Only Tape 1
+801-0023-005B  1989   3      4D1-3.3 Execution Only Tape 1
+801-0023-008A  1991   5      IRIX Execution Environment Update 1 of 2, 4.0.1
+801-0023-013   1992   1      IRIX Execution Environment 1 of 2, 4.0.5
+801-0024-001C  1989   2      4D1-3.1 Execution Only Tape 2
+801-0024-005A  1989   2      4D1-3.3 Execution Only Tape 2
+801-0024-008A  1991   5      IRIX Execution Environment Update 2 of 2, 4.0.1
+801-0024-013   1992   1      IRIX Execution Environment 2 of 2, 4.0.5
+801-0025-001C  1989   2      4D1-3.1 Development System
+801-0025-004A  1989   1      4D1-3.2 Development System
+801-0025-005A  1989   1      4D1-3.3 Development System
+801-0025-006A  1990   1      4D1-3.3.2 Development System
+801-0025-008A  1991   3      Iris Developers Option, 4.0.1
+801-0025-010   1993   1      IRIS Development Option 4.1.1
+801-0056-001A  1990   1      Personal Visualizer, S4-VIS-1.0
+801-0059-001A  1989   2      IRIS Visual Tools, S4-VISTOOLS-1.0
+801-0065-001A  1990   1      4D1-3.2.1
+801-0087-001C  1989   1      4D1-3.3.1
+801-0089-001A  1989   1      4D1-3.3.2 Maint. 2
+801-0094-001A  1989   1      4D1-3.3.2 Installation Tape
+801-0102-001A  1991   1      4D/35 Support, 1.0
+801-0149-004   1992   1      IRIX Maintenance 1 of 2, 4.0.5
+801-0150-004   1992   1      IRIX Maintenance 1 of 2, 4.0.5
+ 
+806-0005-001          1      4D1-3.3.1 Maintenance Software Assembly (Tape+ReleaseNotes)
+
+ -    -   -           1      Executeion Only Tape 1, 4.0.5A
+ -    -   -           1      Executeion Only Tape 2, 4.0.5A
+ -    -   -           1      IRIX 5.3 Tape 1
+ -    -   -           1      IRIX 5.3 Tape 2
+ -    -   -           1      IRIX 5.3 Tape 3
+
+
+CD and CD Sets
+==============
+
+Partnumber     Date   Qty    Description
+
+009-0783-008   1998   4      Hotmix 19
+
+812-0001-002   9/91   1      C++ Translator 2.1
+812-0007-003   11/91  1      Network File System 4.0.1
+812-0017-002   9/91   1      IRIS Development Option 4.0
+812-0030-002   9/91   4      IRIS Execution Environment 4.0
+812-0031-002   2/92   1      CodeVision 1.0
+812-0031-004   7/92   1      CaseVision/WorkShop 1.1.1
+812-0033-010   7/92   2      IRIX Update 4.0.5
+812-0033-011   8/92   1      IRIX 4.0.5A to 4.0.5C Update
+812-0036-002   11/91  1      EFast 2.0.1
+812-0038-001   3/92   1      IRIS NetWorker Entry Level 1.0
+812-0064-001   11/91  3      IRIX Execution plus Maintenance 4.0.1
+812-0064-004   3/92   1      IRIX 4.0.2
+812-0064-008   7/92   1      IRIX 4.0.5
+812-0064-012   9/92   2      IRIX 4.0.5F Indigo/Reality Engine Only
+812-0064-018   4/93   1      IRIX 4.0.5H
+812-0071-001   12/91  3      IRIS Explorer 1.0
+812-0078-003   3/92   1      IRIX 4.0.2 Maintenance
+812-0078-006   7/92   2      IRIX 4.0.5 Maintenance
+812-0078-010   9/92   5      IRIX 4.0.5F Maintenance
+812-0078-015   3/93   1      IRIX 4.0.5H Maintenance
+812-0119-004   9/93   1      IRIX 5.1.1
+812-0119-005   3/94   1      IRIX 5.2
+812-0119-006   11/94  6      IRIX 5.3
+812-0119-008   8/95   2      IRIX 5.3 with 175MHz and 2MB cache support
+812-0121-007   12/94  1      Diagnostics 5.3
+812-0126-006   12/97  1      IRIS Performer 2.2
+812-0128-003   8/93   1      Network File System 5.1
+812-0128-005   11/94  3      Network File System 5.3
+812-0129-004   3/94   1      IRIS Development Option 5.2
+812-0129-005   11/94  2      IRIS Development Option 5.3
+812-0130-004   3/94   1      C++ Translator 3.2.1
+812-0136-005   3/94   1      IRIS INVENTOR 1.1.2
+812-0136-006   11/94  1      OPEN INVENTOR 2.0.1
+812-0136-008   11/95  1      OPEN INVENTOR 2.1.1
+812-0204-001   4/93   2      IRIX 4.0.5 Indigo Only Patch
+812-0211-001   4/93   2      IRIX 4.0.5 Indigo Only Patch Maint
+812-0228-003   3/94   1      CASEVision/WorkShop 2.2
+812-0232-002   9/93   2      INDY IRIX 5.1.1
+812-0241-001   10/93  1      European Language Module 1.1
+812-0241-003   2/95   1      European Language Module 1.3
+812-0250-002   12/93  2      IRIX 4.0.5H & 4.0.5IOP R4400 Patch
+812-0251-002   12/93  1      Indigo 2 XL & Memory Parity Patch
+812-0279-003   ?      1      IRIX 5.2 for Indy R4600SC/XZ & Presenter
+812-0286-001   5/94   2      InPerson Desktop Conferencing 1.0
+812-0290-002   1/95   1      IRIX 5.2 Patches #2
+812-0290-005   9/95   1      IRIX Patches 9/95
+812-0298-002   11/94  1      CASEVision/WorkShop 2.4
+812-0305-009   2/97   1      ONC3/NFS 2.0
+812-0323-001   ?      1      IRIX 5.3 XFS
+812-0325-001   12/94  1      Varsity 5.3 Developer Package Update
+812-0336-001   2/95   1      IRIX 5.3 for Indy R4400 175MHz
+812-0367-001   5/95   1      Varsity Development Package Qtr.4 Update 5/95
+812-0441-001   9/95   1      Desktop Special Edition for Support Customers
+812-0473-010   10/98  1      MineSet 2.6
+812-0508-003   10/96  1      Supportfolio 1.2 Information Resources 10/96
+812-0512-006   11/96  1      WebFORCE November 1996
+812-0526-002   6/96   1      Impact Digital Media 2.1
+812-0543-001   4/96   2      Freeware 2.0
+812-0590-001   9/96   1      Supportfolio for Warranty
+812-0603-001   10/96  1      Supportfolio 1.2 IRIX 6.2 Patches 10/96
+812-0604-001   10/96  1      Supportfolio 1.2 IRIX 5.3/6.1 Patches 10/96
+812-0616-002   2/97   2      IRIX 6.4 for Origin, Onyx2, and OCTANE
+812-0617-002   2/97   1      IRIX 6.4 Applications February 1997
+812-0617-003   8/97   1      IRIX 6.4 Applications August 1997
+812-0618-003   6/98   1      ImageVision Library 3.2.1 Development Option
+812-0622-002   97     1      OCTANE/IMPACT Compression
+812-0623-001   11/96  2      IRIS Development Option 7.1 (for IRIX 6.2)
+812-0625-002   2/97   1      IRIS Development Option 7.1.1 (for IRIX 6.4)
+812-0633-001   12/96  1      WebFORCE Auxiliary December 1996
+812-0642-001   1/97   1      Performance Co-Pilot 1.0 for Origin Systems
+812-0650-004   8/98   1      Cosmo Suite August 1998
+812-0653-003   7/00   2      SCSL Scientific Library 1.3
+812-0658-003   6/97   1      Origin and Onyx2 Patches June 1997
+812-0690-002   6/98   1      SoftWindows 95 5.0
+812-0724-001   12/97  1      IRIS Performer 2.2 Friends Demo CD
+812-0725-001   12/97  1      IRIS Performer 2.2 Yosemite Demo CD
+812-0739-003   7/98   1      EnlightenDSM 1.1
+812-0739-004   5/99   3      EnlightenDSM 3.1
+812-0757-002   6/98   5      IRIX 6.5 Development Foundation
+812-0759-002   6/98   5      IRIX 6.5 Foundation 1
+812-0760-002   6/98   5      IRIX 6.5 Foundation 2
+812-0766-002   6/98   5      IRIX 6.5 Development Libraries
+812-0772-001   6/98   1      MIPSpro 7.2.1 Compiler Patches June 1998
+812-0773-001   11/98  1      Freeware November 1998
+812-0773-003   2/99   1      Freeware February 1999
+812-0773-004   5/99   2      Freeware May 1999
+812-0773-009   8/00   2      Freeware August 2000 (1 of 2)
+812-0774-001   6/98   1      ONC3/NFS Version 3
+812-0774-002   5/99   4      ONC3/NFS Version 3
+812-0779-003   2/99   1      IRIX 6.5.3 Base Documentation February 1999
+812-0779-004   5/99   2      IRIX 6.5.4 Base Documentation May 1999
+812-0779-009   8/00   2      IRIX 6.5.9 Base Documentation May 2000
+812-0780-002   1/99   4      O2 Demos 1.3
+812-0782-002   5/99   2      O2 Out of Box Experience 2.3
+812-0782-002   2/00   1      O2 Out of Box Experience 2.4
+812-0783-001   6/98   3      SNMP Access to HP-UX MIB 1.1.2
+812-0783-002   12/99  2      SNMP Access to HP-UX MIB 1.1.3
+812-0794-002   10/98  1      Open Inventor 2.1.5
+812-0817-009   8/00   2      IRIX 6.5.9 Overlays (3 of 3)
+812-0817-013   8/01   1      IRIX 6.5.13 Overlays (3 of 3)
+812-0818-004   5/99   2      IRIX 6.5.4 Installation Tools and Overlays (1 of 2)
+812-0818-009   8/00   2      IRIX 6.5.9 Installation Tools and Overlays (1 of 3)
+812-0818-013   8/01   1      IRIX 6.5.13 Installation Tools and Overlays (1 of 3)
+812-0819-003   2/99   1      IRIX 6.5.3 Overlays (2 of 2)
+812-0819-004   5/99   1      IRIX 6.5.4 Overlays (2 of 2)
+812-0819-009   8/00   2      IRIX 6.5.9 Overlays (2 of 3)
+812-0819-013   8/01   1      IRIX 6.5.13 Overlays (2 of 3)
+812-0877-002   2/99   1      IRIX 6.5 Applications February 1999
+812-0877-003   5/99   2      IRIX 6.5 Applications May 1999
+812-0877-008   8/00   2      IRIX 6.5 Applications August 2000
+812-0877-012   8/01   1      IRIX 6.5 Applications August 2001
+812-0881-001   11/98  4      Teleffect 1.0
+812-0884-003   11/98  1      WebFORCE (1 of 2) November 1998
+812-0885-001   11/98  1      WebFORCE (1 of 2) November 1998
+812-0895-001   12/98  1      Varsity Applications Update December 1998
+812-0960-001   6/99   2      IRIX 6.5.4 Kernel Patches (3690, 3691) June 1999
+812-0964-009   8/00   2      Freeware August 2000 (2 of 2)
+ 
+812-4015-002   3/94   1      Support Advantage Int'l 3/94
+812-4024-005   9/95   1      Support Advantage Support Libraries 9/95
+
+812-8111-001   ?      1      Indyzone 1
+812-8111-003   ?      1      Indyzone 3
+812-8103-002   12/93  1      Galileo, Indigo 2 & Indy Video 2.0 (req. 5.1.1.2)
+
+813-0241-003   2/95   1      European Language Module
+813-0410-002   11/95  3      Desktop Special Edition 1.0
+813-0412-001   ?      1      8505XL Patch CD
+813-0447-001   ?      1      Impact Demos CD for 5.3
+813-0469-002   ?      1      IRIX 6.2 with Indigo2 Impact 10000 (2 CD Set)
+813-0505-001   ?      1      Patches for IRIX 5.3 for All Indigo 2 IMPACT
+813-0527-001   ?      1      Impact Demos CD for 6.2
+813-0558-001   ?      1		 WorldView Europe 6.2
+
+814-0598-002   ?      1      Out Of Box Experience 2.0.1
+
+xxx-xxxx-xxx   ?      1      IRIX 6.5.19 Overlays (1 of 4)
+xxx-xxxx-xxx   ?      1      IRIX 6.5.19 Overlays (2 of 4)
+xxx-xxxx-xxx   ?      1      IRIX 6.5.19 Overlays (3 of 4)
+xxx-xxxx-xxx   ?      1      IRIX 6.5.19 Overlays (4 of 4)
+xxx-xxxx-xxx   ?      1      IRIX 6.5.19 Application
+
+xxx-xxxx-xxx   ?      1      IRIX 5.3 XFS Patches
+xxx-xxxx-xxx   9/98   1      IRIX 6.2 Patches (9/98)
+
+xxx-xxxx-xxx   11/02  1      IRIX 6.5.18 Software Library
+
+xxx-xxxx-xxx   1992   1      Visual Magic (SGI)
+xxx-xxxx-xxx   ?      1      Open Inventor Games CD
+
+xxx-xxxx-xxx   1992   1      Developer Toolbox 2.0
+xxx-xxxx-xxx   1993   1      Developer Toolbox 3.1
+xxx-xxxx-xxx   1994   1      Developer Toolbox 4.0
+xxx-xxxx-xxx   1994   1      Developer Toolbox 4.2
+
+xxx-xxxx-xxx   1992   1      SoftPC with Windows (Insignia Solutions)
+xxx-xxxx-xxx   1993   1      Viewpoint Datalabs - Datashop 1.0 for Autodesk 3D Studio
+xxx-xxxx-xxx   1993   3      Viewpoint Datalabs - Datashop 1.0 for Wavefront
+
+xxx-xxxx-xxx   1993   1      3DCD (Du Pont Pixel)
+
+xxx-xxxx-xxx   ?      1      IRIX Patches 12/95
+xxx-xxxx-xxx   ?      1      Support Advantage - Support Libraries 12/95

@@ -1,0 +1,10 @@
+The boot process is:
+	PROM ---> sash ---> IRIX
+	
+To automatically proceed from PROM to sash, do:
+
+	nvram -v AutoLoad Y
+
+To automatically proceed from sash to IRIX, do:
+
+	nvram -v OSLoadOptions auto
