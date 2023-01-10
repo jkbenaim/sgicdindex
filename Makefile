@@ -14,7 +14,7 @@ LDFLAGS += ${EXTRAS}
 CFLAGS  += -std=c99 ${EXTRAS}
 
 .PHONY: all
-all:	index.html index-with-ids.html DIGESTS
+all:	index.html index-with-ids.html DIGESTS.txt
 
 .PHONY: clean
 clean:
@@ -28,5 +28,5 @@ index.html: $(target) sgicds.db
 index-with-ids.html: $(target) sgicds.db
 	./$(target) -f sgicds.db -i | xmllint --valid --output $@ -
 
-DIGESTS: $(target) sgicds.db mkdigests.sql
+DIGESTS.txt: $(target) sgicds.db mkdigests.sql
 	sqlite3 sgicds.db < mkdigests.sql > $@
