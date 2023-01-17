@@ -15,6 +15,8 @@ static void noreturn usage(void);
 
 static bool show_ids = false;
 
+const char webroot[] = "https://jrrazone-sgi.nyc3.digitaloceanspaces.com";
+
 void make_discs(struct product_s product)
 {
 	struct disc_s disc;
@@ -81,13 +83,9 @@ void make_discs(struct product_s product)
 			printf("%d ", disc.id);
 		}
 		if (disc.havefile) {
-			printf("<a href=\"cds/");
-			printf("%s", filename);
-			printf("\">");
-			printf("%s", name);
-			printf("</a>");
+			printf("<a href=\"%s/cds/%s\">%s</a>", webroot, filename, name);
 			if (disc.havetar) {
-				printf(" (<a href=\"tar/%s\">tar</a>)", tarname);
+				printf(" (<a href=\"%s/tar/%s\">tar</a>)", webroot, tarname);
 			}
 		} else {
 			printf(name);
@@ -106,11 +104,7 @@ void make_discs(struct product_s product)
 		}
 		if (attachmentURL && attachmentXML) {
 			printf("<br /><span class='attachment'>attachment: ");
-			printf("<a href=\"cds/");
-			printf(attachmentURL);
-			printf("\">");
-			printf(attachmentXML);
-			printf("</a></span>");
+			printf("<a href=\"%s/cds/%s\">%s</a></span>", webroot, attachmentURL, attachmentXML);
 		}
 		printf("</td>\n");
 		printf("</tr>\n");
