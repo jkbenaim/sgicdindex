@@ -37,6 +37,9 @@ struct disc_s {
 	bool havetar;
 	sqlite3_stmt *_stmt;
 	int _rc;
+	char *md5;
+	char *sha1;
+	char *sha256;
 };
 
 #define foreachpg(a) pginit(&a);while (a._rc=pgstep(&a),(a._rc!=SQLITE_ROW)?sqlite3_finalize(a._stmt):0,a._rc==SQLITE_ROW)

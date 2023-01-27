@@ -14,6 +14,7 @@ extern char *__progname;
 static void noreturn usage(void);
 
 static bool show_ids = false;
+static bool show_hashes = false;
 
 const char webroot[] = "https://jrrazone-sgi.nyc3.digitaloceanspaces.com";
 
@@ -102,6 +103,16 @@ void make_discs(struct product_s product)
 			printf("<br />");
 			printf(note);
 		}
+		if (show_hashes) {
+			if (disc.md5)    printf("<br />MD5: %s\n", disc.md5);
+			if (disc.sha1)   printf("<br />SHA1: %s\n", disc.sha1);
+			if (disc.sha256) printf("<br />SHA256: %s\n", disc.sha256);
+		}
+		free(disc.md5);
+		free(disc.sha1);
+		free(disc.sha256);
+		disc.md5 = disc.sha1 = disc.sha256 = NULL;
+
 		if (attachmentURL && attachmentXML) {
 			printf("<br /><span class='attachment'>attachment: ");
 			printf("<a href=\"%s/cds/%s\">%s</a></span>", webroot, attachmentURL, attachmentXML);
@@ -154,6 +165,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2023-01-27: Added hashes/digest for all discs in HTML format: <a href=\"index-with-ids.html\">index-with-ids.html</a></p>\n"
 		"<p>2023-01-09: Added hashes/digest for all discs: <a href=\"DIGESTS.txt\">DIGESTS.txt</a></p>\n"
 		"<p>2022-12-14: Added a number of discs from chulofiasco, just in time for Christmas. Thank you!</p>\n"
 		"<p>2022-11-25: Added two discs from Titox: 1600SW Flat Panel Patches for O2 on IRIX 6.3, and Fuel customer diagnostics. Thanks!</p>\n"
@@ -218,7 +230,7 @@ int main(int argc, char *argv[])
 	char *dbfilename = NULL;
 	int rc;
 
-	while ((rc = getopt(argc, argv, "f:i")) != -1)
+	while ((rc = getopt(argc, argv, "f:ih")) != -1)
 		switch (rc) {
 		case 'f':
 			if (dbfilename)
@@ -229,6 +241,11 @@ int main(int argc, char *argv[])
 			if (show_ids)
 				usage();
 			show_ids = true;
+			break;
+		case 'h':
+			if (show_hashes)
+				usage();
+			show_hashes = true;
 			break;
 		default:
 			usage();
@@ -248,6 +265,6 @@ int main(int argc, char *argv[])
 
 static void noreturn usage()
 {
-	fprintf(stderr, "usage: %s -f dbfile [-i]\n", __progname);
+	fprintf(stderr, "usage: %s -f dbfile [-i] [-h]\n", __progname);
 	exit(1);
 }

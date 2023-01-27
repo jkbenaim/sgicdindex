@@ -26,7 +26,7 @@ index.html: $(target) sgicds.db
 	./$(target) -f sgicds.db | xmllint --valid --output $@ -
 
 index-with-ids.html: $(target) sgicds.db
-	./$(target) -f sgicds.db -i | xmllint --valid --output $@ -
+	./$(target) -f sgicds.db -i -h | xmllint --valid --output $@ -
 
 DIGESTS.txt: $(target) sgicds.db mkdigests.sql
 	sqlite3 sgicds.db < mkdigests.sql > $@

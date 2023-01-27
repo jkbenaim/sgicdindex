@@ -1,8 +1,12 @@
+#define _GNU_SOURCE
+
 #include <err.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <string.h>
 #include "db.h"
+#include "errsql.h"
 
 sqlite3 *db;
 
@@ -70,6 +74,40 @@ int DB_GetNumDiscsForProduct(int product_id)
 	return rc;
 }
 
+char *hashfordisc(int disc_id, const char *hashtype)
+{
+	int rc;
+	sqlite3_stmt *stmt;
+	const char *col;
+	char *hash = NULL;
+
+	rc = sqlite3_prepare_v2(
+		db,
+		"SELECT hash FROM hashes WHERE disc_id=? AND hashtype=?",
+		-1,
+		&stmt,
+		NULL
+	);
+	if (rc != SQLITE_OK) errsql(1, db, "hashfordisc prepare");
+
+	rc = sqlite3_bind_int(stmt, 1, disc_id);
+	if (rc != SQLITE_OK) errsql(1, db, "hashfordisc bind disc_id");
+
+	rc = sqlite3_bind_text(stmt, 2, hashtype, -1, SQLITE_STATIC);
+	if (rc != SQLITE_OK) errsql(1, db, "hashfordisc bind hashtype");
+
+	rc = sqlite3_step(stmt);
+	if (rc != SQLITE_ROW) {
+		sqlite3_finalize(stmt);
+		return NULL;
+	}
+
+	col = sqlite3_column_text(stmt, 0);
+	if (col) hash = strdup(col);
+	sqlite3_finalize(stmt);
+	return hash;
+}
+
 void productinit(struct product_s *product, int pg_id)
 {
 	int rc;
@@ -129,6 +167,9 @@ int discstep(struct disc_s *disc)
 		disc->is_newest	= sqlite3_column_int(disc->_stmt, 9);
 		disc->havefile	= sqlite3_column_int(disc->_stmt, 10);
 		disc->havetar   = sqlite3_column_int(disc->_stmt, 11);
+		disc->md5       = hashfordisc(disc->id, "MD5");
+		disc->sha1      = hashfordisc(disc->id, "SHA1");
+		disc->sha256    = hashfordisc(disc->id, "SHA256");
 	}
 	return rc;
 }
