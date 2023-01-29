@@ -14,11 +14,11 @@ LDFLAGS += ${EXTRAS}
 CFLAGS  += -std=c99 ${EXTRAS}
 
 .PHONY: all
-all:	index.html index-with-ids.html DIGESTS.txt
+all:	index.html index-with-ids.html DIGESTS.txt sql.txt
 
 .PHONY: clean
 clean:
-	rm -f $(target) $(objects) index.html index-with-ids.html
+	rm -f $(target) $(objects) index.html index-with-ids.html sql.txt
 
 $(target): $(objects)
 
@@ -30,3 +30,6 @@ index-with-ids.html: $(target) sgicds.db
 
 DIGESTS.txt: $(target) sgicds.db mkdigests.sql
 	sqlite3 sgicds.db < mkdigests.sql > $@
+
+sql.txt: sgicds.db
+	sqlite3 sgicds.db ".dump --preserve-rowids" > sql.txt
