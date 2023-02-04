@@ -16,7 +16,7 @@ static void noreturn usage(void);
 static bool show_ids = false;
 static bool show_hashes = false;
 
-const char webroot[] = "https://jrrazone-sgi.nyc3.digitaloceanspaces.com";
+const char webroot[] = "/sgi";
 
 void make_discs(struct product_s product)
 {
