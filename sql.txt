@@ -587,7 +587,7 @@ INSERT INTO discs VALUES(485,5,'812-1136-002',NULL,'2002-11-01','DMediaPro DM5 G
 INSERT INTO discs VALUES(486,5,'812-1186-001',NULL,'2004-03-01','Silicon Graphics Scalable Graphics Capture Card 1.0','for IRIX 6.5.22 and later',NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL);
 INSERT INTO discs VALUES(487,5,'812-0621-001',NULL,'1997-05-01','Digital Audio Option 1.0','for IRIX 6.3 and 6.4',NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL);
 INSERT INTO discs VALUES(488,5,'812-0571-004',NULL,'1999-05-01','IRISconsole 2.0','for IRIX 6.2, 6.3 and 6.5',NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL);
-INSERT INTO discs VALUES(489,51,'812-0925-001',NULL,'1999-05-01','MIPSpro All-Compiler CD May 1999','for IRIX 6.5 and later',NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL);
+INSERT INTO discs VALUES(489,51,'812-0925-001',NULL,'1999-05-01','MIPSpro All-Compiler CD May 1999','labeled "for IRIX 6.5 and later", but should also work with 6.2, 6.3, and 6.4',NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL);
 INSERT INTO discs VALUES(490,5,'812-0322-006',NULL,'1997-03-01','DG RAID 2.3','for IRIX 5.3, 6.2 and 6.4',NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL);
 INSERT INTO discs VALUES(491,5,'812-1083-006',NULL,'2003-10-01','DMediaPro DM2 and DMediaPro DM3 Software 1.1.3ml','for Silicon Graphics Octane2, Tezro, Onyx and Origin',NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL);
 INSERT INTO discs VALUES(492,5,'812-0665-004',NULL,'1999-08-01','DG SCSI&FC RAID 3.2','The FC sub-systems support IRIX 6.4.1 and 6.5. The SCSI sub-systems support IRIX 5.3XFS, 6.2, 6.4.1 and 6.5.',NULL,'DG SCSI and FC RAID 3.2.iso','chulofiasco',NULL,'2022-12-14',1,1,NULL);
