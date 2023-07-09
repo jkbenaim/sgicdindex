@@ -165,6 +165,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2023-07-08: Added Trusted IRIX 5.3, from twylo. Thank you!</p>\n"
 		"<p>2023-03-20: Added new discs from darkhelmet: Fortran 77 Compiler 3.5 and ImageVision Library 1.0. Thank you!</p>\n"
 		"<p>2023-01-27: Added hashes/digest for all discs in HTML format: <a href=\"index-with-ids.html\">index-with-ids.html</a></p>\n"
 		"<p>2023-01-09: Added hashes/digest for all discs: <a href=\"DIGESTS.txt\">DIGESTS.txt</a></p>\n"

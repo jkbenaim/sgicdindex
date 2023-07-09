@@ -593,6 +593,7 @@ INSERT INTO discs VALUES(491,5,'812-1083-006',NULL,'2003-10-01','DMediaPro DM2 a
 INSERT INTO discs VALUES(492,5,'812-0665-004',NULL,'1999-08-01','DG SCSI&FC RAID 3.2','The FC sub-systems support IRIX 6.4.1 and 6.5. The SCSI sub-systems support IRIX 5.3XFS, 6.2, 6.4.1 and 6.5.',NULL,'DG SCSI and FC RAID 3.2.iso','chulofiasco',NULL,'2022-12-14',1,1,NULL);
 INSERT INTO discs VALUES(493,52,'812-0040-001',NULL,'1991-11-01','ImageVision Library 1.0',NULL,NULL,NULL,'darkhelmet',NULL,'2023-03-20',1,1,NULL);
 INSERT INTO discs VALUES(494,54,'812-0014-004',NULL,'1992-07-01','Fortran 77 Compiler 3.5',NULL,NULL,NULL,'darkhelmet',NULL,'2023-03-20',1,1,NULL);
+INSERT INTO discs VALUES(495,15,'812-0353-001',NULL,'1995-06-01','Trusted IRIX 5.3',NULL,NULL,NULL,'twylo',NULL,'2023-07-08',1,1,NULL);
 CREATE TABLE hashes(
 	disc_id,
 	hashtype,
@@ -2511,4 +2512,8 @@ INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1909,493,'MD5','c0faf8148
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1910,493,'SHA1','03227426808bf997511b7af7efc030c431237b04');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1911,493,'SHA256','cdf787cfad94b63363cb7801b33988570fa89f8ce3d9f0c91274ee246f331d76');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1912,493,'SHA3-224','1d70c0020ec4430ea8ae6802a17c2d0c00dccc75881cd2a78f9d41d7');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1913,495,'MD5','32ec6acab12afde57b8281cef483fed6');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1914,495,'SHA1','90107a1cb2a82e41896eca6656c2fb953d8742da');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1915,495,'SHA256','c62c1bc911dfaaaac179c1ed6d49a97631be53d33a54a02aac7a584f4663718a');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1916,495,'SHA3-224','4e37802b457e6a931cbbea7cadadab44179efa2938cb65e0e58a9286');
 COMMIT;
