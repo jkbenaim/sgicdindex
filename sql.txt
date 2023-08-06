@@ -69,6 +69,8 @@ INSERT INTO products VALUES(60,11,'Windows',NULL);
 INSERT INTO products VALUES(61,5,'IRIX 6.5.26',26);
 INSERT INTO products VALUES(62,5,'IRIX 6.5.23',23);
 INSERT INTO products VALUES(63,5,'IRIX 6.5.30',30);
+INSERT INTO products VALUES(64,5,'IRIX 6.5.22',22);
+INSERT INTO products VALUES(65,5,'IRIX 6.5.25',25);
 CREATE TABLE product_groups(
 	product_group_id integer primary key,
 	name text,
@@ -594,6 +596,16 @@ INSERT INTO discs VALUES(492,5,'812-0665-004',NULL,'1999-08-01','DG SCSI&FC RAID
 INSERT INTO discs VALUES(493,52,'812-0040-001',NULL,'1991-11-01','ImageVision Library 1.0',NULL,NULL,NULL,'darkhelmet',NULL,'2023-03-20',1,1,NULL);
 INSERT INTO discs VALUES(494,54,'812-0014-004',NULL,'1992-07-01','Fortran 77 Compiler 3.5',NULL,NULL,NULL,'darkhelmet',NULL,'2023-03-20',1,1,NULL);
 INSERT INTO discs VALUES(495,15,'812-0353-001',NULL,'1995-06-01','Trusted IRIX 5.3',NULL,NULL,NULL,'twylo',NULL,'2023-07-08',1,1,NULL);
+INSERT INTO discs VALUES(496,64,'812-0818-022',NULL,'2003-11-01','IRIX 6.5.22 Installation Tools and Overlays (1 of 3)',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(497,64,'812-0819-022',NULL,'2003-11-01','IRIX 6.5.22 Overlays (2 of 3)',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(498,64,'812-0817-022',NULL,'2003-11-01','IRIX 6.5.22 Overlays (3 of 3)',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(499,64,'812-0877-022',NULL,'2003-11-01','IRIX 6.5 Applications November 2003',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(500,64,'812-1180-022',NULL,'2003-11-01','IRIX 6.5 Complimentary Applications November 2003',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(501,65,'812-0818-025',NULL,'2004-08-01','IRIX 6.5.25 Installation Tools and Overlays (1 of 3)',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(502,65,'812-0819-025',NULL,'2004-08-01','IRIX 6.5.25 Overlays (2 of 3)',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(503,65,'812-0817-025',NULL,'2004-08-01','IRIX 6.5.25 Overlays (3 of 3)',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(504,65,'812-0877-025',NULL,'2004-08-01','IRIX 6.5 Applications August 2004',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(505,65,'812-1180-025',NULL,'2004-08-01','IRIX 6.5 Complimentary Applications August 2004',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
 CREATE TABLE hashes(
 	disc_id,
 	hashtype,
@@ -2516,4 +2528,44 @@ INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1913,495,'MD5','32ec6acab
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1914,495,'SHA1','90107a1cb2a82e41896eca6656c2fb953d8742da');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1915,495,'SHA256','c62c1bc911dfaaaac179c1ed6d49a97631be53d33a54a02aac7a584f4663718a');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1916,495,'SHA3-224','4e37802b457e6a931cbbea7cadadab44179efa2938cb65e0e58a9286');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1917,504,'MD5','18301e6392d8c264ad6cfc3e65c26468');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1918,504,'SHA1','115971235be35ea92dc1694ac3b69dd67c03b023');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1919,504,'SHA256','f01710682fb633cc2739488667c7a4b3e41e36981a1d610d53a13f589f226114');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1920,504,'SHA3-224','a96fe7a2a00163f98510d9f5757035aec9a27fec62197f891c8f796b');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1921,499,'MD5','f540225b3c1073dac9382808ef75b574');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1922,499,'SHA1','3134f31ce378262c7d39345d8e872f27f78256d2');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1923,499,'SHA256','86c8436199f8487a716c17587c67b99f2fe164f51e07144e16761bbae0adca10');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1924,499,'SHA3-224','36b4dcf0c6dc3bc590e6b286c8b50bba678790c357c7715fd3864c2a');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1925,505,'MD5','6ec253b36578da5ea6ea715f09d16f3e');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1926,505,'SHA1','2385718ab6e79e95ee0833d8ff0061684df4546b');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1927,505,'SHA256','cffad410da7877fd726c291dfdfab8b78331aa56a8575bc801327a52abd78159');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1928,505,'SHA3-224','b3897da0f43d6aaf89e596b2623ce7e03ddefd84235e3d14aa8b5d4f');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1929,500,'MD5','c712160b96303e33c197b51db2a518a4');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1930,500,'SHA1','fc098212e6bc6fdbe48ccf6d610cae20bdc5f282');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1931,500,'SHA256','531f7a2f676d0b473cbe1aac85beac33612d76d25ec6fbdc03b97ba28a2c0082');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1932,500,'SHA3-224','81e3a296dff9b5ab1461744c67bd8dafdcfb8380ecff28bd889eb6cd');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1933,496,'MD5','b43606be97856634c4ce5aaff10eb3a3');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1934,496,'SHA1','d192ef686874a33f48d21ade73608ace1307e7da');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1935,496,'SHA256','c36d43431569902a9bdf868cb9f98ea44519a9a99e2bb68dbf1be76be0eec299');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1936,496,'SHA3-224','f0b30c526b5a721a52643ca63171f9e4a59b4b598a7826a1813ac018');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1937,497,'MD5','bee517b5f90ea1c11103cee2bc79e2d5');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1938,497,'SHA1','ad27e94d556027db438527b29882e9cf7cb0ddf3');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1939,497,'SHA256','9064b95ef1c4589c9799a58bbcd7b9f99577d6516555ddc8ed02b703655b58cc');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1940,497,'SHA3-224','b25c7cc0f09c1f77deee3f3677158af841420c91f22faf4336865acf');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1941,498,'MD5','8e10d34397d668e95cd03868638e2dd2');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1942,498,'SHA1','1c8a8cde973dae2facec25308a0df94028eb342f');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1943,498,'SHA256','d2899e9aac3f6f62a446d881ccc2f214afc181c195272ab0e658ca974528557f');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1944,498,'SHA3-224','3c4d96db990acc92bec6414fa3ae195c1ca03d8a1ab4e830e29a504b');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1945,501,'MD5','906d3e770218da85f18ff47afa9f4fc5');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1946,501,'SHA1','20ce2a8daed1a35fd68904097131ad23ac46a7ee');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1947,501,'SHA256','5a46288cb05bc4dd4520802a5aed9338b5ca967ebbf7c0bb9918da0baf5a4ac2');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1948,501,'SHA3-224','9ae6db6d02ad193ae638a2d1b098ac2a7aa8fb73ae523ee43b8a3e11');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1949,502,'MD5','bc958016649af5e62d111fb789bb80be');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1950,502,'SHA1','aca5f3ff0b33050ee8bceb7cad50522de0f73fb3');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1951,502,'SHA256','c8ab2373c3280d07adb3c7bbe0ae82552a0aa0e7a2bebad5e9177bbe76f2e212');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1952,502,'SHA3-224','dd00683873847dfc9b08b38ca072f6c8e810b1d94801ff9c53003eb0');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1953,503,'MD5','0b0c35fa4979e85d5dea8a2d51b987c6');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1954,503,'SHA1','fbd4e43cb1642725bc7bd3500e536bab3221ef97');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1955,503,'SHA256','6ae90eb577c3f2374a680c652b872292ac5cac1f22050be3de4ffa0423b4a676');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1956,503,'SHA3-224','db349458573c6c7f2298b01a173970046173c6c4d7a1d37eb7d292eb');
 COMMIT;
