@@ -165,6 +165,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2023-08-20: Added a number of new discs, courtesy of twylo. Thanks!</p>\n"
 		"<p>2023-08-05: Added IRIX 6.5.22 and IRIX 6.5.25, both courtesy of twylo. Thank you!</p>\n"
 		"<p>2023-07-08: Added Trusted IRIX 5.3, from twylo. Thank you!</p>\n"
 		"<p>2023-03-20: Added new discs from darkhelmet: Fortran 77 Compiler 3.5 and ImageVision Library 1.0. Thank you!</p>\n"

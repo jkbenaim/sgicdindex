@@ -71,6 +71,7 @@ INSERT INTO products VALUES(62,5,'IRIX 6.5.23',23);
 INSERT INTO products VALUES(63,5,'IRIX 6.5.30',30);
 INSERT INTO products VALUES(64,5,'IRIX 6.5.22',22);
 INSERT INTO products VALUES(65,5,'IRIX 6.5.25',25);
+INSERT INTO products VALUES(66,1,'June 1998','1998-06-01');
 CREATE TABLE product_groups(
 	product_group_id integer primary key,
 	name text,
@@ -606,6 +607,13 @@ INSERT INTO discs VALUES(502,65,'812-0819-025',NULL,'2004-08-01','IRIX 6.5.25 Ov
 INSERT INTO discs VALUES(503,65,'812-0817-025',NULL,'2004-08-01','IRIX 6.5.25 Overlays (3 of 3)',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
 INSERT INTO discs VALUES(504,65,'812-0877-025',NULL,'2004-08-01','IRIX 6.5 Applications August 2004',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
 INSERT INTO discs VALUES(505,65,'812-1180-025',NULL,'2004-08-01','IRIX 6.5 Complimentary Applications August 2004',NULL,NULL,NULL,'twylo',NULL,'2023-08-05',1,1,NULL);
+INSERT INTO discs VALUES(506,53,'812-0768-008',NULL,'2004-03-01','ProDev WorkShop 2.9.4','requires IRIX 6.5 or later',NULL,NULL,'twylo',NULL,'2023-08-20',1,1,NULL);
+INSERT INTO discs VALUES(507,54,'812-0373-004',NULL,'1998-08-01','Ada95 Compiler 1.3','for IRIX 6.2, 6.3, 6.4 and 6.5',NULL,NULL,'twylo',NULL,'2023-08-20',1,1,NULL);
+INSERT INTO discs VALUES(508,5,'812-0473-009',NULL,'1998-05-01','MineSet 2.5','for IRIX 6.2 and later',NULL,NULL,'twylo',NULL,'2023-08-20',1,1,NULL);
+INSERT INTO discs VALUES(509,5,'812-0126-006',NULL,'1997-12-01','IRIS Performer 2.2','for IRIX 6.2 and later',NULL,NULL,'twylo',NULL,'2023-08-20',1,1,NULL);
+INSERT INTO discs VALUES(510,5,'812-0724-001',NULL,'1997-12-01','IRIS Performer 2.2 Friends Demo CD','for IRIX 6.2 and later',NULL,NULL,'twylo',NULL,'2023-08-20',1,1,NULL);
+INSERT INTO discs VALUES(511,5,'812-0725-002',NULL,'1997-12-01','IRIS Performer 2.2 Yosemite Demo CD','for IRIX 6.2 and later',NULL,NULL,'twylo',NULL,'2023-08-20',1,1,NULL);
+INSERT INTO discs VALUES(512,66,'812-0773-001',NULL,'1998-06-01','Freeware June 1998',NULL,NULL,NULL,'twylo',NULL,'2023-08-20',1,1,NULL);
 CREATE TABLE hashes(
 	disc_id,
 	hashtype,
@@ -2568,4 +2576,32 @@ INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1953,503,'MD5','0b0c35fa4
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1954,503,'SHA1','fbd4e43cb1642725bc7bd3500e536bab3221ef97');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1955,503,'SHA256','6ae90eb577c3f2374a680c652b872292ac5cac1f22050be3de4ffa0423b4a676');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1956,503,'SHA3-224','db349458573c6c7f2298b01a173970046173c6c4d7a1d37eb7d292eb');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1957,507,'MD5','58254b8d88ab861c7987cba740a5f116');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1958,507,'SHA1','ade45a0d4a1fd7b361a8654f1c4920a77ea56fd7');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1959,507,'SHA256','4caefe2eb3a5e7a8fff85ccbb06abb67ac1b03a77908d34996f0c2bb7237d0cb');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1960,507,'SHA3-224','127ec62ae4e56f579b7a5a279e2fb363bed425b5112ff8bb0df7e06a');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1961,512,'MD5','bab203e90cf5d8a72ad9d4a47844eb06');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1962,512,'SHA1','7f0156c0815d55c57aa65ae0b2ced521b19bab0b');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1963,512,'SHA256','df85004261f91d0f0fe1b5a00094758bd0ec07813a804a0759cb2365e8ac2447');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1964,512,'SHA3-224','02b4e0ea3e957c4c678f13f6dbb3642ca48b32d8474d83bfa2903686');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1965,509,'MD5','885cebd5a3b9729d5ee2a1a43b3b880d');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1966,509,'SHA1','a556686869b86a0bc73657c06a3480db22ef150e');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1967,509,'SHA256','e3a96966bfe19e8d02ceea74634f9bb9a3c6821dfc302d4d27cdd9dfca011be9');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1968,509,'SHA3-224','eca2a7810dbfd3127306479b0661438ec6230d78908d04eb59596f7b');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1969,510,'MD5','f0e3555ebf59598081fe6fba68c36f07');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1970,510,'SHA1','e84117d27fe20c72a786a6fab0136fcc6fb0392d');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1971,510,'SHA256','ac17baa44d55b56fac9fda0e0de52ff2216ebb9038f746a982fb762a12eabfc2');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1972,510,'SHA3-224','af3bbc01f3594cfb99cbf999b28a92ae9fc19a984c1b9aca016485ac');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1973,511,'MD5','9b5cf6e10e869388d525922aec437ac3');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1974,511,'SHA1','6d7446e662686f1e720a5812abe7a6892db441e7');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1975,511,'SHA256','ea26eefd1579b6db1541a84dc4f788184afae4213782548258ef6cd60997d077');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1976,511,'SHA3-224','0c31105eab2fef9ee2d343534679d66a6a7cf2ed4ef79696a8c8c75d');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1977,508,'MD5','6c1a8f43b60033aabf4236ee001ba05d');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1978,508,'SHA1','971e4e4a34d944d0f122245dadf083da61d01c90');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1979,508,'SHA256','37b925e0f76ccd55426e5a14f3dfaeac5faa67e628bc2142f9e7a9190323dfe1');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1980,508,'SHA3-224','b1cc3cd6e575b7dea6ed02bb17b6e8c67f750e346b5cf8d1f522558c');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1981,506,'MD5','b12bd79692c6576e2199884e4ba58ec7');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1982,506,'SHA1','59b11f7f710751d3deb184d19b129f66daac6def');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1983,506,'SHA256','04ec6349775e6aebcd6bdb336df241d57f2350f946ed5dfd953011e01d950265');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(1984,506,'SHA3-224','b03ef51a66f8f88070506e8f03695738e187f1a369d8a5ca360231e4');
 COMMIT;
