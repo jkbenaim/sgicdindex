@@ -380,7 +380,7 @@ INSERT INTO discs VALUES(275,5,'812-0346-002','812-0346-002','1995-09-01','Audio
 INSERT INTO discs VALUES(276,46,'812-0315-001','812-0315-001','1994-09-01','Sirius Video 6.0',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL);
 INSERT INTO discs VALUES(277,5,NULL,'','1993','Indigo Live','for IRIX 4.0.1 or later with Showcase 2.1.1 or later on an Indigo workstation',NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL);
 INSERT INTO discs VALUES(278,5,NULL,'','1992','VisualMagic',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL);
-INSERT INTO discs VALUES(279,53,'812-8101-012','','1995','Developer Magic','Booklet calls this "HotMix 12"',NULL,NULL,'jrra',NULL,'2021-05-23',1,0,NULL);
+INSERT INTO discs VALUES(279,22,'812-8101-012','','1995','Hot Mix 12 Developer Magic','Part of a set with 812-0483-001','Hot Mix 12',NULL,'jrra',NULL,'2021-05-23',1,0,NULL);
 INSERT INTO discs VALUES(280,5,NULL,'','1997','Adobe Premier 4.2','for O2 with IRIX 6.3 or later',NULL,NULL,'jrra',NULL,'2021-05-23',0,0,NULL);
 INSERT INTO discs VALUES(281,22,'812-8101-007','','1994','HotMix 7',NULL,'Hot Mix 07',NULL,'jrra',NULL,'2021-05-23',1,1,NULL);
 INSERT INTO discs VALUES(282,5,'812-0226-003','','1994-03-01','Japanese Language Module 3.2',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL);
