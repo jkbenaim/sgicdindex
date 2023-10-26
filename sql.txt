@@ -701,11 +701,12 @@ INSERT INTO discs VALUES(594,30,'812-0773-016',NULL,'2002-05-01','Freeware (part
 INSERT INTO discs VALUES(595,30,'812-0964-016',NULL,'2002-05-01','Freeware (part 2 of 3)',NULL,NULL,'Freeware May 2002 (part 2 of 3).iso','whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
 INSERT INTO discs VALUES(596,51,'812-0400-009',NULL,'1999-05-01','MIPSpro C++ Compiler 7.3','for IRIX 6.2, 6.3, 6.4 and 6.5',NULL,NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
 INSERT INTO discs VALUES(597,54,'812-0402-010',NULL,'2002-11-01','MIPSpro Fortran 90 Compiler 7.4','requires IRIX 6.5 or later',NULL,NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
-INSERT INTO discs VALUES(598,22,'812-0483-001',NULL,'1995','HotMix 12',NULL,NULL,NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
-INSERT INTO discs VALUES(599,22,'812-0544-003',NULL,'1996','HotMix 14',NULL,NULL,NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
-INSERT INTO discs VALUES(600,22,NULL,NULL,'1996','HotMix 15',NULL,NULL,NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
+INSERT INTO discs VALUES(598,22,'812-0483-001',NULL,'1995','HotMix 12',NULL,'Hot Mix 12',NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
+INSERT INTO discs VALUES(599,22,'812-0544-003',NULL,'1996','HotMix 14',NULL,'Hot Mix 14',NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
+INSERT INTO discs VALUES(600,22,NULL,NULL,'1996','HotMix 15',NULL,'Hot Mix 15',NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
 INSERT INTO discs VALUES(601,4,NULL,NULL,'1996-03-01','IRIX 6.2 Unbundled Products March 1996 (1 of 2)',NULL,NULL,NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
 INSERT INTO discs VALUES(602,4,NULL,NULL,'1996-05-01','IRIX 6.2 Unbundled Products May 1996 (2 of 2)',NULL,NULL,NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
+INSERT INTO discs VALUES(603,22,'009-0783-006',NULL,'1997','HotMix 18',NULL,'Hot Mix 18',NULL,'whimsicalwilson',NULL,'2023-10-26',1,NULL,NULL);
 CREATE TABLE hashes(
 	disc_id,
 	hashtype,
@@ -3052,4 +3053,8 @@ INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2337,574,'MD5','fcad7eeb0
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2338,574,'SHA1','83d44ac7aa31eff49efd2bf75d5ac679e6a777a0');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2339,574,'SHA256','49d1a5987ce67eb5e30d0264b310a38618ea47a8eac50ffa6a5cddc1c40d930d');
 INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2340,574,'SHA3-224','8fefdaf85bf4fec66d14288c368fd8b8b4b5b1e7a300aaf1fc445296');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2341,603,'MD5','63c49ec8ef08b1f4b210224c67c27a27');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2342,603,'SHA1','c2010edf19e139f9fc11cb4fc11ecc10f7b1d673');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2343,603,'SHA256','3800998759ebb6b45f66fd29ac1bb96102acd8baf6d6cf044b4bbafc40f8b949');
+INSERT INTO hashes(rowid,disc_id,hashtype,hash) VALUES(2344,603,'SHA3-224','9384d75b05f27e56fe7adff0504b46abd2306a20e3f8db92c84d87c8');
 COMMIT;
