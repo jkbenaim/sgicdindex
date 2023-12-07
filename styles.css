@@ -1,0 +1,9 @@
+body {font: 1.1em sans-serif;}
+table {border: 1px solid lightgrey; border-collapse: collapse;table-layout:fixed;width:1000px;margin-bottom:1em;}
+caption {background-color: grey; color: white;font: italic bold 1.5em sans-serif;padding:10px;}
+td {border: 1px solid lightgrey; font: 1em monospace;padding:10px;}
+th {font: 1em monospace;}
+th:nth-child(1),th:nth-child(2) {width:150px;}
+.newest {font-weight: bold; color: red; text-decoration: underline;}
+.contrib {font-weight: normal; color: green; text-decoration: underline;}
+body,h1,h2,h3 {font-family: Helvetica, sans;}
