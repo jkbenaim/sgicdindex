@@ -19,6 +19,10 @@ all:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html
 clean:
 	rm -f mkcds mkhw mkcds.o mkhw.o $(objects) index.html index-with-ids.html sql.txt
 
+.PHONY: upload
+upload:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html styles.css
+	rsync -aPHAXz $^ jrrazone:/www/jrra.zone/sgi/
+
 mkcds: mkcds.o $(objects)
 
 mkhw: mkhw.o $(objects)
