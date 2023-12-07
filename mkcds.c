@@ -155,7 +155,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
-                "<p>2023-11-26: Regenerated all tars, and added tars for discs which did not previously have them.</p>\n"
+                "<p>2023-11-26: Regenerated all tars with <a href=\"/efsextract\">efsextract</a>, and added tars for discs which did not previously have them.</p>\n"
 		"<p>2023-11-03: Added some discs from my own collection that needed redumps. Two versions each of IRIX 4.0.2 and IRIS Development Option 4.0 are now available, along with another ProPack.</p>\n"
 		"<p>2023-10-26: Added lots of new discs, courtesy of whimsicalwilson. Thank you!</p>\n"
 		"<p>2023-08-30: Added a ton of new discs, courtesy of plamen. Thank you!</p>\n"
@@ -206,7 +206,7 @@ int callback_sgi_cds()
 	printf("<hr/>\n");
 
 	foreachpg(pg) {
-		printf("<table id=\"pg-%d\">\n<caption>", pg.id);
+		printf("<table class=\"cd\" id=\"pg-%d\">\n<caption>", pg.id);
 		printf("%s", pg.name);
 		printf("</caption>\n<thead>\n<tr>\n");
 		printf("\t<th scope='col'>product</th>\n");

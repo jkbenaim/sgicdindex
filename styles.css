@@ -1,9 +1,16 @@
 body {font: 1.1em sans-serif;}
 table {border: 1px solid lightgrey; border-collapse: collapse;table-layout:fixed;width:1000px;margin-bottom:1em;}
 caption {background-color: grey; color: white;font: italic bold 1.5em sans-serif;padding:10px;}
-td {border: 1px solid lightgrey; font: 1em monospace;padding:10px;}
-th {font: 1em monospace;}
-th:nth-child(1),th:nth-child(2) {width:150px;}
+/* CD table format */
+.cd td {border: 1px solid lightgrey; font: 1em monospace;padding:10px;}
+.cd th {font: 1em monospace;}
+.cd th:nth-child(1) {width: 150px;}
+.cd th:nth-child(2) {width: 150px;}
+/* HW table format */
+.hw td {border: solid lightgrey; border-width: 1px 0 1px; font: 1em monospace;}
+.hw th {font: 1em monospace; text-align: left;}
+.hw th:nth-child(1) {width:150px;}
+.hw th:nth-child(2) {width: 50px;}
 .newest {font-weight: bold; color: red; text-decoration: underline;}
 .contrib {font-weight: normal; color: green; text-decoration: underline;}
 body,h1,h2,h3 {font-family: Helvetica, sans;}

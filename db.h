@@ -42,9 +42,21 @@ struct disc_s {
 	char *sha256;
 };
 
+struct part_s {
+	const char *doc;
+	unsigned page;
+	const char *item;
+	const char *rev;
+	const char *desc;
+	const char *uom;
+	sqlite3_stmt *_stmt;
+	int _rc;
+};
+
 #define foreachpg(a) pginit(&a);while (a._rc=pgstep(&a),(a._rc!=SQLITE_ROW)?sqlite3_finalize(a._stmt):0,a._rc==SQLITE_ROW)
 #define foreachproduct(a,pg_id) productinit(&a,pg_id);while (a._rc=productstep(&a),(a._rc!=SQLITE_ROW)?sqlite3_finalize(a._stmt):0,a._rc==SQLITE_ROW)
 #define foreachdisc(a,product_id) discinit(&a,product_id);while (a._rc=discstep(&a),(a._rc!=SQLITE_ROW)?sqlite3_finalize(a._stmt):0,a._rc==SQLITE_ROW)
+#define foreachpart(a) partinit(&a);while (a._rc=partstep(&a),(a._rc!=SQLITE_ROW)?sqlite3_finalize(a._stmt):0,a._rc==SQLITE_ROW)
 
 void DB_Init(const char *filename);
 void DB_Close();
@@ -54,4 +66,5 @@ void productinit(struct product_s *product, int pg_id);
 int productstep(struct product_s *product);
 void discinit(struct disc_s *disc, int product_id);
 int discstep(struct disc_s *disc);
-
+void partinit(struct part_s *part);
+int partstep(struct part_s *part);

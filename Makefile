@@ -1,5 +1,4 @@
-target  ?= sgicdindex
-objects := $(patsubst %.c,%.o,$(wildcard *.c))
+objects := db.o errsql.o escape.o
 
 libs:= sqlite3
 
@@ -14,22 +13,27 @@ LDFLAGS += ${EXTRAS}
 CFLAGS  += -std=c99 ${EXTRAS}
 
 .PHONY: all
-all:	index.html index-with-ids.html DIGESTS.txt sql.txt
+all:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html
 
 .PHONY: clean
 clean:
-	rm -f $(target) $(objects) index.html index-with-ids.html sql.txt
+	rm -f mkcds mkhw mkcds.o mkhw.o $(objects) index.html index-with-ids.html sql.txt
 
-$(target): $(objects)
+mkcds: mkcds.o $(objects)
 
-index.html: $(target) sgi.db
-	./$(target) -f sgi.db | xmllint --valid --output $@ -
+mkhw: mkhw.o $(objects)
 
-index-with-ids.html: $(target) sgi.db
-	./$(target) -f sgi.db -i -h | xmllint --valid --output $@ -
+index.html: mkcds sgi.db
+	./mkcds -f sgi.db | xmllint --valid --output $@ -
 
-DIGESTS.txt: $(target) sgi.db mkdigests.sql
+index-with-ids.html: mkcds sgi.db
+	./mkcds -f sgi.db -i -h | xmllint --valid --output $@ -
+
+DIGESTS.txt: mkcds sgi.db mkdigests.sql
 	sqlite3 sgi.db < mkdigests.sql > $@
 
 sql.txt: sgi.db
 	sqlite3 sgi.db ".dump --preserve-rowids" > sql.txt
+
+hw.html: mkhw sgi.db
+	./mkhw -f sgi.db | xmllint --valid --output $@ -

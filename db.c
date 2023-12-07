@@ -150,6 +150,7 @@ void discinit(struct disc_s *disc, int product_id)
 	if (rc != SQLITE_OK)
 		err(1, "disc prepare");
 }
+
 int discstep(struct disc_s *disc)
 {
 	int rc;
@@ -174,3 +175,29 @@ int discstep(struct disc_s *disc)
 	return rc;
 }
 
+void partinit(struct part_s *part)
+{
+	int rc;
+	rc = sqlite3_prepare_v2(
+		db,
+		"select doc,page,item,rev,desc,uom,quantity from parts group by item,rev order by item,rev;",
+		-1,
+		&(part->_stmt),
+		NULL
+	);
+}
+
+int partstep(struct part_s *part)
+{
+	int rc;
+	rc = sqlite3_step(part->_stmt);
+	if (rc == SQLITE_ROW) {
+		part->doc  = sqlite3_column_text(part->_stmt, 0);
+		part->page = sqlite3_column_int(part->_stmt, 1);
+		part->item = sqlite3_column_text(part->_stmt, 2);
+		part->rev  = sqlite3_column_text(part->_stmt, 3);
+		part->desc = sqlite3_column_text(part->_stmt, 4);
+		part->uom  = sqlite3_column_text(part->_stmt, 5);
+	}
+	return rc;
+}
