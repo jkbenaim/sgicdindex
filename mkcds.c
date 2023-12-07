@@ -139,7 +139,6 @@ void make_products(int pg_id)
 int callback_sgi_cds()
 {
 	__label__ out_finalize, out_return;
-	int rc;
 
 	printf("%s",
 		"<?xml version=\"1.0\"?>\n"
