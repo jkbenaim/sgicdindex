@@ -22,14 +22,14 @@ clean:
 
 $(target): $(objects)
 
-index.html: $(target) sgicds.db
-	./$(target) -f sgicds.db | xmllint --valid --output $@ -
+index.html: $(target) sgi.db
+	./$(target) -f sgi.db | xmllint --valid --output $@ -
 
-index-with-ids.html: $(target) sgicds.db
-	./$(target) -f sgicds.db -i -h | xmllint --valid --output $@ -
+index-with-ids.html: $(target) sgi.db
+	./$(target) -f sgi.db -i -h | xmllint --valid --output $@ -
 
-DIGESTS.txt: $(target) sgicds.db mkdigests.sql
-	sqlite3 sgicds.db < mkdigests.sql > $@
+DIGESTS.txt: $(target) sgi.db mkdigests.sql
+	sqlite3 sgi.db < mkdigests.sql > $@
 
-sql.txt: sgicds.db
-	sqlite3 sgicds.db ".dump --preserve-rowids" > sql.txt
+sql.txt: sgi.db
+	sqlite3 sgi.db ".dump --preserve-rowids" > sql.txt

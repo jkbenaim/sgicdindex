@@ -1,7 +1,7 @@
 # sgicdindex
 
 This is a simple program to build the index page at [https://jrra.zone/sgi].
-It takes data from the SQLite database sgicds.db and generates index.html.
+It takes data from the SQLite database sgi.db and generates index.html.
 
 The most interesting thing about this project for you, dear reader, is
 probably the data stored within the database, and not the code to generate the
