@@ -21,7 +21,7 @@ void make_parts()
 		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 		"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n"
 		"<head>"
-		"<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />\n"
+		"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n"
 		"<title>jrra.zone: SGI Hardware Part Numbers</title>\n"
 		"<link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\" media=\"all\"/>\n"
 		"</head>\n"
