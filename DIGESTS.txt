@@ -1,7 +1,3 @@
-
-
-
-
 MD5 (1600SW Flat Panel Patches.iso) = d00858cd0824f77bffe7dd486fb2324e
 SHA1 (1600SW Flat Panel Patches.iso) = b0f8f60ecd3ad18a35130ff720826f22cd18a289
 SHA256 (1600SW Flat Panel Patches.iso) = 5a7d9d35d7f8f98abce6809df1dfe0874d9bc7f16e4fdb76bdbfd898e5445ab4
