@@ -1,16 +1,9 @@
 objects := db.o errsql.o escape.o
 
-libs:= sqlite3
-
 #EXTRAS += -fsanitize=undefined -fsanitize=null -fcf-protection=full -fstack-protector-all -fstack-check -Wimplicit-fallthrough -flto -fanalyzer -Og -ggdb
 
-ifdef libs
-LDLIBS  += $(shell pkg-config --libs   ${libs})
-CFLAGS  += $(shell pkg-config --cflags ${libs})
-endif
-
-LDFLAGS += ${EXTRAS}
-CFLAGS  += -std=c99 ${EXTRAS}
+LDFLAGS += -lsqlite3
+CFLAGS  += -std=c99
 
 .PHONY: all
 all:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html
@@ -37,7 +30,7 @@ DIGESTS.txt: mkcds sgi.db mkdigests.sql
 	sqlite3 sgi.db < mkdigests.sql > $@
 
 sql.txt: sgi.db
-	sqlite3 sgi.db ".dump --preserve-rowids" > sql.txt
+	sqlite3 sgi.db ".dump" > sql.txt
 
 hw.html: mkhw sgi.db
 	./mkhw -f sgi.db | xmllint --valid --output $@ -

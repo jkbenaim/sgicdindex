@@ -144,7 +144,7 @@ int callback_sgi_cds()
 		"<?xml version=\"1.0\"?>\n"
 		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 		"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n"
-		"<head>\n"
+		"<head>"
 		"<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />\n"
 		"<title>jrra.zone: SGI/IRIX CDs</title>\n"
 		"<link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\" media=\"all\"/>\n"

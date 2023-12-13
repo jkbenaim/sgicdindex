@@ -10,29 +10,46 @@
 
 sqlite3 *db;
 
+#ifdef sqlite3_prepare_v2
+#define sqlite3_prepare_v2_maybe sqlite3_prepare_v2
+#else
+#define sqlite3_prepare_v2_maybe sqlite3_prepare
+#endif
+
 void DB_Init(const char *filename)
 {
 	int rc;
+#ifdef sqlite3_open_v2
 	rc = sqlite3_open_v2(
 		filename,
 		&db,
 		SQLITE_OPEN_READONLY,
 		NULL
 	);
+#else
+	rc = sqlite3_open(
+		filename,
+		&db
+	);
+#endif
 	if (rc != SQLITE_OK)
-		err(1, "open");
+		errsql(1, db, "DB_Init open");
 }
 
 void DB_Close()
 {
-	sqlite3_close(db);
+	int rc;
+
+	rc = sqlite3_close(db);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "DB_Close close");
 }
 
 void pginit(struct pg_s *pg)
 {
 	int rc;
 
-	rc = sqlite3_prepare_v2(
+	rc = sqlite3_prepare_v2_maybe(
 		db,
 		"select product_group_id, name from product_groups order by ordinal, name collate nocase;",
 		-1,
@@ -40,7 +57,7 @@ void pginit(struct pg_s *pg)
 		NULL
 	);
 	if (rc != SQLITE_OK)
-		err(1, "prepare");
+		errsql(1, db, "pginit prepare");
 }
 
 int pgstep(struct pg_s *pg)
@@ -58,20 +75,33 @@ int pgstep(struct pg_s *pg)
 int DB_GetNumDiscsForProduct(int product_id)
 {
 	int rc;
+	int count;
 	sqlite3_stmt *stmt;
-	rc = sqlite3_prepare_v2(
+	rc = sqlite3_prepare_v2_maybe(
 		db,
-		"select count(*) from discs where cast(product_id as int)==?",
+		"select count(*) from discs where (product_id + 0)==?",
 		-1,
 		&stmt,
 		NULL
 	);
-	sqlite3_bind_int(stmt, 1, product_id);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "DB_GetNumDiscsForProduct prepare");
+
+	rc = sqlite3_bind_int(stmt, 1, product_id);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "DB_GetNumDiscsForProduct bind");
+	
 	rc = sqlite3_step(stmt);
-	if (rc != SQLITE_ROW) err(1, "step");
-	rc = sqlite3_column_int(stmt, 0);
-	sqlite3_finalize(stmt);
-	return rc;
+	if (rc != SQLITE_ROW)
+		errsql(1, db, "DB_GetNumDiscsForProduct step");
+	
+	count = sqlite3_column_int(stmt, 0);
+	
+	rc = sqlite3_finalize(stmt);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "DB_GetNumDiscsForProduct finalize");
+	
+	return count;
 }
 
 char *hashfordisc(int disc_id, const char *hashtype)
@@ -81,30 +111,40 @@ char *hashfordisc(int disc_id, const char *hashtype)
 	const char *col;
 	char *hash = NULL;
 
-	rc = sqlite3_prepare_v2(
+	rc = sqlite3_prepare_v2_maybe(
 		db,
 		"SELECT hash FROM hashes WHERE disc_id=? AND hashtype=?",
 		-1,
 		&stmt,
 		NULL
 	);
-	if (rc != SQLITE_OK) errsql(1, db, "hashfordisc prepare");
+	if (rc != SQLITE_OK)
+		errsql(1, db, "hashfordisc prepare");
 
 	rc = sqlite3_bind_int(stmt, 1, disc_id);
-	if (rc != SQLITE_OK) errsql(1, db, "hashfordisc bind disc_id");
+	if (rc != SQLITE_OK)
+		errsql(1, db, "hashfordisc bind disc_id");
 
 	rc = sqlite3_bind_text(stmt, 2, hashtype, -1, SQLITE_STATIC);
-	if (rc != SQLITE_OK) errsql(1, db, "hashfordisc bind hashtype");
+	if (rc != SQLITE_OK)
+		errsql(1, db, "hashfordisc bind hashtype");
 
 	rc = sqlite3_step(stmt);
 	if (rc != SQLITE_ROW) {
-		sqlite3_finalize(stmt);
+		rc = sqlite3_finalize(stmt);
+		if (rc != SQLITE_OK)
+			errsql(1, db, "hashfordisc notrow-finalize");
 		return NULL;
 	}
 
 	col = sqlite3_column_text(stmt, 0);
-	if (col) hash = strdup(col);
-	sqlite3_finalize(stmt);
+	if (col)
+		hash = strdup(col);
+
+	rc = sqlite3_finalize(stmt);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "hashfordisc finalize");
+
 	return hash;
 }
 
@@ -112,16 +152,18 @@ void productinit(struct product_s *product, int pg_id)
 {
 	int rc;
 	product->pg_id = pg_id;
-	rc = sqlite3_prepare_v2(
+	rc = sqlite3_prepare_v2_maybe(
 		db,
-		"select product_id, name from products where cast(product_group_id as int)==? order by ordinal, name collate nocase;",
+		"select product_id, name from products where (product_group_id + 0)==? order by ordinal, name collate nocase;",
 		-1,
 		&(product->_stmt),
 		NULL
 	);
-	sqlite3_bind_int(product->_stmt, 1, pg_id);
 	if (rc != SQLITE_OK)
-		err(1, "prepare");
+		errsql(1, db, "productinit prepare");
+	rc = sqlite3_bind_int(product->_stmt, 1, pg_id);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "productinit bind");
 }
 int productstep(struct product_s *product)
 {
@@ -139,16 +181,18 @@ void discinit(struct disc_s *disc, int product_id)
 {
 	int rc;
 	disc->product_id = product_id;
-	rc = sqlite3_prepare_v2(
+	rc = sqlite3_prepare_v2_maybe(
 		db,
-		"select disc_id, name, cd_pn, case_pn, substr(date,6,2)||'/'||substr(date,1,4), note, filename, contributor, attachment, date_added=(select max(Date_added) from discs), havefile, havetar from discs where cast(product_id as int)==? order by ordinal, name collate nocase, date, cd_pn;",
+		"select disc_id, name, cd_pn, case_pn, substr(date,6,2)||'/'||substr(date,1,4), note, filename, contributor, attachment, date_added=(select max(Date_added) from discs), havefile, havetar from discs where (product_id + 0)==? order by ordinal, name collate nocase, date, cd_pn;",
 		-1,
 		&(disc->_stmt),
 		NULL
 	);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "discinit prepare");
 	sqlite3_bind_int(disc->_stmt, 1, product_id);
 	if (rc != SQLITE_OK)
-		err(1, "disc prepare");
+		errsql(1, db, "discinit bind");
 }
 
 int discstep(struct disc_s *disc)
@@ -178,13 +222,15 @@ int discstep(struct disc_s *disc)
 void partinit(struct part_s *part)
 {
 	int rc;
-	rc = sqlite3_prepare_v2(
+	rc = sqlite3_prepare_v2_maybe(
 		db,
 		"select doc,page,item,rev,desc,uom,quantity from parts group by item,rev order by item,rev;",
 		-1,
 		&(part->_stmt),
 		NULL
 	);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "partinit prepare");
 }
 
 int partstep(struct part_s *part)
