@@ -4,11 +4,11 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdnoreturn.h>
 #include <string.h>
 #include <unistd.h>
 #include "db.h"
 #include "escape.h"
+#include "stdnoreturn.h"
 
 extern char *__progname;
 static void noreturn usage();
