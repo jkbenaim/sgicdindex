@@ -24,6 +24,6 @@ UPDATE myhashes SET filename=(SELECT name || '.iso' FROM discs WHERE discs.disc_
 .mode list
 SELECT 
 	hashtype || ' (' || filename || ') = ' || hash
-FROM myhashes ORDER BY filename;
+FROM myhashes ORDER BY filename,hashtype;
 
 DROP TABLE temp.myhashes;
