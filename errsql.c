@@ -1,9 +1,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdnoreturn.h>
 #include <sqlite3.h>
 #include "errsql.h"
+#include "stdnoreturn.h"
 
 extern const char *__progname;
 
