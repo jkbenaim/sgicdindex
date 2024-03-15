@@ -85,11 +85,11 @@ void make_discs(struct product_s product)
 		}
 		if (disc.havefile) {
 			printf("<a href=\"%s/cds/%s\">%s</a>", webroot, filename, name);
-			if (disc.havetar) {
-				printf(" (<a href=\"%s/tar/%s\">tar</a>)", webroot, tarname);
-			}
 		} else {
 			printf(name);
+		}
+		if (disc.havetar) {
+			printf(" (<a href=\"%s/tar/%s\">tar</a>)", webroot, tarname);
 		}
 		if (disc.is_newest) {
 			printf(" <span class=\"newest\">new</span>");
@@ -154,6 +154,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2024-03-15: Added PDF Generator 1.2, courtesy of WildOne69. Thank you!</p>\n"
                 "<p>2023-11-26: Regenerated all tars with <a href=\"/efsextract\">efsextract</a>, and added tars for discs which did not previously have them.</p>\n"
 		"<p>2023-11-03: Added some discs from my own collection that needed redumps. Two versions each of IRIX 4.0.2 and IRIS Development Option 4.0 are now available, along with another ProPack.</p>\n"
 		"<p>2023-10-26: Added lots of new discs, courtesy of whimsicalwilson. Thank you!</p>\n"
@@ -191,7 +192,7 @@ int callback_sgi_cds()
 	printf("<h3>Index</h3>\n");
 	printf("<ul>\n");
 	foreachpg(pg) {
-		printf("\t<li><a href=\"#pg-%d\">%s</a>\n", pg.id, pg.name);
+		printf("\t<li><a href=\"#pg-%d\">%s</a>", pg.id, pg.name);
 		/*
 		printf("\t<ul>\n");
 		foreachproduct(product,pg.id) {

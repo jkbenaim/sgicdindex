@@ -6,6 +6,7 @@ caption {background-color: grey; color: white;font: italic bold 1.5em sans-serif
 .cd th {font: 1em monospace;}
 .cd th:nth-child(1) {width: 150px;}
 .cd th:nth-child(2) {width: 150px;}
+.cd tr:target {background-color:#E8EAF6;}
 /* HW table format */
 table.hw {width:auto;}
 .hw td {border: solid lightgrey; border-width: 1px 0 1px; font: 1em monospace;}
