@@ -154,6 +154,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2024-05-05: Added a number of new discs courtesy of CB_HK, including several Hot Mixes. Thank you!</p>\n"
 		"<p>2024-03-15: Added PDF Generator 1.2, courtesy of WildOne69. Thank you!</p>\n"
                 "<p>2023-11-26: Regenerated all tars with <a href=\"/efsextract\">efsextract</a>, and added tars for discs which did not previously have them.</p>\n"
 		"<p>2023-11-03: Added some discs from my own collection that needed redumps. Two versions each of IRIX 4.0.2 and IRIS Development Option 4.0 are now available, along with another ProPack.</p>\n"
