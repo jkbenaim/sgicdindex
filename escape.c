@@ -117,3 +117,86 @@ char *escape_xml(const char *orig)
 	return out;
 }
 
+char *escape_json(const char *orig)
+{
+	char *out = NULL;
+	size_t outLength = 0;
+	size_t origLength = strlen(orig);
+	const char *inp = orig;
+	char *outp;
+	char *test;
+	size_t i;
+
+	out = malloc(origLength * strlen("\\u0000") + 1);
+	if (!out) {
+		fprintf(stderr, "error in escape_json: out of memory\n");
+		return NULL;
+	}
+
+	outp = out;
+
+	for (i = 0; i < origLength; i++) {
+		char suspect = *inp++;
+		switch (suspect) {
+		case '"':
+			*outp++ = '\\';
+			*outp++ = '"';
+			break;
+		case '\\':
+			*outp++ = '\\';
+			*outp++ = '\\';
+			break;
+#if 0
+		case '/':
+			*outp++ = '\\';
+			*outp++ = '/';
+			break;
+#endif
+#if 1
+		case '\b':
+			*outp++ = '\\';
+			*outp++ = 'b';
+			break;
+		case '\t':
+			*outp++ = '\\';
+			*outp++ = 't';
+			break;
+#endif
+		case '\f':
+			*outp++ = '\\';
+			*outp++ = 'f';
+			break;
+		case '\n':
+			*outp++ = '\\';
+			*outp++ = 'n';
+			break;
+		case '\r':
+			*outp++ = '\\';
+			*outp++ = 'r';
+			break;
+		case 0x00 ... 0x07:
+			/* fall-thru */
+		case 0x0b:
+			/* fall-thru */
+		case 0x0e ... 0x1f:
+			*outp++ = '\\';
+			*outp++ = 'u';
+			*outp++ = '0';
+			*outp++ = '0';
+			*outp++ = "0123456789abcdef"[(suspect&0xf0)>>4];
+			*outp++ = "0123456789abcdef"[suspect&0xf];
+			break;
+		default:
+			*outp++ = suspect;
+			outLength += 1;
+			break;
+		}
+	}
+	*outp = '\0';
+	outLength++;
+	test = realloc(out, outLength);
+	if (test) {
+		out = test;
+	}
+	return out;
+}
