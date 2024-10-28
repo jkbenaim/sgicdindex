@@ -78,6 +78,7 @@ INSERT INTO products VALUES(69,5,'IRIX 6.5.21',21);
 INSERT INTO products VALUES(70,5,'IRIX 6.5.24',24);
 INSERT INTO products VALUES(71,3,'Performer',NULL);
 INSERT INTO products VALUES(72,10,'Developer Forum ''95',1995);
+INSERT INTO products VALUES(73,10,'Developer Toolboxes',NULL);
 CREATE TABLE product_groups(
 	product_group_id integer primary key,
 	name text,
@@ -726,6 +727,36 @@ INSERT INTO discs VALUES(618,22,NULL,NULL,'1993','Hot Mix 5',NULL,'Hot Mix 05',N
 INSERT INTO discs VALUES(619,72,NULL,NULL,'1995-09-01','Developer Forum ''95 CD Set Disc 1',NULL,'1','Developer Forum 1995 CD Set Disc 1.iso','chulofiasco','Developer Forum 1995.pdf','2024-10-27',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(620,72,NULL,NULL,'1995-09-01','Developer Forum ''95 CD Set Disc 2',NULL,'2','Developer Forum 1995 CD Set Disc 2.iso','chulofiasco',NULL,'2024-10-27',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(621,72,NULL,NULL,'1995-09-01','Developer Forum ''95 CD Set Disc 3',NULL,'3','Developer Forum 1995 CD Set Disc 3.iso','chulofiasco',NULL,'2024-10-27',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(622,73,NULL,NULL,'1996','Developers Toolbox 6.0 Disc 1','Requires IRIX 5.3','6.0',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(623,73,NULL,NULL,'1996','Developers Toolbox 6.0 Disc 2','Requires IRIX 5.3','6.0',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(624,73,NULL,NULL,'1996','Developers Toolbox 6.0 Disc 3','Requires IRIX 5.3','6.0',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(625,73,NULL,NULL,'1996','Developers Toolbox 6.1 Disc 0','Requires IRIX 6.2','6.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(626,73,NULL,NULL,'1996','Developers Toolbox 6.1 Disc 1','Requires IRIX 6.2','6.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(627,73,NULL,NULL,'1996','Developers Toolbox 6.1 Disc 2','Requires IRIX 6.2','6.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(628,73,NULL,NULL,'1997','Developers Toolbox 6.2a Disc 0','Requires IRIX 6.2','6.2a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(629,73,NULL,NULL,'1997','Developers Toolbox 6.2a Disc 1','Requires IRIX 6.2','6.2a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(630,73,NULL,NULL,'1997','Developers Toolbox 6.2a Disc 2','Requires IRIX 6.2','6.2a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(631,73,NULL,NULL,'1998','Developers Toolbox 6.2b Disc 0','Requires IRIX 6.2','6.2b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(632,73,NULL,NULL,'1998','Developers Toolbox 6.2b Disc 1','Requires IRIX 6.2','6.2b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(633,73,NULL,NULL,'1998','Developers Toolbox 6.2b Disc 2','Requires IRIX 6.2','6.2b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(634,73,NULL,NULL,'1999','Developers Toolbox 6.2c Disc 0','Requires IRIX 6.2 or greater','6.2c',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(635,73,NULL,NULL,'1999','Developers Toolbox 6.2c Disc 1','Requires IRIX 6.2 or greater','6.2c',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(636,73,NULL,NULL,'1999','Developers Toolbox 6.2c Disc 2','Requires IRIX 6.2 or greater','6.2c',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(637,73,NULL,NULL,'2000','Developers Toolbox 6.5a Disc 0',NULL,'6.5a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(638,73,NULL,NULL,'2000','Developers Toolbox 6.5a Disc 1',NULL,'6.5a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(639,73,NULL,NULL,'2000','Developers Toolbox 6.5b Disc 0',NULL,'6.5b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(640,73,NULL,NULL,'2000','Developers Toolbox 6.5b Disc 1',NULL,'6.5b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(641,73,NULL,NULL,'1993','Developer’s Toolbox Release 3.0',NULL,'3.0',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(642,73,NULL,NULL,'1993','Developer’s Toolbox Release 3.1',NULL,'3.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(643,73,NULL,NULL,'1993','Developer Toolbox Release 3.2',NULL,'3.2',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(644,73,NULL,NULL,'1993','Developer Toolbox Release 3.3',NULL,'3.3',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(645,73,NULL,NULL,'1994','Developer Toolbox Release 4.0',NULL,'4.0',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(646,73,NULL,NULL,'1994','Developer Toolbox Release 4.1',NULL,'4.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(647,73,NULL,NULL,'1994','Developer Toolbox Release 4.2','Requires IRIX 5.2','4.2',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(648,73,NULL,NULL,'1995','Developer Toolbox Release 5.0',NULL,'5.0',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(649,73,NULL,NULL,'1995','Developer Toolbox Release 5.1','Requires IRIX 5.3','5.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(650,73,NULL,NULL,'2001','Linux Developers Toolbox 1.0',NULL,'9.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(651,73,NULL,NULL,'1999','Windows NT Developers Toolbox 1.0','For Silicon Graphics 320 and Silicon Graphics 540 Workstations','9.2',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
 CREATE TABLE hashes(
 	disc_id,
 	hashtype,
@@ -4346,4 +4377,36 @@ INSERT INTO parts VALUES('H','2','SC4-NFS-6.2.1',NULL,'NFS 6.2 INDIGO2 IMP 10000
 INSERT INTO parts VALUES('H','2','WB-T5HMAX4',NULL,'IMPACT 10000 195MHZ MAX 128MB/4GB',NULL,NULL);
 INSERT INTO parts VALUES('H','2','X5-SCSIA',NULL,'CABLE SCSI GUINNESS 1/2 METER',NULL,NULL);
 INSERT INTO parts VALUES('H','3','X5-SCSIC',NULL,'CABLE 1/2 METER 50 HI DEN TO 50 HI',NULL,NULL);
+CREATE TABLE IF NOT EXISTS "jerry"(
+"ordinal" TEXT, "name" TEXT, "date" TEXT, "note" TEXT);
+INSERT INTO jerry VALUES('6.0','Developers Toolbox 6.0 Disc 1','1996','Requires IRIX 5.3');
+INSERT INTO jerry VALUES('6.0','Developers Toolbox 6.0 Disc 2','1996','Requires IRIX 5.3');
+INSERT INTO jerry VALUES('6.0','Developers Toolbox 6.0 Disc 3','1996','Requires IRIX 5.3');
+INSERT INTO jerry VALUES('6.1','Developers Toolbox 6.1 Disc 0','1996','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.1','Developers Toolbox 6.1 Disc 1','1996','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.1','Developers Toolbox 6.1 Disc 2','1996','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.2a','Developers Toolbox 6.2a Disc 0','1997','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.2a','Developers Toolbox 6.2a Disc 1','1997','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.2a','Developers Toolbox 6.2a Disc 2','1997','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.2b','Developers Toolbox 6.2b Disc 0','1998','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.2b','Developers Toolbox 6.2b Disc 1','1998','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.2b','Developers Toolbox 6.2b Disc 2','1998','Requires IRIX 6.2');
+INSERT INTO jerry VALUES('6.2c','Developers Toolbox 6.2c Disc 0','1999','Requires IRIX 6.2 or greater');
+INSERT INTO jerry VALUES('6.2c','Developers Toolbox 6.2c Disc 1','1999','Requires IRIX 6.2 or greater');
+INSERT INTO jerry VALUES('6.2c','Developers Toolbox 6.2c Disc 2','1999','Requires IRIX 6.2 or greater');
+INSERT INTO jerry VALUES('6.5a','Developers Toolbox 6.5a Disc 0','2000',NULL);
+INSERT INTO jerry VALUES('6.5a','Developers Toolbox 6.5a Disc 1','2000',NULL);
+INSERT INTO jerry VALUES('6.5b','Developers Toolbox 6.5b Disc 0','2000',NULL);
+INSERT INTO jerry VALUES('6.5b','Developers Toolbox 6.5b Disc 1','2000',NULL);
+INSERT INTO jerry VALUES('3.0','Developer’s Toolbox Release 3.0','1993',NULL);
+INSERT INTO jerry VALUES('3.1','Developer’s Toolbox Release 3.1','1993',NULL);
+INSERT INTO jerry VALUES('3.2','Developer Toolbox Release 3.2','1993',NULL);
+INSERT INTO jerry VALUES('3.3','Developer Toolbox Release 3.3','1993',NULL);
+INSERT INTO jerry VALUES('4.0','Developer Toolbox Release 4.0','1994',NULL);
+INSERT INTO jerry VALUES('4.1','Developer Toolbox Release 4.1','1994',NULL);
+INSERT INTO jerry VALUES('4.2','Developer Toolbox Release 4.2','1994','Requires IRIX 5.2');
+INSERT INTO jerry VALUES('5.0','Developer Toolbox Release 5.0','1995',NULL);
+INSERT INTO jerry VALUES('5.1','Developer Toolbox Release 5.1','1995','Requires IRIX 5.3');
+INSERT INTO jerry VALUES('100','Linux Developers Toolbox 1.0','2001',NULL);
+INSERT INTO jerry VALUES('101','Windows NT Developers Toolbox 1.0','1999','For Silicon Graphics 320 and Silicon Graphics 540 Workstations');
 COMMIT;
