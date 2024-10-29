@@ -742,10 +742,10 @@ INSERT INTO discs VALUES(633,73,NULL,NULL,'1998','Developers Toolbox 6.2b Disc 2
 INSERT INTO discs VALUES(634,73,NULL,NULL,'1999','Developers Toolbox 6.2c Disc 0','Requires IRIX 6.2 or greater','6.2c',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
 INSERT INTO discs VALUES(635,73,NULL,NULL,'1999','Developers Toolbox 6.2c Disc 1','Requires IRIX 6.2 or greater','6.2c',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
 INSERT INTO discs VALUES(636,73,NULL,NULL,'1999','Developers Toolbox 6.2c Disc 2','Requires IRIX 6.2 or greater','6.2c',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
-INSERT INTO discs VALUES(637,73,NULL,NULL,'2000','Developers Toolbox 6.5a Disc 0',NULL,'6.5a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
-INSERT INTO discs VALUES(638,73,NULL,NULL,'2000','Developers Toolbox 6.5a Disc 1',NULL,'6.5a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
-INSERT INTO discs VALUES(639,73,NULL,NULL,'2000','Developers Toolbox 6.5b Disc 0',NULL,'6.5b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
-INSERT INTO discs VALUES(640,73,NULL,NULL,'2000','Developers Toolbox 6.5b Disc 1',NULL,'6.5b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(637,73,'010-0001',NULL,'2000','Developers Toolbox 6.5a Disc 0',NULL,'6.5a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(638,73,'010-0002',NULL,'2000','Developers Toolbox 6.5a Disc 1',NULL,'6.5a',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(639,73,'010-0003',NULL,'2000','Developers Toolbox 6.5b Disc 0',NULL,'6.5b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
+INSERT INTO discs VALUES(640,73,'010-0004',NULL,'2000','Developers Toolbox 6.5b Disc 1',NULL,'6.5b',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
 INSERT INTO discs VALUES(641,73,NULL,NULL,'1993','Developer’s Toolbox Release 3.0',NULL,'3.0',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
 INSERT INTO discs VALUES(642,73,NULL,NULL,'1993','Developer’s Toolbox Release 3.1',NULL,'3.1',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
 INSERT INTO discs VALUES(643,73,NULL,NULL,'1993','Developer Toolbox Release 3.2',NULL,'3.2',NULL,'chulofiasco',NULL,'2024-10-28',1,1,NULL,NULL,NULL,NULL);
