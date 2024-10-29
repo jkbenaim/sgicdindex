@@ -154,6 +154,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2024-10-29: Added Infinite Reality Demos (June 1996), courtesy of chulofiasco, from the desk of bipin. Thank you both!</p>\n"
 		"<p>2024-10-28: Added a ton of Developers Toolbox discs, courtesy of chulofiasco. Thank you!</p>\n"
 		"<p>2024-10-27: Added the 3-disc companion CD set for the SGI Developer Forum '95, courtesy of chulofiasco. Thank you!</p>\n"
 		"<p>2024-05-05: Added a number of new discs courtesy of CB_HK, including several Hot Mixes. Thank you!</p>\n"
