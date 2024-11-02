@@ -29,7 +29,7 @@ void make_discs(struct product_s product)
 			note = escape_xml(disc.note);
 		char *attachmentURL = NULL;
 		char *attachmentXML = NULL;
-		if (disc.attachment) {
+		if (disc.havefile && disc.attachment) {
 			attachmentURL = escape_url(disc.attachment);
 			attachmentXML = escape_xml(disc.attachment);
 		}
