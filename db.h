@@ -40,6 +40,7 @@ struct disc_s {
 	char *md5;
 	char *sha1;
 	char *sha256;
+	char *bsdsum;
 };
 
 struct part_s {

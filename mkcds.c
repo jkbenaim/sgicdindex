@@ -107,11 +107,13 @@ void make_discs(struct product_s product)
 			if (disc.md5)    printf("<br />MD5: %s\n", disc.md5);
 			if (disc.sha1)   printf("<br />SHA1: %s\n", disc.sha1);
 			if (disc.sha256) printf("<br />SHA256: %s\n", disc.sha256);
+			if (disc.bsdsum) printf("<br />sum -r: %s\n", disc.bsdsum);
 		}
 		free(disc.md5);
 		free(disc.sha1);
 		free(disc.sha256);
-		disc.md5 = disc.sha1 = disc.sha256 = NULL;
+		free(disc.bsdsum);
+		disc.md5 = disc.sha1 = disc.sha256 = disc.bsdsum = NULL;
 
 		if (attachmentURL && attachmentXML) {
 			printf("<br /><span class='attachment'>attachment: ");
@@ -154,6 +156,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2024-12-03: Added DANG Rev C Patches courtesy of VoxAndrews. Thank you!</p>\n"
 		"<p>2024-11-02: Added many more discs courtesy of chulofiasco, from the desk of bipin. Thank you both!</p>\n"
 		"<p>2024-10-29: Added Infinite Reality Demos (June 1996), courtesy of chulofiasco, from the desk of bipin. Thank you both!</p>\n"
 		"<p>2024-10-28: Added a ton of Developers Toolbox discs, courtesy of chulofiasco. Thank you!</p>\n"

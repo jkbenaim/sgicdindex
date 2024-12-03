@@ -215,6 +215,7 @@ int discstep(struct disc_s *disc)
 		disc->md5       = hashfordisc(disc->id, "MD5");
 		disc->sha1      = hashfordisc(disc->id, "SHA1");
 		disc->sha256    = hashfordisc(disc->id, "SHA256");
+		disc->bsdsum    = hashfordisc(disc->id, "BSDSUM");
 	}
 	return rc;
 }
