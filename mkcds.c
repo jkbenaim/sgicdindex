@@ -156,6 +156,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2024-12-04: Added a few more discs courtesy of VoxAndrews. Thank you!</p>\n"
 		"<p>2024-12-03: Added DANG Rev C Patches courtesy of VoxAndrews. Thank you!</p>\n"
 		"<p>2024-11-02: Added many more discs courtesy of chulofiasco, from the desk of bipin. Thank you both!</p>\n"
 		"<p>2024-10-29: Added Infinite Reality Demos (June 1996), courtesy of chulofiasco, from the desk of bipin. Thank you both!</p>\n"
