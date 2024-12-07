@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+
+<body>
+<h1>jrra's IRIX Notes</h1>
+<h2>Installing over HTTP</h2>
+
+<p>
+	IRIX 6.5 has support for fetching software packages over HTTP. This makes it convenient to install software over the Internet, but a number of quirks in the implementation make it frustrating for newcomers. Here's the notes.</p>
+
+<h3>section title</h3>
+<p>
+	An HTTP software source can be used by giving the URL to inst's `from` command. For example:</p>
+<pre><code>
+Inst&gt; from http://jrra.zone/sgi/
+</code></pre>
+<p>
+	There three rules to follow:
+<ol>
+	<li><strong>The protocol must be HTTP.</strong> HTTP<strong>S</strong> is not supported at all.</li>
+	<li><strong>The URL must end with a slash.</strong> `inst` will try to construct paths using the given URL as a base, and the slash must be present already at the end. Also note that `inst` does not follow HTTP redirects, so the given path must not return a 3xx code.</li>
+	<li><strong>The page at the given address must have a special format.</strong> See below for specifics.</li>
+</ol>
+
+<h3>From HTTP, Segmentation Fault</h3>
+
+<pre><code>
+Inst&gt; from http://jrra.zone/dist/
+Segmentation fault (core dumped)
+</code></pre>
+
+<p>
+	Any attempt to specify an HTTP source for software has a decent chance to crash inst. The problem appears to be a QuickStart-related bug. The fix is just to do:</p>
+
+<pre><code>
+setenv _RLDN32_LIST /usr/lib32/libm.so:DEFAULT
+</code></pre>
+
+<p>
+	... and then try again with inst.</p>
+
+<h3>HTTP Distribution Format</h3>
+<p>
+	When providing software over HTTP, you must prepare a specially-formatted index page for inst to consume. The page must be in HTML format, and it must have a specially-formatted block of text for inst to read.</p>
+<pre><code>
+@DISTRIBUTION.html Format# 02
+&lt;DL&gt;
+&lt;DD&gt;efsextract
+&lt;DD&gt;jrra_licenses
+&lt;DL&gt;
+</code></pre>
+<ol>
+	<li><strong>The first line must be included verbatim.</strong> Note that the word "Format#" has one space on either side of it.</li>
+	<li><strong>There should be one &lt;DD&gt; line for each package.</strong> The name of each package's spec file must be given on a line, prefixed with &lt;DD&gt;. It's also permissible to have non-spec files listed, whether they are inst-related or not. Do note that inst may attempt to download any listed file to determine whether the file is a package spec file.</li>
+	<li><strong>Tokenizer bug.</strong> Due to a bug in inst, there is a restriction on where tokens are allowed to appear in the index file. The header line, &lt;DL&gt;, and &lt;DD&gt; tokens most not straddle a 512-byte boundary. One possible workaround is to prepend each token with enough spaces to push it across the boundary. The bug in inst that causes this is really simple: the index file is processed in 512-byte chunks, and no consideration is given for a token that starts in one chunk and ends in the next. This bug exists even in IRIX 6.5.30 and was never fixed.</li>
+</ol>
+
+</body>
+</html>
