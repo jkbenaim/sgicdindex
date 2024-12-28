@@ -419,8 +419,8 @@ INSERT INTO discs VALUES(306,54,'812-0395-001','813-0395-001','1995-07-01','MIPS
 INSERT INTO discs VALUES(307,54,'812-0373-002','813-0373-002','1995-08-01','Ada95 Compiler 1.1',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(308,54,'812-0402-001','813-0402-001','1995-07-01','Fortran90 Compiler 6.1',NULL,NULL,'Fortran90 Compiler 6.1 (early).iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(309,50,NULL,'',NULL,'Open Inventor Games CD',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
-INSERT INTO discs VALUES(310,8,'812-0290-003','','1995-03-01','Support Advantage 3/95 – IRIX Patches',NULL,NULL,'Support Advantage Mar 95 – IRIX Patches.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
-INSERT INTO discs VALUES(311,8,'812-4024-003','','1995-03-01','Support Advantage 3/95 – Support Libraries',NULL,NULL,'Support Advantage Mar 95 – Support Libraries.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
+INSERT INTO discs VALUES(310,8,'812-0290-003','','1995-03-01','Support Advantage 3/95 – IRIX Patches',NULL,'Support Advantage 1995-03-01 - IRIX Patches','Support Advantage Mar 95 – IRIX Patches.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
+INSERT INTO discs VALUES(311,8,'812-4024-003','','1995-03-01','Support Advantage 3/95 – Support Libraries',NULL,'Support Advantage 1995-03-01 - Support Libraries','Support Advantage Mar 95 – Support Libraries.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(312,5,'812-0811-001','','2000-05-01','MultiLink Adapter Documentation',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(313,53,'812-0127-004','813-0127-004','1994-11-01','Documenter’s Workbench 4.1.3',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(314,52,'812-0260-001','812-0260-001','1994-03-01','Impressario 1.2 Developer’s Kit',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
@@ -590,7 +590,7 @@ INSERT INTO discs VALUES(478,5,'812-0202-003','813-0202-003','1994-12-01','NetWo
 INSERT INTO discs VALUES(479,48,'812-0317-001',NULL,'1994-09-01','Onyx Extreme Graphics Patch',NULL,NULL,NULL,'Docter60',NULL,'2022-10-05',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(480,5,'06-00963-001',NULL,'1993-02-01','RISCompiler PASCAL BINARY 3.11',NULL,NULL,NULL,'Docter60',NULL,'2022-10-05',1,0,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(481,5,'06-00367-002',NULL,'1992-11-01','RISCwindows BINARY 4.11',NULL,NULL,NULL,'Docter60',NULL,'2022-10-05',1,0,NULL,'contributed',NULL,NULL);
-INSERT INTO discs VALUES(482,8,'812-4014-001',NULL,'1993-12-01','Support Advantage 11/93',NULL,NULL,'Support Advantage November 1993.iso','Docter60',NULL,'2022-10-05',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(482,8,'812-4014-001',NULL,'1993-12-01','Support Advantage 11/93',NULL,'Support Advantage 1993-11-01','Support Advantage November 1993.iso','Docter60',NULL,'2022-10-05',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(483,9,'812-0892-001',NULL,'1998-12-01','1600SW Flat Panel Patches','for IRIX 6.3 on O2 including R10000',NULL,NULL,'Titox',NULL,'2022-11-25',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(484,31,'812-1122-001',NULL,'2002-01-01','Customer Diagnostics for Silicon Graphics Fuel visual workstation 1.0','for IRIX 6.5.15',NULL,NULL,'Titox','007-4517-001.pdf','2022-11-25',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(485,5,'812-1136-002',NULL,'2002-11-01','DMediaPro DM5 Graphics to Video Output Option 1.1',NULL,NULL,NULL,'chulofiasco',NULL,'2022-12-14',1,1,NULL,'contributed',NULL,NULL);
@@ -786,10 +786,15 @@ INSERT INTO discs VALUES(677,5,'812-0640-009','813-0640-009','2001-07-01','Inter
 INSERT INTO discs VALUES(678,5,'812-0370-001','813-0370-001','1995-06-01','DANG Rev C Patches',NULL,NULL,NULL,'VoxAndrews',NULL,'2024-12-03',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(680,5,'812-0241-004','813-0241-004','1995','European Language Module 1.3.1',NULL,NULL,NULL,'VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(681,5,'812-0261-001','812-0261-001','1994-03-01','Impressario 1.2 Server',NULL,NULL,NULL,'VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
-INSERT INTO discs VALUES(682,8,'812-4042-006',NULL,'1995-12-01','Support Advantage 12/95 - Support Libraries',NULL,NULL,'Support Advantage December 1995 - Support Libraries.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
-INSERT INTO discs VALUES(683,8,'812-0290-006',NULL,'1995-12-01','Support Advantage 12/95 - IRIX Patches',NULL,NULL,'Support Advantage December 1995 - IRIX Patches.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
-INSERT INTO discs VALUES(684,8,'812-0508-001','814-0508-001','1996-05-01','Support Advantage 5/96 - Information Resources',NULL,NULL,'Support Advantage May 1996 - Information Resources.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
-INSERT INTO discs VALUES(685,8,'812-0515-001','814-0508-001','1996-05-01','Support Advantage 5/96 - IRIX Patches',NULL,NULL,'Support Advantage May 1996 - IRIX Patches.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(682,8,'812-4042-006',NULL,'1995-12-01','Support Advantage 12/95 - Support Libraries',NULL,'Support Advantage 1995-12-01 - Support Libraries','Support Advantage December 1995 - Support Libraries.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(683,8,'812-0290-006',NULL,'1995-12-01','Support Advantage 12/95 - IRIX Patches',NULL,'Support Advantage 1995-12-01 - IRIX Patches','Support Advantage December 1995 - IRIX Patches.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(684,8,'812-0508-001','814-0508-001','1996-05-01','Support Advantage 5/96 - Information Resources',NULL,'Support Advantage 1996-05-01 - Information Resources','Support Advantage May 1996 - Information Resources.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(685,8,'812-0515-001','814-0508-001','1996-05-01','Support Advantage 5/96 - IRIX Patches',NULL,'Support Advantage 1996-05-01 - IRIX Patches','Support Advantage May 1996 - IRIX Patches.iso','VoxAndrews',NULL,'2024-12-04',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(686,8,'812-4024-002',NULL,'1995-01-01','Support Advantage 1/95 - Support Libraries',NULL,'Support Advantage 1995-01-01 - Support Libraries','Support Advantage Jan 1995 - Support Libraries.iso','joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(687,8,'812-4024-001',NULL,'1994-10-01','Support Advantage 10/94 - Support Libraries',NULL,'Support Advantage 1994-10-01 - Support Libraries','Support Advantage Oct 1994 - Support Libraries.iso','joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(688,48,'812-0290-005',NULL,'1995-09-01','IRIX Patches 9/95',NULL,NULL,'IRIX Patches September 1995.iso','joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(689,8,'812-4023-001',NULL,'1994-10-01','Support Advantage 10/94 - Electronic Services',NULL,'Support Advantage 1994-10-01 - Electronic Services','Support Advantage Oct 1994 - Electronic Services.iso','joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(690,22,NULL,NULL,'1992','Hot Mix 2',NULL,'Hot Mix 02',NULL,'joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
 CREATE TABLE hashes(
 	disc_id,
 	hashtype,
