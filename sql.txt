@@ -419,11 +419,11 @@ INSERT INTO discs VALUES(306,54,'812-0395-001','813-0395-001','1995-07-01','MIPS
 INSERT INTO discs VALUES(307,54,'812-0373-002','813-0373-002','1995-08-01','Ada95 Compiler 1.1',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(308,54,'812-0402-001','813-0402-001','1995-07-01','Fortran90 Compiler 6.1',NULL,NULL,'Fortran90 Compiler 6.1 (early).iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(309,50,NULL,'',NULL,'Open Inventor Games CD',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
-INSERT INTO discs VALUES(310,8,'812-0290-003','','1995-03-01','Support Advantage 3/95 – IRIX Patches',NULL,'Support Advantage 1995-03-01 - IRIX Patches','Support Advantage Mar 95 – IRIX Patches.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
-INSERT INTO discs VALUES(311,8,'812-4024-003','','1995-03-01','Support Advantage 3/95 – Support Libraries',NULL,'Support Advantage 1995-03-01 - Support Libraries','Support Advantage Mar 95 – Support Libraries.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
+INSERT INTO discs VALUES(310,8,'812-0290-003','','1995-03-01','Support Advantage 3/95 - IRIX Patches',NULL,'Support Advantage 1995-03-01 - IRIX Patches','Support Advantage Mar 95 - IRIX Patches.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
+INSERT INTO discs VALUES(311,8,'812-4024-003','','1995-03-01','Support Advantage 3/95 - Support Libraries',NULL,'Support Advantage 1995-03-01 - Support Libraries','Support Advantage Mar 95 - Support Libraries.iso','jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(312,5,'812-0811-001','','2000-05-01','MultiLink Adapter Documentation',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
-INSERT INTO discs VALUES(313,53,'812-0127-004','813-0127-004','1994-11-01','Documenter’s Workbench 4.1.3',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
-INSERT INTO discs VALUES(314,52,'812-0260-001','812-0260-001','1994-03-01','Impressario 1.2 Developer’s Kit',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
+INSERT INTO discs VALUES(313,53,'812-0127-004','813-0127-004','1994-11-01','Documenter''s Workbench 4.1.3',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
+INSERT INTO discs VALUES(314,52,'812-0260-001','812-0260-001','1994-03-01','Impressario 1.2 Developer''s Kit',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(315,54,'812-0131-005','813-0131-005','1994-11-01','Pascal Compiler 1.4.4',NULL,NULL,NULL,'jrra',NULL,'2021-09-15',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(316,54,'812-0132-007','813-0132-007','1994-11-01','Fortran 77 Compiler 4.0.2',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
 INSERT INTO discs VALUES(317,50,'812-0136-008','813-0136-008','1995-11-01','Open Inventor 2.1.1',NULL,NULL,NULL,'jrra',NULL,'2021-05-23',1,1,NULL,'owned',NULL,NULL);
