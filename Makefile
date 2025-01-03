@@ -1,4 +1,4 @@
-objects := db.o errsql.o escape.o
+objects := db.o errsql.o escape.o hexdump.o
 
 #EXTRAS += -fsanitize=undefined -fsanitize=null -fcf-protection=full -fstack-protector-all -fstack-check -Wimplicit-fallthrough -flto -fanalyzer -Og -ggdb
 
@@ -13,12 +13,15 @@ clean:
 	rm -f mkcds mkhw mkcds.o mkhw.o $(objects) index.html index-with-ids.html sql.txt hw.html
 
 .PHONY: upload
-upload:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html styles.css
+upload:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html styles.css checkdb
+	./checkdb -f sgi.db
 	rsync -aPHAXz $^ jrrazone:/www/jrra.zone/sgi/
 
 mkcds: mkcds.o $(objects)
 
 mkhw: mkhw.o $(objects)
+
+checkdb: checkdb.o $(objects)
 
 index.html: mkcds sgi.db
 	./mkcds -f sgi.db | xmllint --valid --output $@ -
