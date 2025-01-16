@@ -1,18 +1,23 @@
 #define _GNU_SOURCE
 #include <ctype.h>
+#include <err.h>
+#include <fcntl.h>
 #include <sqlite3.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "stdnoreturn.h"
-#include <unistd.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include "errsql.h"
 #include "hexdump.h"
+#include "stdnoreturn.h"
 
 extern char *__progname;
 static void noreturn usage(void);
+
+const char cdsdir[] = "/bulk/sgi/cds";
 
 bool is_7bit_clean(const unsigned char *t)
 {
@@ -34,6 +39,7 @@ int main(int argc, char *argv[])
 	sqlite3 *db = NULL;
 	sqlite3_stmt *stmt = NULL;
 	bool clean = true;
+	int dirfd;
 
 	while ((rc = getopt(argc, argv, "f:h")) != -1)
 		switch (rc) {
@@ -63,7 +69,7 @@ int main(int argc, char *argv[])
 	
 	rc = sqlite3_prepare_v2(
 		db,
-		"select disc_id, name, filename, note, contributor from discs;",
+		"select disc_id, name, filename, note, contributor, havefile from discs;",
 		-1,
 		&stmt,
 		NULL
@@ -71,13 +77,28 @@ int main(int argc, char *argv[])
 	if (rc != SQLITE_OK)
 		errsql(1, db, "in prepare discs");
 	
+	/* Open CDs directory. */
+	rc = open(cdsdir, O_DIRECTORY, O_RDONLY);
+	if (rc == -1) {
+		err(1, "couldn't open directory '%s'", cdsdir);
+	} else {
+		dirfd = rc;
+	}
+
+	/* Loop over all discs in the DB. */
 	while (rc = sqlite3_step(stmt), rc == SQLITE_ROW) {
-		int disc_id;
+		int disc_id, havefile;
 		const unsigned char *name, *filename, *contributor, *note;
+		char *myfn;
+		struct stat sb = {0,};
+
 		disc_id = sqlite3_column_int(stmt, 0);
 		name = sqlite3_column_text(stmt, 1);
 		filename = sqlite3_column_text(stmt, 2);
 		contributor = sqlite3_column_text(stmt, 3);
+		havefile = sqlite3_column_int(stmt, 4);
+
+		/* Verify that string fields are 7-bit clean. */
 		if (!is_7bit_clean(name)) {
 			clean = false;
 			printf("unclean name: (%d) '%s'\n", disc_id, name);
@@ -101,6 +122,23 @@ int main(int argc, char *argv[])
 			printf("unclean note: (%d) '%s'\n", disc_id, note);
 			hexdump(note, strlen(note));
 			printf("\n");
+		}
+
+		/* Verify that this disc's .iso file is present. */
+		if (havefile) {
+			if (filename) {
+				myfn = strdup(filename);
+			} else {
+				myfn = malloc(strlen(name) + strlen(".iso") + 1);
+				strcpy(myfn, name);
+				strcat(myfn, ".iso");
+			}
+			rc = fstatat(dirfd, myfn, &sb, 0);
+			if (rc == -1) {
+				printf("file not found: \"%s\"\n", myfn);
+			}
+			free(myfn);
+			myfn = NULL;
 		}
 	}
 	if (rc != SQLITE_DONE)
