@@ -95,8 +95,9 @@ int main(int argc, char *argv[])
 		disc_id = sqlite3_column_int(stmt, 0);
 		name = sqlite3_column_text(stmt, 1);
 		filename = sqlite3_column_text(stmt, 2);
-		contributor = sqlite3_column_text(stmt, 3);
-		havefile = sqlite3_column_int(stmt, 4);
+		note = sqlite3_column_text(stmt, 3);
+		contributor = sqlite3_column_text(stmt, 4);
+		havefile = sqlite3_column_int(stmt, 5);
 
 		/* Verify that string fields are 7-bit clean. */
 		if (!is_7bit_clean(name)) {

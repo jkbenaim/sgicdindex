@@ -795,6 +795,8 @@ INSERT INTO discs VALUES(687,8,'812-4024-001',NULL,'1994-10-01','Support Advanta
 INSERT INTO discs VALUES(688,48,'812-0290-005',NULL,'1995-09-01','IRIX Patches 9/95',NULL,NULL,'IRIX Patches September 1995.iso','joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(689,8,'812-4023-001',NULL,'1994-10-01','Support Advantage 10/94 - Electronic Services',NULL,'Support Advantage 1994-10-01 - Electronic Services','Support Advantage Oct 1994 - Electronic Services.iso','joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
 INSERT INTO discs VALUES(690,22,NULL,NULL,'1992','Hot Mix 2',NULL,'Hot Mix 02',NULL,'joshyfishy22',NULL,'2024-12-28',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(691,9,'812-0688-030',NULL,'1999-09-01','IRIX 6.3 Recommended/Required Patches September 1999 (1 of 2)',NULL,NULL,'IRIX 6.3 Recommended Required Patches September 1999 (1 of 2).iso','CB_HK',NULL,'2025-01-24',1,1,NULL,'contributed',NULL,NULL);
+INSERT INTO discs VALUES(692,9,'812-0918-030',NULL,'1999-09-01','IRIX 6.3 Recommended/Required Patches September 1999 (2 of 2)',NULL,NULL,'IRIX 6.3 Recommended Required Patches September 1999 (2 of 2).iso','CB_HK',NULL,'2025-01-24',1,1,NULL,'contributed',NULL,NULL);
 CREATE TABLE hashes(
 	disc_id,
 	hashtype,
@@ -4161,6 +4163,16 @@ INSERT INTO hashes VALUES(690,'SHA1','595d0f8134ffbd8b49f87f8ea107b78cfcce312a')
 INSERT INTO hashes VALUES(690,'SHA256','7924961d497f5fe53bf5985d154c4ef92b316e814bf1b9be0d2d30796c841acb');
 INSERT INTO hashes VALUES(690,'SHA3-224','8c7ba80fdf2af31e2e576a07a764ff837ceec64f43f9aa901678f82e');
 INSERT INTO hashes VALUES(690,'BSDSUM','41063');
+INSERT INTO hashes VALUES(691,'MD5','4824fba9696a7554ecd0ddbff1514e57');
+INSERT INTO hashes VALUES(691,'SHA1','66bbe85a13bdbc2d6343ee63582274e5fefbec27');
+INSERT INTO hashes VALUES(691,'SHA256','91b82a4f2b8e94e8307058902352a041fad35b9a88b3a9d03e5b3117773512af');
+INSERT INTO hashes VALUES(691,'SHA3-224','41e17ea7dd04633fade7c9c5e73cf6d0db91c30a174abd6e07e3690a');
+INSERT INTO hashes VALUES(691,'BSDSUM','15383');
+INSERT INTO hashes VALUES(692,'MD5','4f0aaa46c835818cd54c4ab33a25cf44');
+INSERT INTO hashes VALUES(692,'SHA1','fd14c816a6034ddf983d6efa9e6836c22bf9c51b');
+INSERT INTO hashes VALUES(692,'SHA256','6d415cfaf200800a39ddc86a2e464067a157af3afda760ac09ed9c18d15eea41');
+INSERT INTO hashes VALUES(692,'SHA3-224','5f6443fb78a152c0fa5402760c2c247e14c2ce369ba6613d9faebca1');
+INSERT INTO hashes VALUES(692,'BSDSUM','61728');
 CREATE TABLE parts(
 	doc,
 	page,

@@ -156,6 +156,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2025-01-24: Added IRIX 6.3 Recommended/Required Patches September 1999, courtest of CB_HK. Thank you!</p>\n"
 		"<p>2024-12-28: Added a few support discs, courtesy of joshyfishy22. Thank you!</p>\n"
 		"<p>2024-12-04: Added a few more discs courtesy of VoxAndrews. Thank you!</p>\n"
 		"<p>2024-12-03: Added DANG Rev C Patches courtesy of VoxAndrews. Thank you!</p>\n"
