@@ -1,11 +1,11 @@
 #define _GNU_SOURCE
 
-#include <err.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
 #include "db.h"
+#include "err.h"
 #include "errsql.h"
 
 sqlite3 *db;

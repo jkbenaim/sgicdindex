@@ -1,14 +1,16 @@
 #define _GNU_SOURCE
 #include <iso646.h>
-#include <sqlite3.h>
+#include "sqlite3.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <unistd.h>
 #include "db.h"
 #include "escape.h"
 #include "stdnoreturn.h"
+#include "progname.h"
 
 extern char *__progname;
 static void noreturn usage(void);
@@ -240,6 +242,8 @@ int main(int argc, char *argv[])
 {
 	char *dbfilename = NULL;
 	int rc;
+
+	progname_init(argc, argv);
 
 	while ((rc = getopt(argc, argv, "f:ih")) != -1)
 		switch (rc) {

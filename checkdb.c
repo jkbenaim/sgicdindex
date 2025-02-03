@@ -1,6 +1,5 @@
 #define _GNU_SOURCE
 #include <ctype.h>
-#include <err.h>
 #include <fcntl.h>
 #include <sqlite3.h>
 #include <stdbool.h>
@@ -10,6 +9,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "err.h"
 #include "errsql.h"
 #include "hexdump.h"
 #include "stdnoreturn.h"
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 		errsql(1, db, "in prepare discs");
 	
 	/* Open CDs directory. */
-	rc = open(cdsdir, O_DIRECTORY, O_RDONLY);
+	rc = open(cdsdir, O_RDONLY);
 	if (rc == -1) {
 		err(1, "couldn't open directory '%s'", cdsdir);
 	} else {

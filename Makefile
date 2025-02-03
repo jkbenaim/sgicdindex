@@ -1,9 +1,9 @@
-objects := db.o errsql.o escape.o hexdump.o
+objects := db.o err.o errsql.o escape.o hexdump.o progname.o
 
 #EXTRAS += -fsanitize=undefined -fsanitize=null -fcf-protection=full -fstack-protector-all -fstack-check -Wimplicit-fallthrough -flto -fanalyzer -Og -ggdb
 
-LDFLAGS += -lsqlite3
-CFLAGS  += -std=c99
+LDLIBS  += -lpthread
+CFLAGS  += -std=gnu99
 
 .PHONY: all
 all:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html
@@ -17,11 +17,11 @@ upload:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html styles.css
 	./checkdb -f sgi.db
 	rsync -aPHAXz $^ jrrazone:/www/jrra.zone/sgi/
 
-mkcds: mkcds.o $(objects)
+mkcds: mkcds.o $(objects) sqlite3.o
 
-mkhw: mkhw.o $(objects)
+mkhw: mkhw.o $(objects) sqlite3.o
 
-checkdb: checkdb.o $(objects)
+checkdb: checkdb.o $(objects) sqlite3.o
 
 index.html: mkcds sgi.db
 	./mkcds -f sgi.db | xmllint --valid --output $@ -

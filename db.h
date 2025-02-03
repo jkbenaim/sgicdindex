@@ -1,9 +1,7 @@
 #pragma once
 
-// this is new shit, never used
-
 #include <stdbool.h>
-#include <sqlite3.h>
+#include "sqlite3.h"
 
 struct pg_s {
 	int id;

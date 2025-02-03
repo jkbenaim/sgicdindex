@@ -1,6 +1,6 @@
 #define _GNU_SOURCE
 #include <iso646.h>
-#include <sqlite3.h>
+#include "sqlite3.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,6 +9,7 @@
 #include "db.h"
 #include "escape.h"
 #include "stdnoreturn.h"
+#include "progname.h"
 
 extern char *__progname;
 static void noreturn usage();
@@ -61,11 +62,12 @@ void make_parts()
 	printf("</body></html>\n");
 }
 
-__attribute__((weak))
 int main(int argc, char *argv[])
 {
 	char *dbfilename = NULL;
 	int rc;
+
+	progname_init(argc, argv);
 
 	while ((rc = getopt(argc, argv, "f:")) != -1)
 		switch (rc) {
