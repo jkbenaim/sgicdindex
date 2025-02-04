@@ -142,8 +142,6 @@ void make_products(int pg_id)
 
 int callback_sgi_cds()
 {
-	__label__ out_finalize, out_return;
-
 	printf("%s",
 		"<?xml version=\"1.0\"?>\n"
 		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
@@ -201,8 +199,6 @@ int callback_sgi_cds()
 	);
 
 	struct pg_s pg;
-	struct product_s product;
-	struct disc_s disc;
 
 	printf("<h3>Index</h3>\n");
 	printf("<ul>\n");
@@ -233,8 +229,6 @@ int callback_sgi_cds()
 	}
 	printf("</body></html>");
 
-out_finalize:
-out_return:
 	return 0;
 }
 

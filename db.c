@@ -16,6 +16,8 @@ sqlite3 *db;
 #define sqlite3_prepare_v2_maybe sqlite3_prepare
 #endif
 
+sqlite3_stmt *hashstmt = NULL;
+
 void DB_Init(const char *filename)
 {
 	int rc;
@@ -34,15 +36,32 @@ void DB_Init(const char *filename)
 #endif
 	if (rc != SQLITE_OK)
 		errsql(1, db, "DB_Init open");
+	
+
+	rc = sqlite3_prepare_v2_maybe(
+		db,
+		"SELECT hash FROM hashes WHERE disc_id=? AND hashtype=?",
+		-1,
+		&hashstmt,
+		NULL
+	);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "DB_Init prepare hashstmt");
 }
 
 void DB_Close()
 {
 	int rc;
 
+	rc = sqlite3_finalize(hashstmt);
+	if (rc != SQLITE_OK)
+		errsql(1, db, "DB_Close finalize hashstmt");
+	hashstmt = NULL;
+
 	rc = sqlite3_close(db);
 	if (rc != SQLITE_OK)
 		errsql(1, db, "DB_Close close");
+	db = NULL;
 }
 
 void pginit(struct pg_s *pg)
@@ -66,7 +85,7 @@ int pgstep(struct pg_s *pg)
 	rc = sqlite3_step(pg->_stmt);
 	if (rc == SQLITE_ROW) {
 		pg->id		= sqlite3_column_int(pg->_stmt, 0);
-		pg->name	= sqlite3_column_text(pg->_stmt, 1);
+		pg->name	= (const char *) sqlite3_column_text(pg->_stmt, 1);
 	}
 	return rc;
 }
@@ -107,43 +126,29 @@ int DB_GetNumDiscsForProduct(int product_id)
 char *hashfordisc(int disc_id, const char *hashtype)
 {
 	int rc;
-	sqlite3_stmt *stmt;
 	const char *col;
 	char *hash = NULL;
 
-	rc = sqlite3_prepare_v2_maybe(
-		db,
-		"SELECT hash FROM hashes WHERE disc_id=? AND hashtype=?",
-		-1,
-		&stmt,
-		NULL
-	);
+	rc = sqlite3_reset(hashstmt);
 	if (rc != SQLITE_OK)
-		errsql(1, db, "hashfordisc prepare");
+		errsql(1, db, "hashfordisc reset");
 
-	rc = sqlite3_bind_int(stmt, 1, disc_id);
+	rc = sqlite3_bind_int(hashstmt, 1, disc_id);
 	if (rc != SQLITE_OK)
 		errsql(1, db, "hashfordisc bind disc_id");
 
-	rc = sqlite3_bind_text(stmt, 2, hashtype, -1, SQLITE_STATIC);
+	rc = sqlite3_bind_text(hashstmt, 2, hashtype, -1, SQLITE_STATIC);
 	if (rc != SQLITE_OK)
 		errsql(1, db, "hashfordisc bind hashtype");
 
-	rc = sqlite3_step(stmt);
+	rc = sqlite3_step(hashstmt);
 	if (rc != SQLITE_ROW) {
-		rc = sqlite3_finalize(stmt);
-		if (rc != SQLITE_OK)
-			errsql(1, db, "hashfordisc notrow-finalize");
 		return NULL;
 	}
 
-	col = sqlite3_column_text(stmt, 0);
+	col = (const char *) sqlite3_column_text(hashstmt, 0);
 	if (col)
 		hash = strdup(col);
-
-	rc = sqlite3_finalize(stmt);
-	if (rc != SQLITE_OK)
-		errsql(1, db, "hashfordisc finalize");
 
 	return hash;
 }
@@ -171,7 +176,7 @@ int productstep(struct product_s *product)
 	rc = sqlite3_step(product->_stmt);
 	if (rc == SQLITE_ROW) {
 		product->id	= sqlite3_column_int(product->_stmt, 0);
-		product->name	= sqlite3_column_text(product->_stmt, 1);
+		product->name	= (const char *) sqlite3_column_text(product->_stmt, 1);
 		product->num_discs = DB_GetNumDiscsForProduct(product->id);
 	}
 	return rc;
@@ -201,14 +206,14 @@ int discstep(struct disc_s *disc)
 	rc = sqlite3_step(disc->_stmt);
 	if (rc == SQLITE_ROW) {
 		disc->id	= sqlite3_column_int(disc->_stmt, 0);
-		disc->name	= sqlite3_column_text(disc->_stmt, 1);
-		disc->cd_pn	= sqlite3_column_text(disc->_stmt, 2);
-		disc->case_pn	= sqlite3_column_text(disc->_stmt, 3);
-		disc->date	= sqlite3_column_text(disc->_stmt, 4);
-		disc->note	= sqlite3_column_text(disc->_stmt, 5);
-		disc->filename	= sqlite3_column_text(disc->_stmt, 6);
-		disc->contributor= sqlite3_column_text(disc->_stmt, 7);
-		disc->attachment= sqlite3_column_text(disc->_stmt, 8);
+		disc->name	= (const char *) sqlite3_column_text(disc->_stmt, 1);
+		disc->cd_pn	= (const char *) sqlite3_column_text(disc->_stmt, 2);
+		disc->case_pn	= (const char *) sqlite3_column_text(disc->_stmt, 3);
+		disc->date	= (const char *) sqlite3_column_text(disc->_stmt, 4);
+		disc->note	= (const char *) sqlite3_column_text(disc->_stmt, 5);
+		disc->filename	= (const char *) sqlite3_column_text(disc->_stmt, 6);
+		disc->contributor= (const char *) sqlite3_column_text(disc->_stmt, 7);
+		disc->attachment= (const char *) sqlite3_column_text(disc->_stmt, 8);
 		disc->is_newest	= sqlite3_column_int(disc->_stmt, 9);
 		disc->havefile	= sqlite3_column_int(disc->_stmt, 10);
 		disc->havetar   = sqlite3_column_int(disc->_stmt, 11);
@@ -239,12 +244,12 @@ int partstep(struct part_s *part)
 	int rc;
 	rc = sqlite3_step(part->_stmt);
 	if (rc == SQLITE_ROW) {
-		part->doc  = sqlite3_column_text(part->_stmt, 0);
+		part->doc  = (const char *) sqlite3_column_text(part->_stmt, 0);
 		part->page = sqlite3_column_int(part->_stmt, 1);
-		part->item = sqlite3_column_text(part->_stmt, 2);
-		part->rev  = sqlite3_column_text(part->_stmt, 3);
-		part->desc = sqlite3_column_text(part->_stmt, 4);
-		part->uom  = sqlite3_column_text(part->_stmt, 5);
+		part->item = (const char *) sqlite3_column_text(part->_stmt, 2);
+		part->rev  = (const char *) sqlite3_column_text(part->_stmt, 3);
+		part->desc = (const char *) sqlite3_column_text(part->_stmt, 4);
+		part->uom  = (const char *) sqlite3_column_text(part->_stmt, 5);
 	}
 	return rc;
 }
