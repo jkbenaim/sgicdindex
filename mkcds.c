@@ -156,6 +156,7 @@ int callback_sgi_cds()
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2025-02-05: Added SGI Zx10 drivers, courtesy of ghost. Thank you!</p>\n"
 		"<p>2025-02-02: Added SCSL Scientific Library 1.4 and ProDev WorkShop 2.9.3, both courtesy of Woof. Thank you again!</p>\n"
 		"<p>2025-02-01: Added Electrogig 3.2, MIPSpro Auto Parallelizing Option 7.4, and Performance Co-Pilot 2.2 (the latest version so far!), all courtesy of Woof. Thank you!</p>\n"
 		"<p>2025-01-24: Added IRIX 6.3 Recommended/Required Patches September 1999, courtest of CB_HK. Thank you!</p>\n"
