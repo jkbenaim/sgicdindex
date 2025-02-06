@@ -3,7 +3,7 @@ objects := db.o err.o errsql.o escape.o hexdump.o progname.o
 #EXTRAS += -fsanitize=undefined -fsanitize=null -fcf-protection=full -fstack-protector-all -fstack-check -Wimplicit-fallthrough -flto -fanalyzer -Og -ggdb
 
 LDLIBS  += -lpthread
-CFLAGS  += -std=gnu99
+CFLAGS  += -std=gnu99 -Os -ggdb
 
 .PHONY: all
 all:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html
