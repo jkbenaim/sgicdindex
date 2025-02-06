@@ -142,6 +142,9 @@ void make_products(int pg_id)
 
 int callback_sgi_cds()
 {
+	if (getenv("GATEWAY_INTERFACE")) {
+		printf("HTTP/1.1 200 OK\r\nContent-type: text/html; charset=utf-8\r\n\r\n");
+	}
 	printf("%s",
 		"<?xml version=\"1.0\"?>\n"
 		"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
@@ -264,8 +267,9 @@ int main(int argc, char *argv[])
 	argv += optind;
 	if (*argv != NULL)
 		usage();
-	if (not dbfilename)
-		usage();
+	if (not dbfilename) {
+		dbfilename = "sgi.db";
+	}
 
 	DB_Init(dbfilename);
 	callback_sgi_cds();
