@@ -143,7 +143,7 @@ void make_products(int pg_id)
 int callback_sgi_cds()
 {
 	if (getenv("GATEWAY_INTERFACE")) {
-		printf("HTTP/1.1 200 OK\r\nContent-type: text/html; charset=utf-8\r\n\r\n");
+		printf("Connection: Close\r\nContent-type: text/html; charset=utf-8\r\n\r\n");
 	}
 	printf("%s",
 		"<?xml version=\"1.0\"?>\n"
