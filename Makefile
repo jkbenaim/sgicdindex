@@ -1,4 +1,5 @@
 objects := db.o err.o errsql.o escape.o hexdump.o progname.o
+targets := index.html index-with-ids.html DIGESTS.txt sql.txt hw.html styles.css
 
 #EXTRAS += -fsanitize=undefined -fsanitize=null -fcf-protection=full -fstack-protector-all -fstack-check -Wimplicit-fallthrough -flto -fanalyzer -Og -ggdb
 
@@ -13,9 +14,9 @@ clean:
 	rm -f checkdb checkdb.o mkcds mkhw mkcds.o mkhw.o $(objects)
 
 .PHONY: upload
-upload:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html styles.css
+upload:	$(targets) checkdb
 	./checkdb -f sgi.db
-	rsync -aPHAXz $^ jrrazone:/www/jrra.zone/sgi/
+	rsync -aPHAXz $(targets) jrrazone:/www/jrra.zone/sgi/
 
 mkcds: mkcds.o $(objects) sqlite3.o
 

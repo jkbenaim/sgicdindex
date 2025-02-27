@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 	
 	rc = sqlite3_prepare_v2(
 		db,
-		"select disc_id, name, filename, note, contributor, havefile from discs;",
+		"select disc_id, name, filename, note, contributor, havefile, disposition from discs;",
 		-1,
 		&stmt,
 		NULL
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 	/* Loop over all discs in the DB. */
 	while (rc = sqlite3_step(stmt), rc == SQLITE_ROW) {
 		int disc_id, havefile;
-		const unsigned char *name, *filename, *contributor, *note;
+		const unsigned char *name, *filename, *contributor, *note, *disposition;
 		char *myfn;
 		struct stat sb = {0,};
 
@@ -98,6 +98,7 @@ int main(int argc, char *argv[])
 		note = sqlite3_column_text(stmt, 3);
 		contributor = sqlite3_column_text(stmt, 4);
 		havefile = sqlite3_column_int(stmt, 5);
+		disposition = sqlite3_column_text(stmt, 6);
 
 		/* Verify that string fields are 7-bit clean. */
 		if (!is_7bit_clean(name)) {
@@ -123,6 +124,13 @@ int main(int argc, char *argv[])
 			printf("unclean note: (%d) '%s'\n", disc_id, note);
 			hexdump(note, strlen(note));
 			printf("\n");
+		}
+
+		/* Verify that the disposition is not null. */
+		rc = sqlite3_column_type(stmt, 6);
+		if (rc != SQLITE_TEXT) {
+			clean = false;
+			printf("disposition is null: (%d)\n", disc_id);
 		}
 
 		/* Verify that this disc's .iso file is present. */

@@ -30,6 +30,8 @@ struct disc_s {
 	const char *filename;
 	const char *contributor;
 	const char *attachment;
+	const char *disposition;
+	const char *source_url;
 	bool is_newest;
 	bool havefile;
 	bool havetar;

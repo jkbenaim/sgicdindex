@@ -93,13 +93,18 @@ void make_discs(struct product_s product)
 		if (disc.havetar) {
 			printf(" (<a href=\"%s/tar/%s\">tar</a>)", webroot, tarname);
 		}
+		if (disc.source_url) {
+			printf(" (<a href=\"%s\">source</a>)", disc.source_url);
+		}
 		if (disc.is_newest) {
 			printf(" <span class=\"newest\">new</span>");
 		}
-		if (disc.contributor and strcmp(disc.contributor,"jrra")) {
+		if (disc.contributor and !strcmp(disc.disposition,"contributed")) {
 			printf("<br /><span class='contrib'>contributed by ");
 			printf("%s", disc.contributor);
 			printf("</span>");
+		} else if (disc.contributor and !strcmp(disc.disposition,"downloaded")) {
+			printf("<br /><span>originally posted by %s</span>", disc.contributor);
 		}
 		if (note) {
 			printf("<br />");
