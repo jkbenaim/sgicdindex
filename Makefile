@@ -10,7 +10,7 @@ all:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html
 
 .PHONY: clean
 clean:
-	rm -f checkdb checkdb.o mkcds mkhw mkcds.o mkhw.o $(objects) index.html index-with-ids.html sql.txt hw.html
+	rm -f checkdb checkdb.o mkcds mkhw mkcds.o mkhw.o $(objects)
 
 .PHONY: upload
 upload:	index.html index-with-ids.html DIGESTS.txt sql.txt hw.html styles.css
