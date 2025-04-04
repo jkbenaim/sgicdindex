@@ -12,6 +12,8 @@
 #include "stdnoreturn.h"
 #include "progname.h"
 
+#define SHORT_INDEX 1
+
 extern char *__progname;
 static void noreturn usage(void);
 
@@ -60,8 +62,11 @@ void make_discs(struct product_s product)
 		printf("<tr id=\"disc-%d\">\n", disc.id);
 		if (!did_first_row) {
 			did_first_row = true;
-
+#if SHORT_INDEX
 			printf( "\t<td rowspan='%d'>", product.num_discs);
+#else
+			printf( "\t<td id='product-%d' rowspan='%d'>", product.id,product.num_discs);
+#endif
 			if (show_ids) {
 				printf("%d ", disc.product_id);
 			}
@@ -74,7 +79,7 @@ void make_discs(struct product_s product)
 		} else {
 			printf("&nbsp;");
 		}
-		printf("<br />");
+		printf("<br/>");
 		if (disc.date) {
 			printf("%s", disc.date);
 		} else {
@@ -86,35 +91,42 @@ void make_discs(struct product_s product)
 			printf("%d ", disc.id);
 		}
 		if (disc.havefile) {
-			printf("<a href=\"%s/cds/%s\">%s</a>", webroot, filename, name);
+			printf("(<a href=\"%s/cds/%s\">iso</a>)", name, webroot, filename);
 		} else {
-			printf(name);
+			printf("      ", name);
 		}
 		if (disc.havetar) {
 			printf(" (<a href=\"%s/tar/%s\">tar</a>)", webroot, tarname);
+		} else {
+			printf("      ");
 		}
 		if (disc.source_url) {
 			printf(" (<a href=\"%s\">source</a>)", disc.source_url);
 		}
+		printf(" <span class='drop-cap'>%s", name);
 		if (disc.is_newest) {
-			printf(" <span class=\"newest\">new</span>");
+			printf(" <span class='newest'>new</span>");
+		}
+		if (note) {
+			printf("<br/>%s", note);
 		}
 		if (disc.contributor and !strcmp(disc.disposition,"contributed")) {
-			printf("<br /><span class='contrib'>contributed by ");
+			printf("<br/><span class='contrib'>contributed by ");
 			printf("%s", disc.contributor);
 			printf("</span>");
 		} else if (disc.contributor and !strcmp(disc.disposition,"downloaded")) {
-			printf("<br /><span>originally posted by %s</span>", disc.contributor);
+			printf("<br/><span>originally posted by %s</span>", disc.contributor);
 		}
-		if (note) {
-			printf("<br />");
-			printf(note);
+		if (attachmentURL && attachmentXML) {
+			printf("<br/><span class='attachment'>attachment: ");
+			printf("<a href=\"%s/cds/%s\">%s</a></span>", webroot, attachmentURL, attachmentXML);
 		}
+		printf("</span>");
 		if (show_hashes) {
-			if (disc.md5)    printf("<br />MD5: %s\n", disc.md5);
-			if (disc.sha1)   printf("<br />SHA1: %s\n", disc.sha1);
-			if (disc.sha256) printf("<br />SHA256: %s\n", disc.sha256);
-			if (disc.bsdsum) printf("<br />sum -r: %s\n", disc.bsdsum);
+			if (disc.md5)    printf("<br/>MD5: %s\n", disc.md5);
+			if (disc.sha1)   printf("<br/>SHA1: %s\n", disc.sha1);
+			if (disc.sha256) printf("<br/>SHA256: %s\n", disc.sha256);
+			if (disc.bsdsum) printf("<br/>sum -r: %s\n", disc.bsdsum);
 		}
 		free(disc.md5);
 		free(disc.sha1);
@@ -122,10 +134,6 @@ void make_discs(struct product_s product)
 		free(disc.bsdsum);
 		disc.md5 = disc.sha1 = disc.sha256 = disc.bsdsum = NULL;
 
-		if (attachmentURL && attachmentXML) {
-			printf("<br /><span class='attachment'>attachment: ");
-			printf("<a href=\"%s/cds/%s\">%s</a></span>", webroot, attachmentURL, attachmentXML);
-		}
 		printf("</td>\n");
 		printf("</tr>\n");
 		free(filename);
@@ -145,7 +153,7 @@ void make_products(int pg_id)
 	}
 }
 
-int callback_sgi_cds()
+int callback_sgi_cds(char *envp[])
 {
 	if (getenv("GATEWAY_INTERFACE")) {
 		printf("Connection: Close\r\nContent-type: text/html; charset=utf-8\r\n\r\n");
@@ -160,10 +168,19 @@ int callback_sgi_cds()
 		"<link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\" media=\"all\"/>\n"
 		"</head>\n"
 		"<body>\n"
-		"<h1><a href=\"/\"><img src=\"../jrrazone.svg\" alt=\"jrra.zone\"/></a></h1>\n"
+	);
+#if 0
+	printf("<pre>");
+	for (char **a = envp; *a; a++) {
+		printf("%s\n", *a);
+	}
+	printf("</pre>\n");
+#else
+	printf(	"<h1><a href=\"/\"><img src=\"../jrrazone.svg\" alt=\"jrra.zone\"/></a></h1>\n"
 		"<h2>SGI/IRIX CDs</h2>\n"
 		"<hr/>\n"
 		"<h3>News</h3>\n"
+		"<p>2025-04-04: Added a number of new discs courtesy of dominbear. Thank you!</p>\n"
 		"<p>2025-03-21: Added four new discs, thanks to jan-jaap. Thank you again!</p>\n"
 		"<p>2025-02-23: Added a ton of new discs, courtesy of the amazing jan-jaap. Thank you so much!</p>\n"
 		"<p>2025-02-05: Added SGI Zx10 drivers, courtesy of ghost. Thank you!</p>\n"
@@ -208,21 +225,22 @@ int callback_sgi_cds()
 		"<p>2021-08-26: Added MIPSpro 7.4 compilers for C, C++, and Fortran 77, along with Compiler Execution Environment 7.4, ProDev WorkShop 2.9.2, IRIX Development Foundation 1.3, and ProPack 6 SP3, all from chulofiasco via the library of Zerolapse. Thank you!</p>\n"
 		"<p>2021-07-31: Added tarball downloads via Sophie Haskins' <a href=\"https://github.com/sophaskins/efs2tar\">efs2tar</a>. Thanks!</p>\n"
 	);
+#endif
 
 	struct pg_s pg;
-
+	struct product_s product;
 	printf("<h3>Index</h3>\n");
 	printf("<ul>\n");
 	foreachpg(pg) {
-		printf("\t<li><a href=\"#pg-%d\">%s</a>", pg.id, pg.name);
-		/*
-		printf("\t<ul>\n");
+#if SHORT_INDEX
+		printf("\t<li><a href=\"#pg-%d\">%s</a></li>\n", pg.id, pg.name);
+#else
+		printf("\t<li><a href=\"#pg-%d\">%s</a><ul>\n", pg.id, pg.name);
 		foreachproduct(product,pg.id) {
-			printf("\t\t<li>%s</li>\n", product.name);
+			printf("\t\t<li><a href=\"#product-%d\">%s</a></li>\n", product.id, product.name);
 		}
 		printf("\t</ul></li>\n");
-		*/
-		printf("</li>\n");
+#endif
 	}
 	printf("</ul>\n");
 	printf("<hr/>\n");
@@ -232,7 +250,7 @@ int callback_sgi_cds()
 		printf("%s", pg.name);
 		printf("</caption>\n<thead>\n<tr>\n");
 		printf("\t<th scope='col'>product</th>\n");
-		printf("\t<th scope='col'>cd pn<br />date</th>\n");
+		printf("\t<th scope='col'>cd pn<br/>date</th>\n");
 		printf("\t<th scope='col'>title</th>\n");
 		printf("</tr>\n</thead>\n<tbody>\n");
 		make_products(pg.id);
@@ -243,7 +261,7 @@ int callback_sgi_cds()
 	return 0;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char *envp[])
 {
 	char *dbfilename = NULL;
 	int rc;
@@ -279,7 +297,7 @@ int main(int argc, char *argv[])
 	}
 
 	DB_Init(dbfilename);
-	callback_sgi_cds();
+	callback_sgi_cds(envp);
 	DB_Close();
 	return 0;
 }
