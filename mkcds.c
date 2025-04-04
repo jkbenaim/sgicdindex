@@ -91,7 +91,7 @@ void make_discs(struct product_s product)
 			printf("%d ", disc.id);
 		}
 		if (disc.havefile) {
-			printf("(<a href=\"%s/cds/%s\">iso</a>)", name, webroot, filename);
+			printf("(<a href=\"%s/cds/%s\">iso</a>)", webroot, filename);
 		} else {
 			printf("      ", name);
 		}
